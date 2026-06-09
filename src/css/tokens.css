@@ -1,0 +1,40 @@
+/* ============================================================
+   Tokens da marca — Ismaile Pereira · Estúdio Digital
+   Identidade: editorial sofisticado · azul-tinta + grafite + brass
+   ============================================================ */
+:root {
+  /* Cores */
+  --ink: #15243E;        /* primária — dominante */
+  --ink-deep: #0F1B30;
+  --blue: #2E4A78;
+  --blue-soft: #E8ECF4;
+  --graphite: #2A2E35;   /* secundária — estrutura */
+  --body: #3C4452;       /* corpo de texto */
+  --muted: #8A93A6;      /* apoio / legendas */
+  --brass: #BE9A4E;      /* ACCENT — destaque/CTA (~10%) */
+  --brass-dk: #9A7A33;
+  --brass-soft: #F3ECDA;
+  --paper: #FFFFFF;
+  --surface: #F3F5F9;    /* cartões */
+  --surface-2: #EAEEF5;
+  --line: #DBE1EC;
+
+  /* Tipografia */
+  --serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  --sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* Layout */
+  --container: 1140px;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --gap: 24px;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 10px rgba(21, 36, 62, .06);
+  --shadow-md: 0 12px 30px rgba(21, 36, 62, .10);
+  --shadow-lg: 0 24px 60px rgba(21, 36, 62, .16);
+
+  /* Transições */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
