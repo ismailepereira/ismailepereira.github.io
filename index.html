@@ -51,6 +51,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#processo">Processo</a>
+        <a href="#cadastro">Cadastro</a>
         <a href="#contato">Contato</a>
       </nav>
 
@@ -78,7 +79,7 @@
           <h1>Serviços &amp; <span class="accent">Soluções Digitais</span></h1>
           <p class="hero__lead">Sites, tráfego pago, social media, automação e <strong>microSaaS sob medida</strong> — construídos de ponta a ponta. Você fala com uma pessoa só; eu construo, configuro, publico e mantenho.</p>
           <div class="hero__actions">
-            <a class="btn btn--brass" href="https://wa.me/5569999688625?text=Ol%C3%A1%20Ismaile!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Pedir orçamento</a>
+            <a class="btn btn--brass" href="#cadastro">Pedir orçamento</a>
             <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
           </div>
           <div class="hero__stats">
@@ -320,6 +321,68 @@
       </div>
     </section>
 
+    <!-- ===================== CADASTRO ===================== -->
+    <section class="section signup" id="cadastro">
+      <div class="container signup__grid">
+        <div class="signup__pitch reveal">
+          <p class="kicker">Deixe seus dados</p>
+          <h2 class="section-title">Receba uma proposta sem compromisso</h2>
+          <p>Preencha o formulário com o que você precisa. Eu analiso e retorno com o caminho e o investimento — normalmente no mesmo dia.</p>
+          <ul class="signup__list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Resposta rápida, direto no seu WhatsApp</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Orçamento claro, sem letras miúdas</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Seus dados ficam só comigo</li>
+          </ul>
+        </div>
+
+        <div class="form-card reveal">
+          <form id="cadastroForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-nome">Nome <span class="req">*</span></label>
+                <input id="f-nome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome">
+              </div>
+              <div class="field">
+                <label for="f-whatsapp">WhatsApp <span class="req">*</span></label>
+                <input id="f-whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(00) 00000-0000">
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="voce@email.com">
+            </div>
+            <div class="field">
+              <label for="f-servico">Serviço de interesse</label>
+              <select id="f-servico" name="servico">
+                <option value="">Selecione…</option>
+                <option>Site / Landing Page</option>
+                <option>Tráfego Pago (Meta/Google)</option>
+                <option>Social Media</option>
+                <option>Criativos &amp; Vídeo</option>
+                <option>Consultoria de Conteúdo</option>
+                <option>Automação de Redes</option>
+                <option>MicroSaaS sob medida</option>
+                <option>Promoção Interativa</option>
+                <option>App / Ferramenta</option>
+                <option>Outro / Não sei ainda</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-mensagem">Mensagem</label>
+              <textarea id="f-mensagem" name="mensagem" placeholder="Conte rapidamente o que você precisa…"></textarea>
+            </div>
+            <!-- Anti-spam (honeypot): não preencher -->
+            <div class="field--hp" aria-hidden="true">
+              <label>Empresa<input type="text" name="empresa" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <button class="btn btn--primary btn--block" type="submit" id="cadastroBtn">Enviar cadastro</button>
+            <p class="form-status" id="cadastroStatus" role="status" aria-live="polite"></p>
+            <p class="form-note">Ao enviar, você concorda em ser contatado sobre o seu pedido.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== CONTATO / CTA ===================== -->
     <section class="section cta" id="contato">
       <div class="container cta__grid">
@@ -363,6 +426,7 @@
     </div>
   </footer>
 
+  <script src="src/js/config.js"></script>
   <script src="src/js/main.js"></script>
 </body>
 </html>

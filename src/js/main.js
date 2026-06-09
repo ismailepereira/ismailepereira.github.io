@@ -77,4 +77,78 @@
   } else {
     revelarTudo();
   }
+
+  /* ---- Formulário de cadastro (salva no Google Sheets) ---- */
+  const form = document.getElementById("cadastroForm");
+  if (form) {
+    const btn = document.getElementById("cadastroBtn");
+    const status = document.getElementById("cadastroStatus");
+
+    const setStatus = (msg, ok) => {
+      status.textContent = msg;
+      status.className = "form-status " + (ok ? "is-ok" : "is-err");
+    };
+
+    const fallbackWhatsApp = (d) => {
+      const num = (window.CADASTRO_WHATSAPP || "").replace(/\D/g, "");
+      const linhas = [
+        "Olá Ismaile! Quero deixar meu cadastro:",
+        "Nome: " + d.nome,
+        "WhatsApp: " + d.whatsapp,
+        d.email ? "E-mail: " + d.email : "",
+        d.servico ? "Serviço: " + d.servico : "",
+        d.mensagem ? "Mensagem: " + d.mensagem : "",
+      ].filter(Boolean);
+      const url = "https://wa.me/" + num + "?text=" + encodeURIComponent(linhas.join("\n"));
+      window.open(url, "_blank", "noopener");
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Honeypot anti-spam: se preenchido, ignora silenciosamente.
+      if (form.elements["empresa"] && form.elements["empresa"].value) return;
+
+      const dados = {
+        nome: form.elements["nome"].value.trim(),
+        whatsapp: form.elements["whatsapp"].value.trim(),
+        email: form.elements["email"].value.trim(),
+        servico: form.elements["servico"].value,
+        mensagem: form.elements["mensagem"].value.trim(),
+      };
+
+      if (!dados.nome || !dados.whatsapp) {
+        setStatus("Preencha pelo menos nome e WhatsApp.", false);
+        return;
+      }
+
+      const endpoint = (window.CADASTRO_ENDPOINT || "").trim();
+
+      // Sem endpoint configurado → cai pro WhatsApp (nunca fica sem ação).
+      if (!endpoint) {
+        fallbackWhatsApp(dados);
+        setStatus("Abrindo o WhatsApp para você enviar o cadastro…", true);
+        form.reset();
+        return;
+      }
+
+      btn.classList.add("btn--loading");
+      btn.textContent = "Enviando…";
+      try {
+        const body = new FormData();
+        Object.keys(dados).forEach((k) => body.append(k, dados[k]));
+        body.append("origem", location.href);
+        await fetch(endpoint, { method: "POST", body, mode: "no-cors" });
+        setStatus("Cadastro enviado! Em breve eu entro em contato. 🙌", true);
+        form.reset();
+      } catch (err) {
+        // Se a rede falhar, oferece o WhatsApp como saída.
+        setStatus("Não consegui enviar agora — vou abrir o WhatsApp para você.", false);
+        fallbackWhatsApp(dados);
+      } finally {
+        btn.classList.remove("btn--loading");
+        btn.textContent = "Enviar cadastro";
+      }
+    });
+  }
 })();
