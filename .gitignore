@@ -4,3 +4,54 @@ Thumbs.db
 .idea/
 *.log
 .claude/
+
+# â”€â”€â”€ BLOCO DE SEGURANÃ‡A (padrÃ£o F:\Claude\SEGURANCA.md) â”€â”€â”€
+# Cole no topo do .gitignore de TODO projeto antes de publicar.
+
+# VariÃ¡veis de ambiente / segredos
+.env
+.env.*
+!.env.example
+*.local
+
+# Chaves e certificados
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Credenciais de nuvem / service accounts
+serviceAccount*.json
+service-account*.json
+*credentials*.json
+gha-creds-*.json
+# google-services.json  # (Android) descomente se contiver chaves sensÃ­veis
+
+# Arquivos com "secret"/"senha" no nome
+*secret*
+*senha*
+!*.example
+
+# Dumps / backups que podem conter dados pessoais (LGPD)
+*.sql
+*.dump
+*.bak
+*.csv      # cuidado: descomente se NÃƒO precisar versionar planilhas
+
+# â”€â”€â”€ Comuns por stack â”€â”€â”€
+node_modules/
+__pycache__/
+*.pyc
+venv/
+.venv/
+dist/
+build/
+.DS_Store
+Thumbs.db
+
