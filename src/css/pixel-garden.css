@@ -1,0 +1,169 @@
+/* ============================================================
+   Pixel Garden — sistema visual do Blog
+   8-bit (blocos, sombra dura, fonte pixel) + line art orgânico
+   Marca: cream / terra / forest / sage
+   ============================================================ */
+:root {
+  --cream: #F4F0E6;
+  --cream-light: #FBF9F2;
+  --terra: #BF5A30;
+  --terra-dark: #A24A26;
+  --terra-light: #D4774F;
+  --forest: #2E3A2F;
+  --forest-light: #4A5A45;
+  --sage: #8B9A75;
+  --sage-soft: #E7EADD;
+  --pixel: 'Press Start 2P', 'Courier New', monospace;
+  --display: 'Playfair Display', Georgia, serif;
+}
+
+/* ---- Ícones pixel inline ---- */
+.px-ic { width: 1em; height: 1em; display: inline-block; vertical-align: -0.15em; image-rendering: pixelated; }
+
+/* ---- Divisória de blocos (substitui a linha reta) ---- */
+.pixel-divider {
+  height: 8px; width: 100%; image-rendering: pixelated;
+  background: repeating-linear-gradient(90deg,
+    var(--terra) 0 8px, var(--terra-light) 8px 16px, var(--sage) 16px 24px);
+}
+
+/* ---- Vinha orgânica (line art) entre seções ---- */
+.vine-divider { display: block; width: 100%; height: 24px; color: var(--sage); }
+
+/* ---- Eyebrow em fonte pixel ---- */
+.pg-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--pixel); font-size: 9px; line-height: 1.6;
+  letter-spacing: .5px; text-transform: uppercase; color: var(--terra);
+}
+
+/* ============================================================
+   Grade e cards do blog ("janela de jogo")
+   ============================================================ */
+.blog-grid {
+  display: grid; gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.blog-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 2px solid var(--forest);
+  box-shadow: 4px 4px 0 rgba(46, 58, 47, .9);
+  text-decoration: none; color: inherit;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .5s ease, transform .25s ease, box-shadow .15s ease;
+}
+.blog-card.is-visible { opacity: 1; transform: translateY(0); }
+.blog-card:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--terra); }
+
+.blog-card__cover { height: 160px; overflow: hidden; border-bottom: 2px solid var(--forest); background: var(--cream-light); }
+.blog-card__cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-card__cover--decor svg { display: block; width: 100%; height: 100%; }
+
+.blog-card__body { padding: 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.blog-card__top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.blog-card__meta { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--sage); }
+.blog-card__meta .px-ic { width: 13px; height: 13px; }
+.blog-card__title { font-family: var(--display); font-size: 1.15rem; line-height: 1.25; color: var(--forest); margin: 0; }
+.blog-card__excerpt { font-size: .875rem; color: var(--forest-light); line-height: 1.55; margin: 0; flex: 1; }
+.blog-card__read { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 700; color: var(--terra); margin-top: 4px; }
+.blog-card:hover .blog-card__read { color: var(--terra-dark); }
+.blog-card__read .px-ic { transition: transform .2s; }
+.blog-card:hover .blog-card__read .px-ic { transform: translateX(3px); }
+
+/* ---- Tags pixel ---- */
+.blog-tag {
+  font-family: var(--pixel); font-size: 8px; line-height: 1; letter-spacing: .5px;
+  text-transform: uppercase; padding: 6px 8px; border: 2px solid var(--forest);
+  color: #fff; display: inline-block;
+}
+.tag--terra { background: var(--terra); }
+.tag--forest { background: var(--forest-light); }
+.tag--sage { background: var(--sage); }
+
+/* ---- Loader pixel ---- */
+.pixel-loader { display: flex; gap: 6px; justify-content: center; padding: 60px 0; }
+.pixel-loader span { width: 14px; height: 14px; background: var(--terra); animation: pg-bounce 1s infinite ease-in-out; }
+.pixel-loader span:nth-child(2) { background: var(--terra-light); animation-delay: .15s; }
+.pixel-loader span:nth-child(3) { background: var(--sage); animation-delay: .3s; }
+@keyframes pg-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ---- Vazio / erro ---- */
+.blog-empty, .blog-error { grid-column: 1 / -1; text-align: center; padding: 48px 16px; color: var(--forest-light); }
+.blog-empty h2, .blog-error h2 { font-family: var(--display); color: var(--forest); margin-bottom: 8px; }
+.blog-empty p, .blog-error p { margin-bottom: 16px; }
+.blog-empty__icon { font-size: 40px; color: var(--sage); margin-bottom: 8px; }
+
+/* ============================================================
+   Botões pixel
+   ============================================================ */
+.pg-btn {
+  display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+  font-weight: 700; font-size: .9rem; padding: 12px 20px;
+  border: 2px solid var(--forest); background: var(--terra); color: #fff;
+  box-shadow: 3px 3px 0 var(--forest); text-decoration: none; cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.pg-btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--forest); }
+.pg-btn--light { background: #fff; color: var(--forest); }
+.pg-btn--ghost { background: transparent; color: var(--forest); box-shadow: none; }
+.pg-btn--ghost:hover { background: var(--cream); box-shadow: 3px 3px 0 var(--forest); }
+
+/* ============================================================
+   Post individual
+   ============================================================ */
+.post-wrap { max-width: 760px; }
+
+.blog-breadcrumb { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: .8rem; color: var(--sage); margin-bottom: 24px; }
+.blog-breadcrumb a { color: var(--forest-light); text-decoration: none; }
+.blog-breadcrumb a:hover { color: var(--terra); }
+.blog-breadcrumb .sep { color: var(--sage); }
+
+.post-header { margin-bottom: 24px; }
+.post-header .blog-tag { margin-bottom: 14px; }
+.post-header h1 { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.12; color: var(--forest); margin: 0 0 12px; }
+.post-date { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--sage); }
+
+.post-cover { border: 2px solid var(--forest); box-shadow: 4px 4px 0 rgba(46, 58, 47, .9); margin-bottom: 28px; overflow: hidden; }
+.post-cover img { width: 100%; display: block; }
+
+.post-content { font-size: 1.05rem; line-height: 1.75; color: var(--forest-light); }
+.post-content h2 { font-family: var(--display); color: var(--forest); font-size: 1.5rem; margin: 32px 0 12px; position: relative; padding-left: 18px; }
+.post-content h2::before { content: ""; position: absolute; left: 0; top: 10px; width: 9px; height: 9px; background: var(--terra); }
+.post-content h3 { font-family: var(--display); color: var(--forest); font-size: 1.2rem; margin: 24px 0 10px; }
+.post-content p { margin: 0 0 18px; }
+.post-content ul, .post-content ol { margin: 0 0 18px; padding-left: 2px; list-style: none; }
+.post-content li { position: relative; padding-left: 24px; margin-bottom: 10px; }
+.post-content li::before { content: ""; position: absolute; left: 4px; top: 9px; width: 8px; height: 8px; background: var(--sage); }
+.post-content a { color: var(--terra); text-decoration: underline; }
+.post-content strong { color: var(--forest); font-weight: 700; }
+.post-content blockquote { border-left: 4px solid var(--terra); background: var(--cream-light); padding: 14px 18px; margin: 18px 0; font-style: italic; color: var(--forest); }
+.post-content img { max-width: 100%; height: auto; border: 2px solid var(--forest); }
+
+.post-author { display: flex; gap: 16px; align-items: flex-start; background: var(--sage-soft); border: 2px solid var(--forest); box-shadow: 4px 4px 0 rgba(46, 58, 47, .9); padding: 20px; margin: 40px 0; }
+.post-author__avatar { width: 64px; height: 64px; flex: none; border: 2px solid var(--forest); background: #fff; overflow: hidden; }
+.post-author__avatar img { width: 100%; height: 100%; object-fit: contain; }
+.post-author__eyebrow { display: inline-flex; align-items: center; gap: 6px; font-family: var(--pixel); font-size: 8px; text-transform: uppercase; color: var(--terra); margin-bottom: 10px; }
+.post-author__body h3 { font-family: var(--display); color: var(--forest); margin: 0 0 6px; }
+.post-author__body p { font-size: .9rem; color: var(--forest-light); margin: 0 0 8px; line-height: 1.55; }
+.post-author__link { display: inline-flex; align-items: center; gap: 6px; color: var(--terra); font-weight: 700; font-size: .85rem; text-decoration: none; }
+
+.post-cta { background: var(--forest); border: 2px solid var(--forest); box-shadow: 5px 5px 0 var(--terra); padding: 32px; margin: 40px 0; text-align: center; color: var(--cream); }
+.post-cta__eyebrow { display: inline-flex; align-items: center; gap: 6px; font-family: var(--pixel); font-size: 8px; text-transform: uppercase; color: var(--terra-light); margin-bottom: 12px; }
+.post-cta h3 { font-family: var(--display); color: var(--cream); font-size: 1.4rem; margin: 0 0 10px; }
+.post-cta__sub { color: rgba(244, 240, 230, .8); font-size: .95rem; margin: 0 0 20px; }
+.post-cta__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.post-cta .pg-btn--ghost { color: var(--cream); border-color: var(--cream); }
+.post-cta .pg-btn--ghost:hover { background: rgba(244, 240, 230, .12); box-shadow: 3px 3px 0 var(--terra); }
+
+.post-back { display: inline-flex; align-items: center; gap: 8px; color: var(--forest-light); font-weight: 700; text-decoration: none; margin-top: 8px; }
+.post-back .px-ic { transform: rotate(180deg); }
+.post-back:hover { color: var(--terra); }
+
+.post-related { margin-top: 48px; }
+.post-related h2 { font-family: var(--display); color: var(--forest); font-size: 1.4rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
+@media (max-width: 640px) {
+  .post-cta { padding: 24px 18px; }
+  .post-author { flex-direction: column; }
+}

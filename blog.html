@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Ismaile Pereira · Presença Digital</title>
+  <meta name="description" content="Artigos sobre criação de sites, Google, SEO e como transformar visitas em clientes no WhatsApp. Para negócios de todo o Brasil.">
+  <meta name="author" content="Ismaile Pereira">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ismailepereira.github.io/blog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog · Ismaile Pereira">
+  <meta property="og:description" content="Conteúdo que coloca seu negócio no mapa: sites, Google e WhatsApp.">
+  <meta property="og:url" content="https://ismailepereira.github.io/blog.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23F4F0E6'/%3E%3Cpath d='M30 62 a20 20 0 0 1 40 0 z' fill='%23BF5A30'/%3E%3Crect x='22' y='70' width='56' height='4' rx='2' fill='%232E3A2F'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{fontFamily:{display:['"Playfair Display"','Georgia','serif'],body:['Inter','system-ui','sans-serif']},colors:{cream:{DEFAULT:'#F4F0E6',light:'#FBF9F2'},terra:{DEFAULT:'#BF5A30',dark:'#A24A26',light:'#D4774F'},forest:{DEFAULT:'#2E3A2F',light:'#4A5A45'},sage:{DEFAULT:'#8B9A75',soft:'#E7EADD'}}}}}
+  </script>
+  <link rel="stylesheet" href="src/css/pixel-garden.css">
+  <style>
+    body{font-family:'Inter',system-ui,sans-serif}
+    h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#2E3A2F}
+    .gradient-text{background:linear-gradient(135deg,#BF5A30,#D4774F,#e89a6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .terra-btn{background:linear-gradient(135deg,#BF5A30,#D4774F);color:#fff;box-shadow:0 4px 16px rgba(191,90,48,.25);transition:box-shadow .3s,transform .3s}
+    .terra-btn:hover{box-shadow:0 8px 28px rgba(191,90,48,.4);transform:translateY(-2px)}
+    @keyframes wa-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F4F0E6}::-webkit-scrollbar-thumb{background:#8B9A75;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#2E3A2F}
+  </style>
+</head>
+<body class="bg-cream text-forest antialiased overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header id="nav-header" class="sticky top-0 z-50 backdrop-blur-xl bg-cream/85 border-b border-sage/10 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="Ismaile Pereira, página inicial">
+        <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-10 h-10 rounded-lg object-contain">
+        <span>
+          <span class="font-display font-bold text-forest text-base leading-none block">Ismaile Pereira</span>
+          <span class="text-[10px] font-semibold tracking-[.2em] text-terra uppercase">Presença Digital</span>
+        </span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7" aria-label="Navegação principal">
+        <a href="index.html#servicos" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Serviços</a>
+        <a href="index.html#como-funciona" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Como funciona</a>
+        <a href="index.html#projetos" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Projetos</a>
+        <a href="blog.html" class="text-sm text-terra font-semibold transition-colors" aria-current="page">Blog</a>
+      </nav>
+      <a href="#" data-wa class="hidden md:inline-flex items-center gap-2 terra-btn font-semibold text-sm px-5 py-2.5 rounded-full">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
+        WhatsApp
+      </a>
+      <button id="navToggle" class="md:hidden p-2 text-forest" aria-label="Abrir menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-1 bg-cream">
+      <a href="index.html#servicos" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Serviços</a>
+      <a href="index.html#como-funciona" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Como funciona</a>
+      <a href="index.html#projetos" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Projetos</a>
+      <a href="blog.html" class="block py-3 text-terra font-semibold border-b border-sage/10">Blog</a>
+      <a href="#" data-wa class="block mt-3 text-center terra-btn font-semibold text-sm px-5 py-3 rounded-full">Falar no WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="pt-16 pb-10 md:pt-20 md:pb-12">
+      <div class="max-w-6xl mx-auto px-5 text-center">
+        <p class="pg-eyebrow justify-center mb-5">
+          <svg class="px-ic" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="2" y="2" width="12" height="2"/><rect x="2" y="4" width="2" height="10"/><rect x="12" y="4" width="2" height="10"/><rect x="2" y="12" width="12" height="2"/><rect x="5" y="6" width="6" height="2"/><rect x="5" y="9" width="4" height="2"/></g></svg>
+          Blog · Presença Digital
+        </p>
+        <h1 class="text-4xl md:text-5xl font-bold leading-[1.1] mb-5">Conteúdo que coloca seu <span class="gradient-text">negócio no mapa</span></h1>
+        <p class="text-lg text-forest-light max-w-2xl mx-auto mb-8">Ideias práticas sobre sites, Google e WhatsApp — pra você ser encontrado e fechar mais, sem enrolação técnica.</p>
+        <div class="pixel-divider max-w-md mx-auto"></div>
+      </div>
+    </section>
+
+    <!-- LISTAGEM -->
+    <section class="pb-16 md:pb-20">
+      <div class="max-w-6xl mx-auto px-5">
+        <div id="blog-loading" class="pixel-loader" role="status" aria-label="Carregando artigos">
+          <span></span><span></span><span></span>
+        </div>
+        <div id="blog-grid" class="blog-grid" style="display:none"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-forest">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid sm:grid-cols-3 gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-10 h-10 rounded-lg object-contain">
+            <span>
+              <span class="font-display font-bold text-cream text-sm block leading-none" style="color:#F4F0E6">Ismaile Pereira</span>
+              <span class="text-[9px] font-bold tracking-[.2em] text-terra uppercase">Presença Digital</span>
+            </span>
+          </div>
+          <p class="text-sm" style="color:rgba(244,240,230,.6)">Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.</p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold tracking-[.15em] uppercase mb-4" style="color:rgba(244,240,230,.4)">Navegação</h4>
+          <div class="space-y-2">
+            <a href="index.html" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Início</a>
+            <a href="index.html#servicos" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Serviços</a>
+            <a href="index.html#projetos" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Projetos</a>
+            <a href="blog.html" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Blog</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold tracking-[.15em] uppercase mb-4" style="color:rgba(244,240,230,.4)">Fale comigo</h4>
+          <div class="space-y-2">
+            <a href="#" data-wa class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">WhatsApp</a>
+            <a href="mailto:ismailepereiramachado@gmail.com" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">E-mail</a>
+            <a href="https://github.com/ismailepereira" target="_blank" rel="noopener" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-between items-center pt-6 border-t border-white/10 text-xs" style="color:rgba(244,240,230,.35)">
+        <span>Mirante da Serra, RO — atendimento em todo o Brasil</span>
+        <span>&copy; <span id="year"></span> Ismaile Pereira · Presença Digital</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="#" data-wa class="fixed right-5 bottom-5 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform" style="animation:wa-pulse 2s infinite" aria-label="Falar no WhatsApp">
+    <svg class="w-7 h-7" viewBox="0 0 32 32" fill="#fff"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.8L.3 31.6l8-2.1c2.3 1.2 4.9 1.9 7.7 1.9 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.5c-2.5 0-4.8-.7-6.8-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2-2-4.4-2-6.9C2.7 8.7 8.7 2.8 16 2.8c7.3 0 13.2 5.9 13.2 13.2S23.3 28.9 16 28.9zm7.3-9.9c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.7-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1 0 1.8 1.3 3.6 1.5 3.8.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.1-.9 2.4-1.7.3-.8.3-1.6.2-1.7-.1-.2-.4-.3-.8-.5z"/></svg>
+  </a>
+
+  <script>
+  (function(){
+    "use strict";
+    var WA = "5569999688625";
+    var MSG = "Olá Ismaile! Vi seu blog e quero um orçamento.";
+    var waLink = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG);
+    document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = waLink; });
+    var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
+    var toggle = document.getElementById("navToggle"), menu = document.getElementById("mobileMenu");
+    if (toggle && menu) {
+      toggle.addEventListener("click", function(){ var open = menu.classList.toggle("hidden"); toggle.setAttribute("aria-expanded", open ? "false" : "true"); });
+    }
+    var hdr = document.getElementById("nav-header");
+    window.addEventListener("scroll", function(){ if (hdr) hdr.style.boxShadow = window.scrollY > 10 ? "0 4px 20px rgba(46,58,47,.08)" : "none"; }, { passive: true });
+  })();
+  </script>
+  <script src="src/js/blog.js"></script>
+</body>
+</html>
