@@ -12,31 +12,31 @@
   <meta property="og:title" content="Ismaile Pereira · Presença Digital">
   <meta property="og:description" content="Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.">
   <meta property="og:url" content="https://ismailepereira.github.io/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0e17'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='48'%3E%3Ctspan fill='%23fff'%3EI%3C/tspan%3E%3Ctspan fill='%23BF5A30'%3EP%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23F4F0E6'/%3E%3Cpath d='M30 62 a20 20 0 0 1 40 0 z' fill='%23BF5A30'/%3E%3Crect x='22' y='70' width='56' height='4' rx='2' fill='%232E3A2F'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config={theme:{extend:{fontFamily:{display:['"Space Grotesk"','system-ui','sans-serif'],body:['Inter','system-ui','sans-serif']},colors:{dark:{900:'#0a0e17',800:'#0f1521',700:'#141c2b'},terra:{DEFAULT:'#BF5A30',light:'#e8845a',dark:'#A24A26'}}}}}
+    tailwind.config={theme:{extend:{fontFamily:{display:['"Playfair Display"','Georgia','serif'],body:['Inter','system-ui','sans-serif']},colors:{cream:{DEFAULT:'#F4F0E6',light:'#FBF9F2'},terra:{DEFAULT:'#BF5A30',dark:'#A24A26',light:'#D4774F'},forest:{DEFAULT:'#2E3A2F',light:'#4A5A45'},sage:{DEFAULT:'#8B9A75',soft:'#E7EADD'}}}}}
   </script>
   <style>
     body{font-family:'Inter',system-ui,sans-serif}
-    h1,h2,h3,h4{font-family:'Space Grotesk',system-ui,sans-serif}
-    .gradient-text{background:linear-gradient(135deg,#BF5A30,#e8845a,#f0a060);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .glass{background:rgba(15,21,33,.6);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.06);border-radius:16px;transition:border-color .3s,box-shadow .3s,transform .3s}
-    .glass:hover{border-color:rgba(191,90,48,.3);box-shadow:0 8px 32px rgba(191,90,48,.12);transform:translateY(-4px)}
-    .glow-btn{background:linear-gradient(135deg,#BF5A30,#e8845a);box-shadow:0 0 20px rgba(191,90,48,.3);transition:box-shadow .3s,transform .3s}
-    .glow-btn:hover{box-shadow:0 0 40px rgba(191,90,48,.5);transform:translateY(-2px)}
-    .grid-bg{background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:64px 64px}
-    @keyframes dot-pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}70%{box-shadow:0 0 0 8px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+    h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#2E3A2F}
+    .gradient-text{background:linear-gradient(135deg,#BF5A30,#D4774F,#e89a6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .warm-card{background:#fff;border:1px solid rgba(139,154,117,.15);border-radius:16px;box-shadow:0 4px 20px rgba(46,58,47,.06);transition:transform .3s,box-shadow .3s}
+    .warm-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(46,58,47,.12)}
+    .terra-btn{background:linear-gradient(135deg,#BF5A30,#D4774F);color:#fff;box-shadow:0 4px 16px rgba(191,90,48,.25);transition:box-shadow .3s,transform .3s}
+    .terra-btn:hover{box-shadow:0 8px 28px rgba(191,90,48,.4);transform:translateY(-2px)}
+    @keyframes dot-pulse{0%{box-shadow:0 0 0 0 rgba(139,154,117,.5)}70%{box-shadow:0 0 0 8px rgba(139,154,117,0)}100%{box-shadow:0 0 0 0 rgba(139,154,117,0)}}
     @keyframes wa-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
     .reveal-up{opacity:0;transform:translateY(40px)}
-    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0a0e17}::-webkit-scrollbar-thumb{background:#1f2937;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#374151}
-    .line-glow{height:2px;background:linear-gradient(90deg,transparent,#BF5A30,transparent)}
+    .line-glow{height:1px;background:linear-gradient(90deg,transparent,#8B9A75,transparent)}
+    .pixel-border{image-rendering:pixelated}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F4F0E6}::-webkit-scrollbar-thumb{background:#8B9A75;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#2E3A2F}
   </style>
 </head>
-<body class="bg-dark-900 text-gray-300 antialiased overflow-x-hidden">
+<body class="bg-cream text-forest antialiased overflow-x-hidden">
 
   <!-- Three.js Canvas -->
   <canvas id="bg-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
@@ -44,108 +44,139 @@
   <div class="relative z-10">
 
     <!-- HEADER -->
-    <header id="nav-header" class="sticky top-0 z-50 backdrop-blur-xl bg-dark-900/80 border-b border-white/5 transition-all duration-300">
+    <header id="nav-header" class="sticky top-0 z-50 backdrop-blur-xl bg-cream/85 border-b border-sage/10 transition-all duration-300">
       <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
-        <a href="#inicio" class="flex items-center gap-3 group">
-          <div class="w-9 h-9 rounded-lg bg-dark-700 border border-white/10 flex items-center justify-center font-display font-bold text-sm group-hover:border-terra/40 transition-colors">
-            <span class="text-white">I</span><span class="text-terra">P</span>
-          </div>
+        <a href="#inicio" class="flex items-center gap-3 group" aria-label="Ismaile Pereira, página inicial">
+          <svg class="w-9 h-9 pixel-border" viewBox="0 0 140 100" shape-rendering="crispEdges" aria-hidden="true">
+            <g fill="#2E3A2F"><rect x="67" y="2" width="6" height="18"/><rect x="49" y="8" width="5" height="5"/><rect x="44" y="13" width="5" height="5"/><rect x="39" y="18" width="5" height="5"/><rect x="86" y="8" width="5" height="5"/><rect x="91" y="13" width="5" height="5"/><rect x="96" y="18" width="5" height="5"/><rect x="34" y="14" width="5" height="5"/><rect x="29" y="19" width="5" height="5"/><rect x="24" y="24" width="5" height="5"/><rect x="101" y="14" width="5" height="5"/><rect x="106" y="19" width="5" height="5"/><rect x="111" y="24" width="5" height="5"/><rect x="18" y="28" width="5" height="4"/><rect x="23" y="32" width="5" height="4"/><rect x="117" y="28" width="5" height="4"/><rect x="112" y="32" width="5" height="4"/></g>
+            <g fill="#BF5A30" opacity=".6"><rect x="59" y="6" width="3" height="3"/><rect x="78" y="10" width="3" height="3"/><rect x="42" y="12" width="3" height="3"/><rect x="98" y="16" width="3" height="3"/><rect x="30" y="22" width="3" height="3"/><rect x="110" y="22" width="3" height="3"/></g>
+            <g fill="#BF5A30"><rect x="54" y="38" width="32" height="5"/><rect x="48" y="43" width="44" height="5"/><rect x="42" y="48" width="56" height="5"/><rect x="36" y="53" width="68" height="5"/></g>
+            <g fill="#D4774F"><rect x="58" y="43" width="24" height="5"/><rect x="52" y="48" width="36" height="5"/></g>
+            <rect x="65" y="48" width="10" height="7" fill="#F4F0E6"/>
+            <rect x="22" y="62" width="96" height="3" fill="#BF5A30"/>
+            <g fill="#BF5A30" opacity=".7"><rect x="28" y="68" width="16" height="3"/><rect x="50" y="68" width="22" height="3"/><rect x="78" y="68" width="18" height="3"/><rect x="36" y="74" width="12" height="3"/><rect x="54" y="74" width="18" height="3"/><rect x="80" y="74" width="14" height="3"/><rect x="42" y="80" width="10" height="2"/><rect x="60" y="80" width="14" height="2"/><rect x="82" y="80" width="8" height="2"/></g>
+          </svg>
           <span>
-            <span class="font-display font-bold text-white text-sm leading-none block">Ismaile Pereira</span>
-            <span class="text-[10px] font-bold tracking-[.2em] text-terra uppercase">Presença Digital</span>
+            <span class="font-display font-bold text-forest text-base leading-none block lowercase">ismaile pereira</span>
+            <span class="text-[10px] font-semibold tracking-[.2em] text-terra uppercase">Presença Digital</span>
           </span>
         </a>
         <nav class="hidden md:flex items-center gap-7" aria-label="Navegação principal">
-          <a href="#servicos" class="text-sm text-gray-400 hover:text-white transition-colors">Serviços</a>
-          <a href="#como-funciona" class="text-sm text-gray-400 hover:text-white transition-colors">Como funciona</a>
-          <a href="#projetos" class="text-sm text-gray-400 hover:text-white transition-colors">Projetos</a>
-          <a href="#sobre" class="text-sm text-gray-400 hover:text-white transition-colors">Sobre</a>
+          <a href="#servicos" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Serviços</a>
+          <a href="#como-funciona" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Como funciona</a>
+          <a href="#projetos" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Projetos</a>
+          <a href="#sobre" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Sobre</a>
         </nav>
-        <a href="#" data-wa class="hidden md:inline-flex items-center gap-2 glow-btn text-white font-semibold text-sm px-5 py-2.5 rounded-full">
+        <a href="#" data-wa class="hidden md:inline-flex items-center gap-2 terra-btn font-semibold text-sm px-5 py-2.5 rounded-full">
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
           WhatsApp
         </a>
-        <button id="navToggle" class="md:hidden p-2 text-white" aria-label="Abrir menu" aria-expanded="false">
+        <button id="navToggle" class="md:hidden p-2 text-forest" aria-label="Abrir menu" aria-expanded="false">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
         </button>
       </div>
-      <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-1">
-        <a href="#servicos" class="block py-3 text-gray-300 hover:text-white border-b border-white/5">Serviços</a>
-        <a href="#como-funciona" class="block py-3 text-gray-300 hover:text-white border-b border-white/5">Como funciona</a>
-        <a href="#projetos" class="block py-3 text-gray-300 hover:text-white border-b border-white/5">Projetos</a>
-        <a href="#sobre" class="block py-3 text-gray-300 hover:text-white border-b border-white/5">Sobre</a>
-        <a href="#" data-wa class="block mt-3 text-center glow-btn text-white font-semibold text-sm px-5 py-3 rounded-full">Falar no WhatsApp</a>
+      <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-1 bg-cream">
+        <a href="#servicos" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Serviços</a>
+        <a href="#como-funciona" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Como funciona</a>
+        <a href="#projetos" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Projetos</a>
+        <a href="#sobre" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Sobre</a>
+        <a href="#" data-wa class="block mt-3 text-center terra-btn font-semibold text-sm px-5 py-3 rounded-full">Falar no WhatsApp</a>
       </div>
     </header>
 
     <main>
       <!-- HERO -->
-      <section id="inicio" class="min-h-[90vh] flex items-center relative grid-bg">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark-900 pointer-events-none"></div>
+      <section id="inicio" class="min-h-[88vh] flex items-center relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream pointer-events-none"></div>
         <div class="max-w-6xl mx-auto px-5 py-20 w-full relative">
-          <div class="max-w-3xl">
-            <div class="reveal-up inline-flex items-center gap-2 bg-dark-700/60 border border-white/10 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-emerald-400 mb-8">
-              <span class="w-2 h-2 rounded-full bg-emerald-400" style="animation:dot-pulse 2s infinite"></span>
-              Disponível para novos projetos
+          <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+            <div>
+              <div class="reveal-up inline-flex items-center gap-2 bg-sage-soft border border-sage/20 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-forest-light mb-8">
+                <span class="w-2 h-2 rounded-full bg-sage" style="animation:dot-pulse 2s infinite"></span>
+                Disponível para novos projetos
+              </div>
+              <h1 class="reveal-up text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] mb-6">
+                Quem não aparece no Google, <span class="gradient-text">não&nbsp;vende.</span>
+              </h1>
+              <p class="reveal-up text-lg text-forest-light max-w-xl mb-10 leading-relaxed">
+                Faço sites profissionais pra negócios e profissionais de <strong class="text-forest">todo o Brasil</strong> — posicionados no Google e prontos pro cliente te chamar no WhatsApp. 100% online, sem enrolação, no prazo.
+              </p>
+              <div class="reveal-up flex flex-wrap gap-4 mb-10">
+                <a href="#" data-wa class="terra-btn font-semibold px-7 py-3.5 rounded-full text-base inline-flex items-center gap-2">
+                  Falar comigo agora
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="#servicos" class="inline-flex items-center gap-2 border-2 border-forest/15 hover:border-forest/40 text-forest font-semibold px-7 py-3.5 rounded-full transition-colors text-base">
+                  Ver serviços
+                </a>
+              </div>
+              <div class="reveal-up flex items-center gap-2 text-sm text-sage">
+                <svg class="w-4 h-4 text-terra" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                De Mirante da Serra (RO) para o Brasil inteiro
+              </div>
             </div>
-            <h1 class="reveal-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-              Quem não aparece no Google, <span class="gradient-text">não vende.</span>
-            </h1>
-            <p class="reveal-up text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
-              Faço sites profissionais pra negócios e profissionais de <strong class="text-white">todo o Brasil</strong> — posicionados no Google e prontos pro cliente te chamar no WhatsApp. 100% online, sem enrolação, no prazo.
-            </p>
-            <div class="reveal-up flex flex-wrap gap-4 mb-12">
-              <a href="#" data-wa class="glow-btn text-white font-semibold px-7 py-3.5 rounded-full text-base inline-flex items-center gap-2">
-                Falar comigo agora
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </a>
-              <a href="#servicos" class="inline-flex items-center gap-2 border border-white/10 hover:border-white/30 text-white font-semibold px-7 py-3.5 rounded-full transition-colors text-base">
-                Ver serviços
-              </a>
-            </div>
-            <div class="reveal-up flex items-center gap-2 text-sm text-gray-500">
-              <svg class="w-4 h-4 text-terra" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-              De Mirante da Serra (RO) para o Brasil inteiro · Atendimento 100% online
+            <!-- Hero card -->
+            <div class="reveal-up hidden lg:block">
+              <div class="warm-card p-8 relative overflow-hidden">
+                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
+                <svg class="w-20 h-14 mb-5 pixel-border" viewBox="0 0 140 100" shape-rendering="crispEdges" aria-hidden="true">
+                  <g fill="#2E3A2F"><rect x="67" y="2" width="6" height="18"/><rect x="49" y="8" width="5" height="5"/><rect x="44" y="13" width="5" height="5"/><rect x="39" y="18" width="5" height="5"/><rect x="86" y="8" width="5" height="5"/><rect x="91" y="13" width="5" height="5"/><rect x="96" y="18" width="5" height="5"/><rect x="34" y="14" width="5" height="5"/><rect x="29" y="19" width="5" height="5"/><rect x="24" y="24" width="5" height="5"/><rect x="101" y="14" width="5" height="5"/><rect x="106" y="19" width="5" height="5"/><rect x="111" y="24" width="5" height="5"/><rect x="18" y="28" width="5" height="4"/><rect x="23" y="32" width="5" height="4"/><rect x="117" y="28" width="5" height="4"/><rect x="112" y="32" width="5" height="4"/></g>
+                  <g fill="#BF5A30" opacity=".6"><rect x="59" y="6" width="3" height="3"/><rect x="78" y="10" width="3" height="3"/><rect x="42" y="12" width="3" height="3"/><rect x="98" y="16" width="3" height="3"/></g>
+                  <g fill="#BF5A30"><rect x="54" y="38" width="32" height="5"/><rect x="48" y="43" width="44" height="5"/><rect x="42" y="48" width="56" height="5"/><rect x="36" y="53" width="68" height="5"/></g>
+                  <g fill="#D4774F"><rect x="58" y="43" width="24" height="5"/><rect x="52" y="48" width="36" height="5"/></g>
+                  <rect x="65" y="48" width="10" height="7" fill="#F4F0E6"/>
+                  <rect x="22" y="62" width="96" height="3" fill="#BF5A30"/>
+                  <g fill="#BF5A30" opacity=".7"><rect x="28" y="68" width="16" height="3"/><rect x="50" y="68" width="22" height="3"/><rect x="78" y="68" width="18" height="3"/><rect x="36" y="74" width="12" height="3"/><rect x="54" y="74" width="18" height="3"/><rect x="80" y="74" width="14" height="3"/></g>
+                </svg>
+                <h3 class="text-xl font-bold mb-2">Um estúdio, o ciclo inteiro</h3>
+                <p class="text-forest-light text-sm mb-5">Da primeira página no ar ao sistema que organiza o negócio.</p>
+                <ul class="space-y-3">
+                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presença digital com cara profissional</li>
+                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Site posicionado no Google</li>
+                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pronto pra receber pelo WhatsApp</li>
+                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Suporte e manutenção contínuos</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="hidden lg:grid grid-cols-3 gap-6 mt-16 reveal-up">
-            <div class="glass p-5 text-center"><span class="block font-display text-3xl font-bold text-white">10+</span><span class="text-sm text-gray-400">projetos entregues</span></div>
-            <div class="glass p-5 text-center"><span class="block font-display text-3xl font-bold text-white">100%</span><span class="text-sm text-gray-400">online, de ponta a ponta</span></div>
-            <div class="glass p-5 text-center"><span class="block font-display text-3xl font-bold text-white">24h</span><span class="text-sm text-gray-400">resposta em até 24h úteis</span></div>
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-5 mt-14 max-w-2xl reveal-up">
+            <div class="text-center"><span class="block font-display text-3xl font-bold text-forest">10+</span><span class="text-sm text-sage">projetos entregues</span></div>
+            <div class="text-center"><span class="block font-display text-3xl font-bold text-forest">100%</span><span class="text-sm text-sage">online, ponta a ponta</span></div>
+            <div class="text-center"><span class="block font-display text-3xl font-bold text-forest">24h</span><span class="text-sm text-sage">tempo de resposta</span></div>
           </div>
         </div>
       </section>
 
-      <!-- DIVIDER -->
       <div class="line-glow"></div>
 
       <!-- PROBLEMA -->
-      <section class="py-20 md:py-28 relative">
+      <section class="py-20 md:py-28 bg-cream-light">
         <div class="max-w-6xl mx-auto px-5">
           <div class="text-center max-w-2xl mx-auto mb-14">
             <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">O problema</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold text-white mb-4">Seu cliente tá te procurando agora. Ele te acha — ou acha o concorrente?</h2>
-            <p class="reveal-up text-gray-400">Você é bom no que faz. Mas isso não adianta se ninguém te encontra:</p>
+            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">Seu cliente tá te procurando agora. Ele te acha — ou acha o concorrente?</h2>
+            <p class="reveal-up text-forest-light">Você é bom no que faz. Mas isso não adianta se ninguém te encontra:</p>
           </div>
-          <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto" id="pain-grid">
-            <div class="glass p-5 flex gap-4 items-start reveal-up">
+          <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
               <span class="text-2xl flex-none">📵</span>
-              <p class="text-sm text-gray-300">Você depende só do <strong class="text-white">Instagram e do boca a boca</strong> — e quem te procura no Google cai no concorrente.</p>
+              <p class="text-sm text-forest-light">Você depende só do <strong class="text-forest">Instagram e do boca a boca</strong> — e quem te procura no Google cai no concorrente.</p>
             </div>
-            <div class="glass p-5 flex gap-4 items-start reveal-up">
+            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
               <span class="text-2xl flex-none">🐌</span>
-              <p class="text-sm text-gray-300">Seu site é <strong class="text-white">lento, confuso ou não abre no celular</strong> — e a pessoa desiste em segundos.</p>
+              <p class="text-sm text-forest-light">Seu site é <strong class="text-forest">lento, confuso ou não abre no celular</strong> — e a pessoa desiste em segundos.</p>
             </div>
-            <div class="glass p-5 flex gap-4 items-start reveal-up">
+            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
               <span class="text-2xl flex-none">🔇</span>
-              <p class="text-sm text-gray-300">Até aparece visita, mas <strong class="text-white">ninguém te chama</strong> — falta um caminho claro até o WhatsApp.</p>
+              <p class="text-sm text-forest-light">Até aparece visita, mas <strong class="text-forest">ninguém te chama</strong> — falta um caminho claro até o WhatsApp.</p>
             </div>
-            <div class="glass p-5 flex gap-4 items-start reveal-up">
+            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
               <span class="text-2xl flex-none">⏳</span>
-              <p class="text-sm text-gray-300">Você sabe que precisa resolver, mas <strong class="text-white">não tem tempo nem paciência</strong> pra parte técnica.</p>
+              <p class="text-sm text-forest-light">Você sabe que precisa resolver, mas <strong class="text-forest">não tem tempo nem paciência</strong> pra parte técnica.</p>
             </div>
           </div>
-          <p class="reveal-up text-center text-xl md:text-2xl font-display font-bold text-white mt-12 max-w-xl mx-auto">
+          <p class="reveal-up text-center text-xl md:text-2xl font-display font-bold mt-12 max-w-xl mx-auto">
             O problema quase nunca é o seu trabalho. <span class="gradient-text">É que ele tá invisível.</span>
           </p>
         </div>
@@ -158,36 +189,36 @@
         <div class="max-w-6xl mx-auto px-5">
           <div class="text-center max-w-2xl mx-auto mb-14">
             <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">O que eu faço por você</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold text-white mb-4">Tudo aponta pra uma coisa só: você ser encontrado.</h2>
+            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">Tudo aponta pra uma coisa só: você ser encontrado.</h2>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" id="services-grid">
-            <div class="glass p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center mb-4 group-hover:bg-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="warm-card p-6 reveal-up group">
+              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
+                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
               </div>
-              <h3 class="text-white font-semibold text-lg mb-2">Site profissional e rápido</h3>
-              <p class="text-sm text-gray-400">Feito pro celular primeiro, abre em segundos e passa credibilidade.</p>
+              <h3 class="text-lg font-bold mb-2">Site profissional e rápido</h3>
+              <p class="text-sm text-forest-light">Feito pro celular primeiro, abre em segundos e passa credibilidade.</p>
             </div>
-            <div class="glass p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center mb-4 group-hover:bg-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <div class="warm-card p-6 reveal-up group">
+              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
+                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </div>
-              <h3 class="text-white font-semibold text-lg mb-2">Posicionamento no Google</h3>
-              <p class="text-sm text-gray-400">Estrutura técnica certa (SEO) pra aparecer quando seu cliente procura.</p>
+              <h3 class="text-lg font-bold mb-2">Posicionamento no Google</h3>
+              <p class="text-sm text-forest-light">Estrutura técnica certa (SEO) pra aparecer quando seu cliente procura.</p>
             </div>
-            <div class="glass p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center mb-4 group-hover:bg-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            <div class="warm-card p-6 reveal-up group">
+              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
+                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
               </div>
-              <h3 class="text-white font-semibold text-lg mb-2">Pronto pra vender no WhatsApp</h3>
-              <p class="text-sm text-gray-400">As chamadas certas levam o visitante direto pra conversa com você.</p>
+              <h3 class="text-lg font-bold mb-2">Pronto pra vender no WhatsApp</h3>
+              <p class="text-sm text-forest-light">As chamadas certas levam o visitante direto pra conversa com você.</p>
             </div>
-            <div class="glass p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center mb-4 group-hover:bg-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <div class="warm-card p-6 reveal-up group">
+              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
+                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
-              <h3 class="text-white font-semibold text-lg mb-2">Eu cuido de tudo</h3>
-              <p class="text-sm text-gray-400">Domínio, hospedagem, textos, fotos e ajustes. Você só aprova.</p>
+              <h3 class="text-lg font-bold mb-2">Eu cuido de tudo</h3>
+              <p class="text-sm text-forest-light">Domínio, hospedagem, textos, fotos e ajustes. Você só aprova.</p>
             </div>
           </div>
         </div>
@@ -196,33 +227,34 @@
       <div class="line-glow"></div>
 
       <!-- COMO FUNCIONA -->
-      <section id="como-funciona" class="py-20 md:py-28">
+      <section id="como-funciona" class="py-20 md:py-28 bg-sage-soft">
         <div class="max-w-6xl mx-auto px-5">
           <div class="text-center max-w-2xl mx-auto mb-14">
             <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">Como funciona</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold text-white mb-4">É simples. Em 3 passos:</h2>
+            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">É simples. Em 3 passos:</h2>
+            <p class="reveal-up text-forest-light">Você não precisa entender nada de tecnologia. Eu cuido.</p>
           </div>
-          <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto" id="steps-grid">
-            <div class="glass p-7 text-center reveal-up relative overflow-hidden">
+          <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div class="warm-card p-7 text-center reveal-up relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/30 text-terra font-display font-bold text-2xl mb-5">1</span>
-              <h3 class="text-white font-semibold text-lg mb-2">A gente conversa</h3>
-              <p class="text-sm text-gray-400">Uma conversa rápida no WhatsApp pra eu entender seu negócio, seu cliente e seu objetivo.</p>
+              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/20 text-terra font-display font-bold text-2xl mb-5">1</span>
+              <h3 class="text-lg font-bold mb-2">A gente conversa</h3>
+              <p class="text-sm text-forest-light">Uma conversa rápida no WhatsApp pra eu entender seu negócio, seu cliente e seu objetivo.</p>
             </div>
-            <div class="glass p-7 text-center reveal-up relative overflow-hidden">
+            <div class="warm-card p-7 text-center reveal-up relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/30 text-terra font-display font-bold text-2xl mb-5">2</span>
-              <h3 class="text-white font-semibold text-lg mb-2">Eu crio e você acompanha</h3>
-              <p class="text-sm text-gray-400">Monto seu site completo. Você vê antes de ir pro ar e pede ajustes. Nada publica sem o seu "ok".</p>
+              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/20 text-terra font-display font-bold text-2xl mb-5">2</span>
+              <h3 class="text-lg font-bold mb-2">Eu crio e você acompanha</h3>
+              <p class="text-sm text-forest-light">Monto seu site completo. Você vê antes de ir pro ar e pede ajustes. Nada publica sem o seu "ok".</p>
             </div>
-            <div class="glass p-7 text-center reveal-up relative overflow-hidden">
+            <div class="warm-card p-7 text-center reveal-up relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/30 text-terra font-display font-bold text-2xl mb-5">3</span>
-              <h3 class="text-white font-semibold text-lg mb-2">No ar e trazendo cliente</h3>
-              <p class="text-sm text-gray-400">Seu site entra no ar, posicionado no Google e pronto pra receber contato. Eu fico de suporte.</p>
+              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/20 text-terra font-display font-bold text-2xl mb-5">3</span>
+              <h3 class="text-lg font-bold mb-2">No ar e trazendo cliente</h3>
+              <p class="text-sm text-forest-light">Seu site entra no ar, posicionado no Google e pronto pra receber contato. Eu fico de suporte.</p>
             </div>
           </div>
-          <p class="reveal-up text-center mt-8 text-sm text-gray-500 italic">Prazo combinado, preço fechado na largada. Sem surpresa.</p>
+          <p class="reveal-up text-center mt-8 text-sm text-sage italic">Prazo combinado, preço fechado na largada. Sem surpresa.</p>
         </div>
       </section>
 
@@ -233,67 +265,62 @@
         <div class="max-w-6xl mx-auto px-5">
           <div class="text-center max-w-2xl mx-auto mb-14">
             <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">Portfólio</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold text-white mb-4">Não é teoria. Já tá no ar.</h2>
-            <p class="reveal-up text-gray-400">Projetos reais que eu construí de ponta a ponta.</p>
+            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">Não é teoria. Já tá no ar.</h2>
+            <p class="reveal-up text-forest-light">Projetos reais que eu construí de ponta a ponta.</p>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="projects-grid">
-            <article class="glass overflow-hidden reveal-up group">
-              <div class="h-20 bg-gradient-to-r from-terra to-terra-light flex items-center px-6 relative">
-                <div class="absolute right-0 top-0 bottom-0 w-1 bg-yellow-400/50"></div>
-                <div><span class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Negócio local</span><h3 class="text-white font-semibold text-lg mt-0.5">Auto Postos Savana</h3></div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <article class="warm-card overflow-hidden reveal-up">
+              <div class="h-20 bg-gradient-to-r from-terra to-terra-light flex items-center px-6">
+                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">Negócio local</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Auto Postos Savana</h3></div>
               </div>
               <div class="p-5">
-                <p class="text-sm text-gray-400 mb-4">Site institucional do posto na BR-364 (RO): responsivo, com SEO e seção de promoções.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">HTML</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">SEO</span></div>
-                <a class="text-sm font-semibold text-white hover:text-terra transition-colors inline-flex items-center gap-1" href="https://ismailepereira.github.io/postos-savana/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <p class="text-sm text-forest-light mb-4">Site institucional do posto na BR-364 (RO): responsivo, com SEO e seção de promoções.</p>
+                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">HTML</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-1" href="https://ismailepereira.github.io/postos-savana/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
-            <article class="glass overflow-hidden reveal-up group">
-              <div class="h-20 bg-gradient-to-r from-dark-700 to-dark-800 border-b border-white/5 flex items-center px-6 relative">
-                <div class="absolute right-0 top-0 bottom-0 w-1 bg-terra/50"></div>
-                <div><span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Landing + Tráfego</span><h3 class="text-white font-semibold text-lg mt-0.5">Curso Resistência</h3></div>
+            <article class="warm-card overflow-hidden reveal-up">
+              <div class="h-20 bg-gradient-to-r from-forest to-forest-light flex items-center px-6">
+                <div><span class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Landing + Tráfego</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Curso Resistência</h3></div>
               </div>
               <div class="p-5">
-                <p class="text-sm text-gray-400 mb-4">Landing do curso de guitarra do Fernando + gestão de campanhas no Meta Ads.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">Landing</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">Meta Ads</span></div>
-                <a class="text-sm font-semibold text-white hover:text-terra transition-colors inline-flex items-center gap-1" href="https://ismailepereira.github.io/resistencia-site" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <p class="text-sm text-forest-light mb-4">Landing do curso de guitarra do Fernando + gestão de campanhas no Meta Ads.</p>
+                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Landing</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Meta Ads</span></div>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-1" href="https://ismailepereira.github.io/resistencia-site" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
-            <article class="glass overflow-hidden reveal-up group">
-              <div class="h-20 bg-gradient-to-r from-terra-dark to-terra flex items-center px-6 relative">
-                <div class="absolute right-0 top-0 bottom-0 w-1 bg-yellow-400/50"></div>
-                <div><span class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Saúde / consultório</span><h3 class="text-white font-semibold text-lg mt-0.5">Jéssica Machado</h3></div>
+            <article class="warm-card overflow-hidden reveal-up">
+              <div class="h-20 bg-gradient-to-r from-terra-dark to-terra flex items-center px-6">
+                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">Saúde / consultório</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Jéssica Machado</h3></div>
               </div>
               <div class="p-5">
-                <p class="text-sm text-gray-400 mb-4">Site da neuropsicóloga infantil, com posicionamento de marca e agendamento via WhatsApp.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">Branding</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">SEO</span></div>
-                <a class="text-sm font-semibold text-white hover:text-terra transition-colors inline-flex items-center gap-1" href="https://ismailepereira.github.io/jessica-machado-site/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <p class="text-sm text-forest-light mb-4">Site da neuropsicóloga infantil, com posicionamento de marca e agendamento via WhatsApp.</p>
+                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Branding</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-1" href="https://ismailepereira.github.io/jessica-machado-site/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
-            <article class="glass overflow-hidden reveal-up group">
-              <div class="h-20 bg-gradient-to-r from-dark-700 to-dark-800 border-b border-white/5 flex items-center px-6 relative">
-                <div class="absolute right-0 top-0 bottom-0 w-1 bg-terra/50"></div>
-                <div><span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Site + Sistema</span><h3 class="text-white font-semibold text-lg mt-0.5">Maranata Music</h3></div>
+            <article class="warm-card overflow-hidden reveal-up">
+              <div class="h-20 bg-gradient-to-r from-forest to-forest-light flex items-center px-6">
+                <div><span class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Site + Sistema</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Maranata Music</h3></div>
               </div>
               <div class="p-5">
-                <p class="text-sm text-gray-400 mb-4">Landing de captação com inscrição, banco de dados e painel administrativo em Flask.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">Flask</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">SQLite</span></div>
-                <a class="text-sm font-semibold text-white hover:text-terra transition-colors inline-flex items-center gap-1" href="https://github.com/ismailepereira/maranata-music" target="_blank" rel="noopener">Ver no GitHub <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <p class="text-sm text-forest-light mb-4">Landing de captação com inscrição, banco de dados e painel administrativo em Flask.</p>
+                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Flask</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SQLite</span></div>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-1" href="https://github.com/ismailepereira/maranata-music" target="_blank" rel="noopener">Ver no GitHub <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
-            <article class="glass overflow-hidden reveal-up group">
-              <div class="h-20 bg-gradient-to-r from-terra to-terra-light flex items-center px-6 relative">
-                <div class="absolute right-0 top-0 bottom-0 w-1 bg-yellow-400/50"></div>
-                <div><span class="text-[10px] uppercase tracking-widest text-white/70 font-bold">App + Extensão</span><h3 class="text-white font-semibold text-lg mt-0.5">Baixador</h3></div>
+            <article class="warm-card overflow-hidden reveal-up">
+              <div class="h-20 bg-gradient-to-r from-terra to-terra-light flex items-center px-6">
+                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">App + Extensão</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Baixador</h3></div>
               </div>
               <div class="p-5">
-                <p class="text-sm text-gray-400 mb-4">Extensão Chrome + servidor Flask + app Android para baixar mídia de YouTube, Instagram e Spotify.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">Chrome</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-terra/10 border border-terra/20 text-terra">Android</span></div>
-                <a class="text-sm font-semibold text-white hover:text-terra transition-colors inline-flex items-center gap-1" href="https://github.com/ismailepereira/baixador" target="_blank" rel="noopener">Ver no GitHub <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <p class="text-sm text-forest-light mb-4">Extensão Chrome + servidor Flask + app Android para baixar mídia de YouTube, Instagram e Spotify.</p>
+                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Chrome</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Android</span></div>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-1" href="https://github.com/ismailepereira/baixador" target="_blank" rel="noopener">Ver no GitHub <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
-            <article class="glass overflow-hidden reveal-up flex items-center justify-center p-8 border-2 border-dashed border-white/10 text-center" style="background:transparent;backdrop-filter:none">
-              <p class="text-gray-500 italic">Novos projetos em breve...</p>
+            <article class="reveal-up flex items-center justify-center p-8 border-2 border-dashed border-sage/25 rounded-2xl text-center bg-transparent">
+              <p class="text-sage italic">Novos projetos em breve...</p>
             </article>
           </div>
         </div>
@@ -302,21 +329,21 @@
       <div class="line-glow"></div>
 
       <!-- SOBRE -->
-      <section id="sobre" class="py-20 md:py-28">
+      <section id="sobre" class="py-20 md:py-28 bg-cream-light">
         <div class="max-w-6xl mx-auto px-5">
           <div class="grid md:grid-cols-[auto_1fr] gap-10 items-center max-w-3xl mx-auto">
             <div class="reveal-up flex justify-center">
               <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-terra to-terra-light p-[3px]">
-                <div class="w-full h-full rounded-full bg-dark-900 flex items-center justify-center font-display text-4xl md:text-5xl font-bold text-white">IP</div>
+                <div class="w-full h-full rounded-full bg-cream-light flex items-center justify-center font-display text-4xl md:text-5xl font-bold text-forest">IP</div>
               </div>
             </div>
             <div>
               <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">Quem vai fazer seu site</p>
-              <h2 class="reveal-up text-3xl md:text-4xl font-bold text-white mb-6">Oi, eu sou o Ismaile</h2>
-              <div class="space-y-4 text-gray-400 leading-relaxed">
-                <p class="reveal-up">Sou de <strong class="text-white">Mirante da Serra, no interior de Rondônia</strong> — e atendo o <strong class="text-white">Brasil inteiro, 100% online</strong>. Não importa onde você está: a gente conversa, eu crio, e seu site entra no ar.</p>
+              <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-6">Oi, eu sou o Ismaile</h2>
+              <div class="space-y-4 text-forest-light leading-relaxed">
+                <p class="reveal-up">Sou de <strong class="text-forest">Mirante da Serra, no interior de Rondônia</strong> — e atendo o <strong class="text-forest">Brasil inteiro, 100% online</strong>. Não importa onde você está: a gente conversa, eu crio, e seu site entra no ar.</p>
                 <p class="reveal-up">Eu mesmo cuido do seu projeto do início ao fim: do texto ao código, do visual ao Google. Site de verdade, rápido e sob medida — nada de modelo pronto que todo mundo usa.</p>
-                <p class="reveal-up font-semibold text-white">Pra mim, todo negócio merece a mesma presença digital que as grandes empresas têm.</p>
+                <p class="reveal-up font-semibold text-forest">Pra mim, todo negócio merece a mesma presença digital que as grandes empresas têm.</p>
               </div>
             </div>
           </div>
@@ -328,16 +355,16 @@
       <!-- CTA -->
       <section class="py-20 md:py-28">
         <div class="max-w-4xl mx-auto px-5">
-          <div class="reveal-up glass text-center py-16 px-8 md:px-16 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-terra/5 via-transparent to-terra-light/5 pointer-events-none"></div>
+          <div class="reveal-up text-center rounded-3xl bg-forest py-16 px-8 md:px-16 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(rgba(244,240,230,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(244,240,230,.08) 1px,transparent 1px);background-size:32px 32px"></div>
             <div class="relative">
-              <h2 class="text-3xl md:text-4xl font-bold text-white mb-5">Bora colocar seu negócio no mapa?</h2>
-              <p class="text-gray-400 max-w-lg mx-auto mb-8 text-lg">A sua próxima oportunidade pode estar pesquisando seu serviço no Google agora mesmo. A primeira conversa é sem compromisso.</p>
-              <a href="#" data-wa class="glow-btn text-white font-semibold px-8 py-4 rounded-full text-lg inline-flex items-center gap-3">
+              <h2 class="text-3xl md:text-4xl font-bold text-cream mb-5" style="color:#F4F0E6">Bora colocar seu negócio no mapa?</h2>
+              <p class="text-cream/80 max-w-lg mx-auto mb-8 text-lg" style="color:rgba(244,240,230,.8)">A sua próxima oportunidade pode estar pesquisando seu serviço no Google agora mesmo. A primeira conversa é sem compromisso.</p>
+              <a href="#" data-wa class="terra-btn font-semibold px-8 py-4 rounded-full text-lg inline-flex items-center gap-3">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
                 Falar com o Ismaile no WhatsApp
               </a>
-              <p class="mt-5 text-sm text-gray-500">Resposta em até 24h úteis.</p>
+              <p class="mt-5 text-sm" style="color:rgba(139,154,117,.8)">Resposta em até 24h úteis.</p>
             </div>
           </div>
         </div>
@@ -345,40 +372,42 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="py-10 border-t border-white/5">
+    <footer class="py-10 bg-forest">
       <div class="max-w-6xl mx-auto px-5">
         <div class="grid sm:grid-cols-3 gap-8 mb-10">
           <div>
             <div class="flex items-center gap-3 mb-4">
-              <div class="w-8 h-8 rounded-lg bg-dark-700 border border-white/10 flex items-center justify-center font-display font-bold text-xs">
-                <span class="text-white">I</span><span class="text-terra">P</span>
-              </div>
+              <svg class="w-8 h-6 pixel-border" viewBox="0 0 140 100" shape-rendering="crispEdges" aria-hidden="true">
+                <g fill="#8B9A75"><rect x="67" y="2" width="6" height="18"/><rect x="49" y="8" width="5" height="5"/><rect x="44" y="13" width="5" height="5"/><rect x="86" y="8" width="5" height="5"/><rect x="91" y="13" width="5" height="5"/><rect x="34" y="14" width="5" height="5"/><rect x="101" y="14" width="5" height="5"/></g>
+                <g fill="#BF5A30"><rect x="48" y="43" width="44" height="5"/><rect x="42" y="48" width="56" height="5"/><rect x="36" y="53" width="68" height="5"/></g>
+                <rect x="22" y="62" width="96" height="3" fill="#BF5A30" opacity=".5"/>
+              </svg>
               <span>
-                <span class="font-display font-bold text-white text-sm block leading-none">Ismaile Pereira</span>
+                <span class="font-display font-bold text-cream text-sm block leading-none lowercase" style="color:#F4F0E6">ismaile pereira</span>
                 <span class="text-[9px] font-bold tracking-[.2em] text-terra uppercase">Presença Digital</span>
               </span>
             </div>
-            <p class="text-sm text-gray-500 max-w-xs">Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.</p>
+            <p class="text-sm" style="color:rgba(244,240,230,.6)">Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.</p>
           </div>
           <div>
-            <h4 class="text-xs font-bold tracking-[.15em] uppercase text-gray-500 mb-4">Navegação</h4>
+            <h4 class="text-xs font-bold tracking-[.15em] uppercase mb-4" style="color:rgba(244,240,230,.4)">Navegação</h4>
             <div class="space-y-2">
-              <a href="#inicio" class="block text-sm text-gray-400 hover:text-white transition-colors">Início</a>
-              <a href="#servicos" class="block text-sm text-gray-400 hover:text-white transition-colors">Serviços</a>
-              <a href="#projetos" class="block text-sm text-gray-400 hover:text-white transition-colors">Projetos</a>
-              <a href="#sobre" class="block text-sm text-gray-400 hover:text-white transition-colors">Sobre</a>
+              <a href="#inicio" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Início</a>
+              <a href="#servicos" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Serviços</a>
+              <a href="#projetos" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Projetos</a>
+              <a href="#sobre" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Sobre</a>
             </div>
           </div>
           <div>
-            <h4 class="text-xs font-bold tracking-[.15em] uppercase text-gray-500 mb-4">Fale comigo</h4>
+            <h4 class="text-xs font-bold tracking-[.15em] uppercase mb-4" style="color:rgba(244,240,230,.4)">Fale comigo</h4>
             <div class="space-y-2">
-              <a href="#" data-wa class="block text-sm text-gray-400 hover:text-white transition-colors">WhatsApp</a>
-              <a href="mailto:ismailepereiramachado@gmail.com" class="block text-sm text-gray-400 hover:text-white transition-colors">E-mail</a>
-              <a href="https://github.com/ismailepereira" target="_blank" rel="noopener" class="block text-sm text-gray-400 hover:text-white transition-colors">GitHub</a>
+              <a href="#" data-wa class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">WhatsApp</a>
+              <a href="mailto:ismailepereiramachado@gmail.com" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">E-mail</a>
+              <a href="https://github.com/ismailepereira" target="_blank" rel="noopener" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">GitHub</a>
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap gap-4 justify-between items-center pt-6 border-t border-white/5 text-xs text-gray-600">
+        <div class="flex flex-wrap gap-4 justify-between items-center pt-6 border-t border-white/10 text-xs" style="color:rgba(244,240,230,.35)">
           <span>Mirante da Serra, RO — atendimento em todo o Brasil</span>
           <span>&copy; <span id="year"></span> Ismaile Pereira · Presença Digital</span>
         </div>
@@ -401,17 +430,15 @@
   (function(){
     "use strict";
 
-    /* === CONFIG === */
     var WA = "5569999688625";
     var MSG = "Olá Ismaile! Vi seu site e quero um orçamento.";
     var waLink = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG);
     document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = waLink; });
 
-    /* === ANO === */
     var y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
 
-    /* === MENU MOBILE === */
+    /* Menu mobile */
     var toggle = document.getElementById("navToggle");
     var menu = document.getElementById("mobileMenu");
     if (toggle && menu) {
@@ -424,7 +451,7 @@
       });
     }
 
-    /* === SCROLL SUAVE === */
+    /* Scroll suave */
     document.querySelectorAll('a[href^="#"]').forEach(function(link){
       link.addEventListener("click", function(e){
         var id = link.getAttribute("href");
@@ -437,41 +464,52 @@
       });
     });
 
-    /* === HEADER SHADOW === */
+    /* Header shadow */
     var hdr = document.getElementById("nav-header");
     window.addEventListener("scroll", function(){
-      if (hdr) hdr.classList.toggle("shadow-lg", window.scrollY > 10);
+      if (hdr) {
+        var scrolled = window.scrollY > 10;
+        hdr.style.boxShadow = scrolled ? "0 4px 20px rgba(46,58,47,.08)" : "none";
+      }
     }, { passive: true });
 
     /* ========================================
-       THREE.JS — Particle Constellation
+       THREE.JS — Warm Organic Particles
        ======================================== */
     var canvas = document.getElementById("bg-canvas");
     if (canvas && window.THREE) {
       var isMobile = window.innerWidth < 768;
       var scene = new THREE.Scene();
       var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-      camera.position.z = 300;
+      camera.position.z = 350;
 
       var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: !isMobile });
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setClearColor(0x000000, 0);
 
-      var count = isMobile ? 60 : 120;
-      var maxDist = isMobile ? 100 : 120;
+      var count = isMobile ? 50 : 100;
+      var maxDist = 110;
       var posArr = new Float32Array(count * 3);
       var velArr = [];
+      var colArr = new Float32Array(count * 3);
 
       for (var i = 0; i < count; i++) {
         posArr[i*3]   = (Math.random() - 0.5) * 700;
         posArr[i*3+1] = (Math.random() - 0.5) * 700;
-        posArr[i*3+2] = (Math.random() - 0.5) * 300;
-        velArr.push((Math.random()-.5)*.4, (Math.random()-.5)*.4, (Math.random()-.5)*.2);
+        posArr[i*3+2] = (Math.random() - 0.5) * 250;
+        velArr.push((Math.random()-.5)*.3, (Math.random()-.5)*.3, (Math.random()-.5)*.15);
+        if (Math.random() > 0.5) {
+          colArr[i*3] = 0.75; colArr[i*3+1] = 0.35; colArr[i*3+2] = 0.19;
+        } else {
+          colArr[i*3] = 0.55; colArr[i*3+1] = 0.60; colArr[i*3+2] = 0.46;
+        }
       }
 
       var pGeo = new THREE.BufferGeometry();
       pGeo.setAttribute("position", new THREE.BufferAttribute(posArr, 3));
-      var pMat = new THREE.PointsMaterial({ color: 0xBF5A30, size: isMobile ? 2.5 : 3, transparent: true, opacity: 0.7, blending: THREE.AdditiveBlending });
+      pGeo.setAttribute("color", new THREE.BufferAttribute(colArr, 3));
+      var pMat = new THREE.PointsMaterial({ size: isMobile ? 2 : 2.5, transparent: true, opacity: 0.45, vertexColors: true });
       scene.add(new THREE.Points(pGeo, pMat));
 
       var maxLines = count * (count - 1) / 2;
@@ -480,9 +518,9 @@
       var lGeo = new THREE.BufferGeometry();
       lGeo.setAttribute("position", new THREE.BufferAttribute(lPos, 3));
       lGeo.setAttribute("color", new THREE.BufferAttribute(lCol, 3));
-      var lMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.25, blending: THREE.AdditiveBlending });
-      var lines = new THREE.LineSegments(lGeo, lMat);
-      if (!isMobile) scene.add(lines);
+      var lMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.12 });
+      var lineMesh = new THREE.LineSegments(lGeo, lMat);
+      if (!isMobile) scene.add(lineMesh);
 
       var mx = 0, my = 0;
       document.addEventListener("mousemove", function(e){
@@ -499,7 +537,7 @@
           p[i*3+2] += velArr[i*3+2];
           if (Math.abs(p[i*3])   > 350) velArr[i*3]   *= -1;
           if (Math.abs(p[i*3+1]) > 350) velArr[i*3+1] *= -1;
-          if (Math.abs(p[i*3+2]) > 150) velArr[i*3+2] *= -1;
+          if (Math.abs(p[i*3+2]) > 125) velArr[i*3+2] *= -1;
         }
         pGeo.attributes.position.needsUpdate = true;
 
@@ -511,7 +549,7 @@
               var d = Math.sqrt(dx*dx+dy*dy+dz*dz);
               if (d < maxDist){
                 var al = 1 - d/maxDist;
-                var r = .75*al, g = .35*al, bl2 = .19*al;
+                var r = .55*al, g = .45*al, bl2 = .30*al;
                 lPos[li*6]=p[a*3]; lPos[li*6+1]=p[a*3+1]; lPos[li*6+2]=p[a*3+2];
                 lPos[li*6+3]=p[b*3]; lPos[li*6+4]=p[b*3+1]; lPos[li*6+5]=p[b*3+2];
                 lCol[li*6]=r; lCol[li*6+1]=g; lCol[li*6+2]=bl2;
@@ -525,8 +563,8 @@
           lGeo.attributes.color.needsUpdate = true;
         }
 
-        camera.position.x += (mx*40 - camera.position.x) * 0.03;
-        camera.position.y += (my*40 - camera.position.y) * 0.03;
+        camera.position.x += (mx*25 - camera.position.x) * 0.02;
+        camera.position.y += (my*25 - camera.position.y) * 0.02;
         camera.lookAt(scene.position);
         renderer.render(scene, camera);
       }
@@ -540,7 +578,7 @@
     }
 
     /* ========================================
-       GSAP — Scroll Animations
+       GSAP — Smooth Organic Scroll Animations
        ======================================== */
     if (window.gsap && window.ScrollTrigger) {
       gsap.registerPlugin(ScrollTrigger);
@@ -548,13 +586,13 @@
       gsap.utils.toArray(".reveal-up").forEach(function(el, i){
         gsap.to(el, {
           scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
-          opacity: 1, y: 0, duration: 0.8, delay: (i % 4) * 0.1, ease: "power3.out"
+          opacity: 1, y: 0, duration: 1, delay: (i % 4) * 0.08, ease: "power2.out"
         });
       });
 
       gsap.to("#bg-canvas", {
         scrollTrigger: { trigger: "#servicos", start: "top bottom", end: "top top", scrub: true },
-        opacity: 0.3, ease: "none"
+        opacity: 0.2, ease: "none"
       });
     }
   })();
