@@ -61,3 +61,6 @@ Thumbs.db
 /ismaile-site.zip
 versoes/*/
 
+# Painel de postagem — ferramenta LOCAL de autoria (não publicar no site nem no GitHub)
+postar.html
+

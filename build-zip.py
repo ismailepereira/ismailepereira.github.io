@@ -22,7 +22,7 @@ PREFIX = "ismaile-site"
 # Pastas e arquivos que NAO vao pro pacote de deploy
 IGNORE_DIRS  = {".git", ".github", ".claude", "docs", "scripts", "versoes",
                 "node_modules", "__pycache__", ".vscode", ".idea", "venv", ".venv"}
-IGNORE_FILES = {"build-zip.py", "README.md", ".gitignore"}
+IGNORE_FILES = {"build-zip.py", "README.md", ".gitignore", "postar.html"}
 IGNORE_EXT   = {".zip", ".py", ".pyc", ".log"}
 
 os.makedirs(VDIR, exist_ok=True)
