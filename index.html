@@ -52,12 +52,17 @@
     @keyframes cube-idle{from{transform:rotateX(0) rotateY(0)}to{transform:rotateX(360deg) rotateY(360deg)}}
     @media (max-width:767px){.cube-hide-m{display:none}.cube-pos{opacity:.55}}
     @media (prefers-reduced-motion:reduce){.cube-inner{animation:none}}
+    /* Brilho que segue o mouse */
+    #cursor-glow{position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9999;opacity:0;transition:opacity .35s ease;mix-blend-mode:multiply;background:radial-gradient(circle,rgba(191,90,48,.16),rgba(191,90,48,0) 68%);transform:translate(-50%,-50%);will-change:transform}
+    @media (hover:none),(pointer:coarse){#cursor-glow{display:none}}
   </style>
 </head>
 <body class="bg-cream text-forest antialiased overflow-x-hidden">
 
   <!-- Three.js Canvas -->
   <canvas id="bg-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+  <!-- Brilho que segue o mouse -->
+  <div id="cursor-glow" aria-hidden="true"></div>
 
   <div class="relative z-10">
 
@@ -571,8 +576,8 @@
           lGeo.attributes.color.needsUpdate = true;
         }
 
-        camera.position.x += (mx*25 - camera.position.x) * 0.02;
-        camera.position.y += (my*25 - camera.position.y) * 0.02;
+        camera.position.x += (mx*40 - camera.position.x) * 0.02;
+        camera.position.y += (my*40 - camera.position.y) * 0.02;
         camera.lookAt(scene.position);
         renderer.render(scene, camera);
       }
@@ -646,6 +651,42 @@
         });
       }
     }
+  })();
+  </script>
+
+  <!-- Interatividade do mouse: brilho que segue + parallax dos cubos -->
+  <script>
+  (function(){
+    "use strict";
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return; // só com mouse de verdade
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var glow = document.getElementById("cursor-glow");
+    var layers = [];
+    Array.prototype.forEach.call(document.querySelectorAll(".cubes"), function (l, i) {
+      layers.push({ el: l, depth: 10 + (i % 3) * 7 });
+    });
+    var tx = window.innerWidth / 2, ty = window.innerHeight / 2, gx = tx, gy = ty;
+    var nx = 0, ny = 0, cx = 0, cy = 0;
+    window.addEventListener("mousemove", function (e) {
+      tx = e.clientX; ty = e.clientY;
+      nx = (e.clientX / window.innerWidth - 0.5) * 2;
+      ny = (e.clientY / window.innerHeight - 0.5) * 2;
+      if (glow) glow.style.opacity = "1";
+    }, { passive: true });
+    document.addEventListener("mouseleave", function () { if (glow) glow.style.opacity = "0"; });
+    function loop() {
+      gx += (tx - gx) * 0.16; gy += (ty - gy) * 0.16;
+      if (glow) glow.style.transform = "translate(" + gx + "px," + gy + "px) translate(-50%,-50%)";
+      if (!reduce) {
+        cx += (nx - cx) * 0.06; cy += (ny - cy) * 0.06;
+        for (var i = 0; i < layers.length; i++) {
+          var d = layers[i].depth;
+          layers[i].el.style.transform = "translate3d(" + (-cx * d).toFixed(2) + "px," + (-cy * d).toFixed(2) + "px,0)";
+        }
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
   })();
   </script>
 </body>
