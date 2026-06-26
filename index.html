@@ -34,6 +34,21 @@
     .line-glow{height:1px;background:linear-gradient(90deg,transparent,#8B9A75,transparent)}
     .pixel-border{image-rendering:pixelated}
     ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F4F0E6}::-webkit-scrollbar-thumb{background:#8B9A75;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#2E3A2F}
+    /* ===== Cubos 3D decorativos (rotação/deriva no scroll) ===== */
+    .cubes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+    .cube-pos{position:absolute;width:var(--s);height:var(--s);perspective:700px;opacity:.85;will-change:transform}
+    .cube-3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+    .cube-inner{position:absolute;inset:0;transform-style:preserve-3d;animation:cube-idle var(--spin,18s) linear infinite}
+    .cube-face{position:absolute;width:var(--s);height:var(--s);border:1px solid rgba(46,58,47,.22);background-color:var(--mid);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 8px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 8px)}
+    .f-front{transform:translateZ(var(--h))}
+    .f-back{transform:rotateY(180deg) translateZ(var(--h))}
+    .f-right{transform:rotateY(90deg) translateZ(var(--h));background-color:var(--dark)}
+    .f-left{transform:rotateY(-90deg) translateZ(var(--h));background-color:var(--dark)}
+    .f-top{transform:rotateX(90deg) translateZ(var(--h));background-color:var(--light)}
+    .f-bottom{transform:rotateX(-90deg) translateZ(var(--h));background-color:var(--dark2)}
+    @keyframes cube-idle{from{transform:rotateX(0) rotateY(0)}to{transform:rotateX(360deg) rotateY(360deg)}}
+    @media (max-width:767px){.cube-hide-m{display:none}.cube-pos{opacity:.55}}
+    @media (prefers-reduced-motion:reduce){.cube-inner{animation:none}}
   </style>
 </head>
 <body class="bg-cream text-forest antialiased overflow-x-hidden">
@@ -82,7 +97,14 @@
       <!-- HERO -->
       <section id="inicio" class="flex items-center relative">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream pointer-events-none"></div>
-        <div class="max-w-6xl mx-auto px-5 py-12 md:py-16 w-full relative">
+        <div class="cubes" aria-hidden="true">
+          <div class="cube-pos cube-hide-m" style="right:8%;top:15%;--s:66px;--h:33px;--spin:20s;--light:#D4774F;--mid:#BF5A30;--dark:#A24A26;--dark2:#8A3E20"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
+          <div class="cube-pos" style="left:4%;top:9%;--s:44px;--h:22px;--spin:24s;--light:#A9B795;--mid:#8B9A75;--dark:#6E7B5C;--dark2:#5A6749"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
+          <div class="cube-pos cube-hide-m" style="left:5%;bottom:12%;--s:58px;--h:29px;--spin:18s;--light:#4A5A45;--mid:#2E3A2F;--dark:#283328;--dark2:#1F271F"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
+          <div class="cube-pos cube-hide-m" style="right:5%;top:50%;--s:40px;--h:20px;--spin:26s;--light:#E68F6B;--mid:#D4774F;--dark:#BF5A30;--dark2:#A24A26"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
+          <div class="cube-pos" style="right:7%;bottom:13%;--s:38px;--h:19px;--spin:22s;--light:#A9B795;--mid:#8B9A75;--dark:#6E7B5C;--dark2:#5A6749"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-5 py-12 md:py-16 w-full relative z-10">
           <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
             <div>
               <div class="reveal-up inline-flex items-center gap-2 bg-sage-soft border border-sage/20 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-forest-light mb-8">
@@ -577,6 +599,22 @@
         scrollTrigger: { trigger: "#servicos", start: "top bottom", end: "top top", scrub: true },
         opacity: 0.2, ease: "none"
       });
+
+      /* Cubos 3D — rotação + deriva no scroll. Reduzido no mobile; respeita reduce-motion. */
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        var cubeMM = gsap.matchMedia();
+        cubeMM.add({ isMobile: "(max-width: 767px)", isDesktop: "(min-width: 768px)" }, function (ctx) {
+          var mob = ctx.conditions.isMobile;
+          var sel = mob ? ".cube-pos:not(.cube-hide-m)" : ".cube-pos";
+          var k = mob ? 0.45 : 1;
+          gsap.utils.toArray(sel).forEach(function (el, i) {
+            var d = i % 2 ? 1 : -1;
+            var st = { trigger: "#inicio", start: "top top", end: "bottom top", scrub: mob ? 1 : 0.6 };
+            gsap.to(el.querySelector(".cube-3d"), { rotationY: d * 720 * k, rotationX: d * 460 * k, rotationZ: d * 200 * k, ease: "none", scrollTrigger: st });
+            gsap.to(el, { yPercent: d * (mob ? 60 : 160), xPercent: d * (mob ? 0 : 40), ease: "none", scrollTrigger: st });
+          });
+        });
+      }
     }
   })();
   </script>
