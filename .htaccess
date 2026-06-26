@@ -1,0 +1,23 @@
+# Ismaile Pereira · Presença Digital — config do servidor (Hostinger/Apache/LiteSpeed)
+# Obs.: o GitHub Pages ignora este arquivo; ele só vale na hospedagem própria.
+
+# Não servir arquivos de versionamento / desenvolvimento que vêm junto no clone Git
+RedirectMatch 404 ^/(\.git|\.github|\.claude|versoes|docs|scripts)(/|$)
+RedirectMatch 404 \.(py|md|log)$
+
+# ─── Cabeçalhos de segurança ───
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # HSTS: só tem efeito em HTTPS — mantém após ativar o SSL
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  # CSP: se apontar o API_BASE do blog para um domínio externo, adicione-o em connect-src
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+</IfModule>
+
+# Forçar HTTPS (descomente depois de ativar o SSL no hPanel)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

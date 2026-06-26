@@ -110,7 +110,11 @@
     var tmp = document.createElement("div"); tmp.textContent = html; return "<p>" + tmp.innerHTML + "</p>";
   }
   function escapeHTML(s) {
-    if (!s) return ""; var d = document.createElement("span"); d.textContent = s; return d.innerHTML;
+    if (s === 0) s = "0";
+    if (!s) return "";
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
   /* Revela os cards (fade/slide). rAF para a animação + setTimeout de

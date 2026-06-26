@@ -55,3 +55,8 @@ build/
 .DS_Store
 Thumbs.db
 
+# ─── Pacotes de deploy (gerados por build-zip.py) ───
+# Não versionar os binários; mantém só build-zip.py + versoes/CHANGELOG.md
+*.zip
+versoes/*/
+
