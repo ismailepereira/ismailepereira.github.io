@@ -56,7 +56,8 @@ build/
 Thumbs.db
 
 # ─── Pacotes de deploy (gerados por build-zip.py) ───
-# Não versionar os binários; mantém só build-zip.py + versoes/CHANGELOG.md
-*.zip
+# Mantém o histórico de versões em versoes/*.zip (versionado no Git).
+# Ignora só a cópia "mais recente" da raiz (duplicata regenerada) e pastas extraídas.
+/ismaile-site.zip
 versoes/*/
 
