@@ -173,13 +173,15 @@
     return '<span class="blog-tag ' + info.cls + '">' + escapeHTML(info.label) + '</span>';
   }
   function postCardHTML(post) {
-    var slug = encodeURIComponent(post.slug), rt = readingTime(post.content);
+    var slug = encodeURIComponent(post.slug);
+    var hasContent = post.content && String(post.content).replace(/<[^>]+>/g, "").trim().length > 0;
+    var readMeta = hasContent ? ' · ' + readingTime(post.content) + ' min' : '';
     return ''
       + '<a class="blog-card" href="blog-post.html?slug=' + slug + '">'
       +   postCover(post)
       +   '<div class="blog-card__body">'
       +     '<div class="blog-card__top">' + cardTag(post)
-      +       '<span class="blog-card__meta">' + px("clock") + '<time datetime="' + escapeHTML(post.createdAt) + '">' + formatDate(post.createdAt) + '</time> · ' + rt + ' min</span>'
+      +       '<span class="blog-card__meta">' + px("clock") + '<time datetime="' + escapeHTML(post.createdAt) + '">' + formatDate(post.createdAt) + '</time>' + readMeta + '</span>'
       +     '</div>'
       +     '<h2 class="blog-card__title">' + escapeHTML(post.title) + '</h2>'
       +     (post.excerpt ? '<p class="blog-card__excerpt">' + escapeHTML(post.excerpt) + '</p>' : '')
