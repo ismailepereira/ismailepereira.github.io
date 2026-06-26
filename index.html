@@ -24,8 +24,9 @@
     body{font-family:'Inter',system-ui,sans-serif}
     h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#2E3A2F}
     .gradient-text{background:linear-gradient(135deg,#BF5A30,#D4774F,#e89a6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .warm-card{background:#fff;border:1px solid rgba(139,154,117,.15);border-radius:16px;box-shadow:0 4px 20px rgba(46,58,47,.06);transition:transform .3s,box-shadow .3s}
-    .warm-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(46,58,47,.12)}
+    .warm-card{position:relative;background-color:rgba(255,255,255,.62);background-image:repeating-linear-gradient(0deg,rgba(46,58,47,.05) 0 1px,transparent 1px 7px),repeating-linear-gradient(90deg,rgba(46,58,47,.05) 0 1px,transparent 1px 7px);-webkit-backdrop-filter:blur(7px) saturate(1.08);backdrop-filter:blur(7px) saturate(1.08);border:2px solid #2E3A2F;border-radius:6px;box-shadow:5px 5px 0 rgba(46,58,47,.85);transition:transform .15s,box-shadow .15s}
+    .warm-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #BF5A30}
+    @media (max-width:767px){.warm-card{-webkit-backdrop-filter:none;backdrop-filter:none;background-color:rgba(255,255,255,.92)}}
     .terra-btn{background:linear-gradient(135deg,#BF5A30,#D4774F);color:#fff;box-shadow:0 4px 16px rgba(191,90,48,.25);transition:box-shadow .3s,transform .3s}
     .terra-btn:hover{box-shadow:0 8px 28px rgba(191,90,48,.4);transform:translateY(-2px)}
     @keyframes dot-pulse{0%{box-shadow:0 0 0 0 rgba(139,154,117,.5)}70%{box-shadow:0 0 0 8px rgba(139,154,117,0)}100%{box-shadow:0 0 0 0 rgba(139,154,117,0)}}
@@ -35,7 +36,9 @@
     .pixel-border{image-rendering:pixelated}
     ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F4F0E6}::-webkit-scrollbar-thumb{background:#8B9A75;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#2E3A2F}
     /* ===== Cubos 3D decorativos (rotação/deriva no scroll) ===== */
-    .cubes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+    .cubes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+    .has-cubes{position:relative;isolation:isolate}
+    .pg-grid{background-image:repeating-linear-gradient(0deg,rgba(46,58,47,.03) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(46,58,47,.03) 0 1px,transparent 1px 26px)}
     .cube-pos{position:absolute;width:var(--s);height:var(--s);perspective:700px;opacity:.85;will-change:transform}
     .cube-3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
     .cube-inner{position:absolute;inset:0;transform-style:preserve-3d;animation:cube-idle var(--spin,18s) linear infinite}
@@ -582,6 +585,32 @@
       });
     }
 
+    /* ===== Espalha cubos 3D + textura por todas as seções ===== */
+    function buildCubes(){
+      var pals=[["#D4774F","#BF5A30","#A24A26","#8A3E20"],["#A9B795","#8B9A75","#6E7B5C","#5A6749"],["#4A5A45","#2E3A2F","#283328","#1F271F"],["#E68F6B","#D4774F","#BF5A30","#A24A26"]];
+      var spots=[{css:"left:4%;top:14%",s:46,m:1,spin:22},{css:"right:6%;top:18%",s:60,m:0,spin:18},{css:"right:7%;bottom:14%",s:40,m:1,spin:26},{css:"left:6%;bottom:16%",s:54,m:0,spin:20}];
+      var faces=["f-front","f-back","f-right","f-left","f-top","f-bottom"];
+      function cube(spot,pal){
+        var p=document.createElement("div");
+        p.className="cube-pos"+(spot.m?"":" cube-hide-m");
+        p.setAttribute("style",spot.css+";--s:"+spot.s+"px;--h:"+(spot.s/2)+"px;--spin:"+spot.spin+"s;--light:"+pal[0]+";--mid:"+pal[1]+";--dark:"+pal[2]+";--dark2:"+pal[3]);
+        var d=document.createElement("div");d.className="cube-3d";
+        var inner=document.createElement("div");inner.className="cube-inner";
+        faces.forEach(function(f){var s=document.createElement("span");s.className="cube-face "+f;inner.appendChild(s);});
+        d.appendChild(inner);p.appendChild(d);return p;
+      }
+      var secs=document.querySelectorAll("main > section");
+      Array.prototype.forEach.call(secs,function(sec,si){
+        sec.classList.add("has-cubes","pg-grid");
+        if(sec.id==="inicio")return;
+        var layer=document.createElement("div");layer.className="cubes";layer.setAttribute("aria-hidden","true");
+        layer.appendChild(cube(spots[si%spots.length],pals[si%pals.length]));
+        layer.appendChild(cube(spots[(si+2)%spots.length],pals[(si+1)%pals.length]));
+        sec.insertBefore(layer,sec.firstChild);
+      });
+    }
+    buildCubes();
+
     /* ========================================
        GSAP — Smooth Organic Scroll Animations
        ======================================== */
@@ -600,18 +629,19 @@
         opacity: 0.2, ease: "none"
       });
 
-      /* Cubos 3D — rotação + deriva no scroll. Reduzido no mobile; respeita reduce-motion. */
+      /* Cubos 3D — rotação + deriva conforme cada seção entra na viewport. */
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         var cubeMM = gsap.matchMedia();
         cubeMM.add({ isMobile: "(max-width: 767px)", isDesktop: "(min-width: 768px)" }, function (ctx) {
           var mob = ctx.conditions.isMobile;
           var sel = mob ? ".cube-pos:not(.cube-hide-m)" : ".cube-pos";
-          var k = mob ? 0.45 : 1;
+          var k = mob ? 0.4 : 1;
           gsap.utils.toArray(sel).forEach(function (el, i) {
-            var d = i % 2 ? 1 : -1;
-            var st = { trigger: "#inicio", start: "top top", end: "bottom top", scrub: mob ? 1 : 0.6 };
-            gsap.to(el.querySelector(".cube-3d"), { rotationY: d * 720 * k, rotationX: d * 460 * k, rotationZ: d * 200 * k, ease: "none", scrollTrigger: st });
-            gsap.to(el, { yPercent: d * (mob ? 60 : 160), xPercent: d * (mob ? 0 : 40), ease: "none", scrollTrigger: st });
+            var sec = el.closest("section") || document.body;
+            var dir = i % 2 ? 1 : -1;
+            var st = { trigger: sec, start: "top bottom", end: "bottom top", scrub: mob ? 1 : 0.6 };
+            gsap.to(el.querySelector(".cube-3d"), { rotationY: dir * 540 * k, rotationX: dir * 360 * k, rotationZ: dir * 160 * k, ease: "none", scrollTrigger: st });
+            gsap.to(el, { yPercent: dir * (mob ? 40 : 110), ease: "none", scrollTrigger: st });
           });
         });
       }
