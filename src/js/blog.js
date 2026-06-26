@@ -17,7 +17,7 @@
   "use strict";
 
   /* ────────────────── CONFIG ────────────────── */
-  var API_BASE   = "";                         // "" = usa JSON local | ex: "https://painel.seudominio.com.br"
+  var API_BASE   = "https://ismaile-pereira.ilmoretto.tech";  // API do Alencar (Vercel). Use "" para voltar ao JSON local.
   var LOCAL_URL  = "blog/posts.json";
   var POSTS_URL  = API_BASE ? API_BASE + "/api/postagens" : LOCAL_URL;
   var SLUG_URL   = API_BASE ? API_BASE + "/api/postagens/slug/" : null;
@@ -39,7 +39,9 @@
   function categoryInfo(raw) {
     if (!raw) return { label: "Presença Digital", cls: "tag--sage" };
     var key = String(raw).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    return CATEGORIES[key] || { label: String(raw), cls: "tag--sage" };
+    if (CATEGORIES[key]) return CATEGORIES[key];
+    var nice = key.replace(/-/g, " ").replace(/^\w/, function (c) { return c.toUpperCase(); });
+    return { label: nice || String(raw), cls: "tag--sage" };
   }
 
   /* ────────────────── ÍCONES PIXEL (8-bit, inline) ────────────────── */
