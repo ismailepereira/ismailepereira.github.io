@@ -55,6 +55,29 @@
     /* Brilho que segue o mouse */
     #cursor-glow{position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9999;opacity:0;transition:opacity .35s ease;mix-blend-mode:multiply;background:radial-gradient(circle,rgba(191,90,48,.16),rgba(191,90,48,0) 68%);transform:translate(-50%,-50%);will-change:transform}
     @media (hover:none),(pointer:coarse){#cursor-glow{display:none}}
+    /* ===== Livro 3D dos projetos (hero) ===== */
+    .flipbook{position:relative;width:100%;max-width:380px;margin:0 auto;perspective:1600px}
+    .flipbook__stack{position:relative;width:100%;padding-top:76%;transform-style:preserve-3d}
+    .fb-page{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:right center;transition:transform .8s cubic-bezier(.4,.18,.2,1);text-decoration:none}
+    .fb-page.is-flipped{transform:rotateY(170deg)}
+    .fb-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid #2E3A2F;border-radius:7px;overflow:hidden;background:#fff}
+    .fb-front{display:flex;flex-direction:column;box-shadow:6px 7px 0 rgba(46,58,47,.7)}
+    .fb-bar{height:26px;flex:none;display:flex;align-items:center;gap:5px;padding:0 9px;background:#E7EADD;border-bottom:2px solid #2E3A2F}
+    .fb-d{width:8px;height:8px;border-radius:50%;flex:none}
+    .fb-u{flex:1;min-width:0;font-size:10px;color:#4A5A45;background:#fff;border:1px solid rgba(46,58,47,.25);border-radius:4px;padding:2px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .fb-shot{flex:1;background-size:cover;background-position:top center;background-repeat:no-repeat}
+    .fb-cap{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;background:#2E3A2F;color:#F4F0E6}
+    .fb-cap b{font-family:'Playfair Display',Georgia,serif;font-size:13px;display:block;line-height:1.15}
+    .fb-cap small{font-size:10px;color:rgba(244,240,230,.7)}
+    .fb-go{flex:none;font-size:10px;font-weight:700;color:#fff;background:#BF5A30;border:1px solid #1f271f;border-radius:4px;padding:5px 8px;white-space:nowrap}
+    .fb-page:hover .fb-go{background:#A24A26}
+    .fb-back{display:none}
+    .fb-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+    .fb-dots{display:flex;gap:7px}
+    .fb-dot{width:10px;height:10px;border:2px solid #2E3A2F;background:#fff;cursor:pointer;padding:0;transition:background .2s}
+    .fb-dot.is-on{background:#BF5A30}
+    .fb-hint{font-size:11px;color:#8B9A75}
+    @media (max-width:1023px){.flipbook{max-width:340px;margin-top:10px}}
   </style>
 </head>
 <body class="bg-cream text-forest antialiased overflow-x-hidden">
@@ -139,19 +162,53 @@
                 De Mirante da Serra (RO) para o Brasil inteiro
               </div>
             </div>
-            <!-- Hero card -->
-            <div class="reveal-up hidden lg:block">
-              <div class="warm-card p-8 relative overflow-hidden">
-                <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
-                <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-24 mb-5 object-contain">
-                <h3 class="text-xl font-bold mb-2">Um estúdio, o ciclo inteiro</h3>
-                <p class="text-forest-light text-sm mb-5">Da primeira página no ar ao sistema que organiza o negócio.</p>
-                <ul class="space-y-3">
-                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presença digital com cara profissional</li>
-                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Site posicionado no Google</li>
-                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pronto pra receber pelo WhatsApp</li>
-                  <li class="flex items-center gap-3 text-sm text-forest-light"><svg class="w-5 h-5 text-terra flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Suporte e manutenção contínuos</li>
-                </ul>
+            <!-- Hero: livro 3D dos projetos -->
+            <div class="reveal-up">
+              <p class="text-center text-xs font-bold tracking-[.18em] uppercase text-terra mb-3">Projetos no ar — folheie</p>
+              <div class="flipbook" id="flipbook">
+                <div class="flipbook__stack">
+                  <a class="fb-page" href="https://postossavana.com.br" target="_blank" rel="noopener" aria-label="Auto Postos Savana — abrir site">
+                    <div class="fb-face fb-front">
+                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">postossavana.com.br</span></div>
+                      <div class="fb-shot" style="background-image:url('src/img/proj-savana.jpg')"></div>
+                      <div class="fb-cap"><span><b>Auto Postos Savana</b><small>Negócio local · RO</small></span><span class="fb-go">Ver site ↗</span></div>
+                    </div>
+                    <div class="fb-face fb-back">Ismaile Pereira · Presença Digital</div>
+                  </a>
+                  <a class="fb-page" href="https://psijessicamachado.com.br" target="_blank" rel="noopener" aria-label="Jéssica Machado — abrir site">
+                    <div class="fb-face fb-front">
+                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">psijessicamachado.com.br</span></div>
+                      <div class="fb-shot" style="background-image:url('src/img/proj-jessica.jpg')"></div>
+                      <div class="fb-cap"><span><b>Jéssica Machado</b><small>Neuropsicologia · Saúde</small></span><span class="fb-go">Ver site ↗</span></div>
+                    </div>
+                    <div class="fb-face fb-back">Ismaile Pereira · Presença Digital</div>
+                  </a>
+                  <a class="fb-page" href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener" aria-label="Alysson Mattos — abrir site">
+                    <div class="fb-face fb-front">
+                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">alysson-mattos-site</span></div>
+                      <div class="fb-shot" style="background-image:url('src/img/proj-alysson.jpg')"></div>
+                      <div class="fb-cap"><span><b>Alysson Mattos</b><small>Fisioterapia · MT</small></span><span class="fb-go">Ver site ↗</span></div>
+                    </div>
+                    <div class="fb-face fb-back">Ismaile Pereira · Presença Digital</div>
+                  </a>
+                  <a class="fb-page" href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener" aria-label="Maranata Music — abrir site">
+                    <div class="fb-face fb-front">
+                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">maranata-music</span></div>
+                      <div class="fb-shot" style="background-image:url('src/img/proj-maranata.jpg')"></div>
+                      <div class="fb-cap"><span><b>Maranata Music</b><small>Projeto social · Música</small></span><span class="fb-go">Ver site ↗</span></div>
+                    </div>
+                    <div class="fb-face fb-back">Ismaile Pereira · Presença Digital</div>
+                  </a>
+                </div>
+                <div class="fb-foot">
+                  <div class="fb-dots">
+                    <button class="fb-dot" type="button" aria-label="Auto Postos Savana"></button>
+                    <button class="fb-dot" type="button" aria-label="Jéssica Machado"></button>
+                    <button class="fb-dot" type="button" aria-label="Alysson Mattos"></button>
+                    <button class="fb-dot" type="button" aria-label="Maranata Music"></button>
+                  </div>
+                  <span class="fb-hint">passe o mouse · arraste</span>
+                </div>
               </div>
             </div>
           </div>
@@ -292,7 +349,7 @@
               <div class="p-5">
                 <p class="text-sm text-forest-light mb-4">Site institucional do posto na BR-364 (RO): responsivo, com SEO e seção de promoções.</p>
                 <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">HTML</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://ismailepereira.github.io/postos-savana/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://postossavana.com.br" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
             <article class="warm-card overflow-hidden reveal-up">
@@ -312,7 +369,7 @@
               <div class="p-5">
                 <p class="text-sm text-forest-light mb-4">Site da neuropsicóloga infantil, com posicionamento de marca e agendamento via WhatsApp.</p>
                 <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Branding</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://ismailepereira.github.io/jessica-machado-site/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://psijessicamachado.com.br" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
             <article class="warm-card overflow-hidden reveal-up">
@@ -322,7 +379,7 @@
               <div class="p-5">
                 <p class="text-sm text-forest-light mb-4">Landing de captação com inscrição, banco de dados e painel administrativo em Flask.</p>
                 <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Flask</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SQLite</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://github.com/ismailepereira/maranata-music" target="_blank" rel="noopener">Ver no GitHub <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
             <article class="warm-card overflow-hidden reveal-up">
@@ -335,8 +392,15 @@
                 <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://github.com/ismailepereira/baixador" target="_blank" rel="noopener">Ver no GitHub <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
               </div>
             </article>
-            <article class="reveal-up flex items-center justify-center p-8 border-2 border-dashed border-sage/25 rounded-2xl text-center bg-transparent">
-              <p class="text-sage italic">Novos projetos em breve...</p>
+            <article class="warm-card overflow-hidden reveal-up">
+              <div class="h-20 bg-gradient-to-r from-sage to-forest-light flex items-center px-6">
+                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">Saúde / fisioterapia</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Alysson Mattos</h3></div>
+              </div>
+              <div class="p-5">
+                <p class="text-sm text-forest-light mb-4">Site do fisioterapeuta em Tangará da Serra (MT): captação de pacientes, serviços e agendamento via WhatsApp.</p>
+                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Landing</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
+                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+              </div>
             </article>
           </div>
         </div>
@@ -687,6 +751,46 @@
       requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
+  })();
+  </script>
+
+  <!-- Livro 3D dos projetos: folhear no hover / arrastar / pontos -->
+  <script>
+  (function(){
+    var book = document.getElementById("flipbook");
+    if (!book) return;
+    var pages = Array.prototype.slice.call(book.querySelectorAll(".fb-page"));
+    var dots  = Array.prototype.slice.call(book.querySelectorAll(".fb-dot"));
+    var N = pages.length, flipped = 0, timer = null;
+    function render(){
+      for (var i = 0; i < N; i++){
+        var f = i < flipped;
+        pages[i].classList.toggle("is-flipped", f);
+        pages[i].style.zIndex = 100 - i;
+        pages[i].style.pointerEvents = f ? "none" : "auto";
+      }
+      for (var j = 0; j < dots.length; j++) dots[j].classList.toggle("is-on", j === (flipped % N));
+    }
+    function go(n){ flipped = ((n % N) + N) % N; render(); }
+    function next(){ flipped = (flipped + 1) % N; render(); }
+    function prev(){ flipped = (flipped - 1 + N) % N; render(); }
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+    dots.forEach(function(d, i){ d.addEventListener("click", function(e){ e.preventDefault(); stop(); go(i); }); });
+    var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (fine && !reduce){
+      book.addEventListener("mouseenter", function(){ if (!timer) timer = setInterval(next, 2100); });
+      book.addEventListener("mouseleave", stop);
+    }
+    var sx = null;
+    book.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; }, { passive: true });
+    book.addEventListener("touchend", function(e){
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40){ stop(); if (dx < 0) next(); else prev(); }
+      sx = null;
+    }, { passive: true });
+    render();
   })();
   </script>
 </body>
