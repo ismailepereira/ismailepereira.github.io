@@ -193,7 +193,7 @@
   function authorBioHTML() {
     return ''
       + '<aside class="post-author">'
-      +   '<div class="post-author__avatar"><img src="src/img/logo.png" alt="Ismaile Pereira" loading="lazy" /></div>'
+      +   '<div class="post-author__avatar"><img src="src/img/ismaile.jpg" alt="Ismaile Pereira" loading="lazy" /></div>'
       +   '<div class="post-author__body">'
       +     '<p class="post-author__eyebrow">' + px("leaf") + ' Sobre o autor</p>'
       +     '<h3>Ismaile Pereira</h3>'
