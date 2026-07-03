@@ -12,784 +12,324 @@
   <meta property="og:title" content="Ismaile Pereira · Presença Digital">
   <meta property="og:description" content="Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.">
   <meta property="og:url" content="https://ismailepereira.github.io/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23F4F0E6'/%3E%3Cpath d='M30 62 a20 20 0 0 1 40 0 z' fill='%23BF5A30'/%3E%3Crect x='22' y='70' width='56' height='4' rx='2' fill='%232E3A2F'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23FBF9F2'/%3E%3Cpath d='M30 62 a20 20 0 0 1 40 0 z' fill='%23BF5A30'/%3E%3Crect x='22' y='70' width='56' height='4' rx='2' fill='%232E3A2F'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2/dist/iconify-icon.min.js"></script>
   <script>
-    tailwind.config={theme:{extend:{fontFamily:{display:['"Playfair Display"','Georgia','serif'],body:['Inter','system-ui','sans-serif']},colors:{cream:{DEFAULT:'#F4F0E6',light:'#FBF9F2'},terra:{DEFAULT:'#BF5A30',dark:'#A24A26',light:'#D4774F'},forest:{DEFAULT:'#2E3A2F',light:'#4A5A45'},sage:{DEFAULT:'#8B9A75',soft:'#E7EADD'}}}}}
+    tailwind.config={theme:{extend:{
+      fontFamily:{sans:['"Plus Jakarta Sans"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']},
+      colors:{canvas:'#FBF9F2',surface:'#FFFFFF',ink:'#2E3A2F',body:'#4A5A45',subtle:'#8B9A75',line:'#E7E2D6',
+        terra:{DEFAULT:'#BF5A30',dark:'#A24A26',light:'#D4774F'},forest:'#2E3A2F',sage:'#8B9A75'},
+      letterSpacing:{tight:'-0.02em',tighter:'-0.04em'}
+    }}}
   </script>
   <style>
-    body{font-family:'Inter',system-ui,sans-serif}
-    h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#2E3A2F}
-    .gradient-text{background:linear-gradient(135deg,#BF5A30,#D4774F,#e89a6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .warm-card{position:relative;background-color:rgba(255,255,255,.62);background-image:repeating-linear-gradient(0deg,rgba(46,58,47,.05) 0 1px,transparent 1px 7px),repeating-linear-gradient(90deg,rgba(46,58,47,.05) 0 1px,transparent 1px 7px);-webkit-backdrop-filter:blur(7px) saturate(1.08);backdrop-filter:blur(7px) saturate(1.08);border:2px solid #2E3A2F;border-radius:6px;box-shadow:5px 5px 0 rgba(46,58,47,.85);transition:transform .15s,box-shadow .15s}
-    .warm-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #BF5A30}
-    @media (max-width:767px){.warm-card{-webkit-backdrop-filter:none;backdrop-filter:none;background-color:rgba(255,255,255,.92)}}
-    .terra-btn{background:linear-gradient(135deg,#BF5A30,#D4774F);color:#fff;box-shadow:0 4px 16px rgba(191,90,48,.25);transition:box-shadow .3s,transform .3s}
-    .terra-btn:hover{box-shadow:0 8px 28px rgba(191,90,48,.4);transform:translateY(-2px)}
-    @keyframes dot-pulse{0%{box-shadow:0 0 0 0 rgba(139,154,117,.5)}70%{box-shadow:0 0 0 8px rgba(139,154,117,0)}100%{box-shadow:0 0 0 0 rgba(139,154,117,0)}}
-    @keyframes wa-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
-    .reveal-up{opacity:0;transform:translateY(40px)}
-    .line-glow{height:1px;background:linear-gradient(90deg,transparent,#8B9A75,transparent)}
-    .pixel-border{image-rendering:pixelated}
-    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F4F0E6}::-webkit-scrollbar-thumb{background:#8B9A75;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#2E3A2F}
-    /* ===== Cubos 3D decorativos (rotação/deriva no scroll) ===== */
-    .cubes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
-    .has-cubes{position:relative;isolation:isolate}
-    .pg-grid{background-image:repeating-linear-gradient(0deg,rgba(46,58,47,.03) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(46,58,47,.03) 0 1px,transparent 1px 26px)}
-    .cube-pos{position:absolute;width:var(--s);height:var(--s);perspective:700px;opacity:.85;will-change:transform}
-    .cube-3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
-    .cube-inner{position:absolute;inset:0;transform-style:preserve-3d;animation:cube-idle var(--spin,18s) linear infinite}
-    .cube-face{position:absolute;width:var(--s);height:var(--s);border:1px solid rgba(46,58,47,.22);background-color:var(--mid);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 8px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 8px)}
-    .f-front{transform:translateZ(var(--h))}
-    .f-back{transform:rotateY(180deg) translateZ(var(--h))}
-    .f-right{transform:rotateY(90deg) translateZ(var(--h));background-color:var(--dark)}
-    .f-left{transform:rotateY(-90deg) translateZ(var(--h));background-color:var(--dark)}
-    .f-top{transform:rotateX(90deg) translateZ(var(--h));background-color:var(--light)}
-    .f-bottom{transform:rotateX(-90deg) translateZ(var(--h));background-color:var(--dark2)}
-    @keyframes cube-idle{from{transform:rotateX(0) rotateY(0)}to{transform:rotateX(360deg) rotateY(360deg)}}
-    @media (max-width:767px){.cube-hide-m{display:none}.cube-pos{opacity:.55}}
-    @media (prefers-reduced-motion:reduce){.cube-inner{animation:none}}
-    /* Brilho que segue o mouse */
-    #cursor-glow{position:fixed;top:0;left:0;width:340px;height:340px;border-radius:50%;pointer-events:none;z-index:9999;opacity:0;transition:opacity .35s ease;mix-blend-mode:multiply;background:radial-gradient(circle,rgba(191,90,48,.16),rgba(191,90,48,0) 68%);transform:translate(-50%,-50%);will-change:transform}
-    @media (hover:none),(pointer:coarse){#cursor-glow{display:none}}
-    /* ===== Livro 3D dos projetos (hero) ===== */
-    .flipbook{position:relative;width:100%;max-width:620px;margin:0 auto;perspective:2000px}
-    .flipbook__stack{position:relative;width:100%;padding-top:76%;transform-style:preserve-3d}
-    .fb-page{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:right center;transition:transform .8s cubic-bezier(.4,.18,.2,1);text-decoration:none;cursor:pointer}
-    .fb-page.is-flipped{transform:rotateY(170deg)}
-    .fb-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid #2E3A2F;border-radius:7px;overflow:hidden;background:#fff}
-    .fb-front{display:flex;flex-direction:column;box-shadow:6px 7px 0 rgba(46,58,47,.7)}
-    .fb-bar{height:26px;flex:none;display:flex;align-items:center;gap:5px;padding:0 9px;background:#E7EADD;border-bottom:2px solid #2E3A2F}
-    .fb-d{width:8px;height:8px;border-radius:50%;flex:none}
-    .fb-u{flex:1;min-width:0;font-size:10px;color:#4A5A45;background:#fff;border:1px solid rgba(46,58,47,.25);border-radius:4px;padding:2px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .fb-shot{flex:1;background-size:cover;background-position:top center;background-repeat:no-repeat}
-    .fb-cap{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 10px;background:#2E3A2F;color:#F4F0E6}
-    .fb-cap b{font-family:'Playfair Display',Georgia,serif;font-size:13px;display:block;line-height:1.15}
-    .fb-cap small{font-size:10px;color:rgba(244,240,230,.7)}
-    .fb-go{flex:none;font-size:11px;font-weight:700;color:#fff;background:#BF5A30;border:1px solid #1f271f;border-radius:4px;padding:6px 11px;white-space:nowrap;text-decoration:none;cursor:pointer}
-    .fb-go:hover{background:#A24A26}
-    .fb-page:hover .fb-go{background:#A24A26}
-    .fb-back{display:none}
-    .fb-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
-    .fb-dots{display:flex;gap:7px}
-    .fb-dot{width:10px;height:10px;border:2px solid #2E3A2F;background:#fff;cursor:pointer;padding:0;transition:background .2s}
-    .fb-dot.is-on{background:#BF5A30}
-    .fb-hint{font-size:11px;color:#8B9A75}
-    @media (max-width:640px){.flipbook{max-width:340px}}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#FBF9F2;color:#2E3A2F;font-family:'Plus Jakarta Sans','Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .technical-grid{background-size:40px 40px;background-image:linear-gradient(to right,rgba(46,58,47,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(46,58,47,.045) 1px,transparent 1px);-webkit-mask-image:linear-gradient(to bottom,black 30%,transparent 100%);mask-image:linear-gradient(to bottom,black 30%,transparent 100%)}
+    .premium-card{background:#fff;border:1px solid #E7E2D6;box-shadow:0 2px 4px rgba(46,58,47,.02),0 8px 16px -4px rgba(46,58,47,.05);transition:all .3s cubic-bezier(.2,.8,.2,1)}
+    .premium-card:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(46,58,47,.03),0 14px 28px -6px rgba(46,58,47,.09);border-color:#D9D2BF}
+    @keyframes shimmer{100%{transform:translateX(100%)}}
+    .shimmer-layer{transform:translateX(-100%)}
+    .group:hover .shimmer-layer{animation:shimmer 1.5s cubic-bezier(.4,0,.2,1) infinite}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+    .mono{font-family:'JetBrains Mono',monospace}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#FBF9F2}::-webkit-scrollbar-thumb{background:#D9D2BF;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#8B9A75}
   </style>
 </head>
-<body class="bg-cream text-forest antialiased overflow-x-hidden">
+<body class="w-full relative bg-canvas">
 
-  <!-- Three.js Canvas -->
-  <canvas id="bg-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
-  <!-- Brilho que segue o mouse -->
-  <div id="cursor-glow" aria-hidden="true"></div>
+  <div class="fixed inset-0 z-0 technical-grid pointer-events-none"></div>
+  <div class="fixed inset-0 z-0 pointer-events-none" style="background:radial-gradient(60% 50% at 70% 0%,rgba(191,90,48,.05),transparent 70%)"></div>
+
+  <!-- HEADER -->
+  <header id="nav-header" class="fixed top-0 left-0 right-0 z-50 w-full px-5 py-4 md:px-10 flex justify-between items-center bg-canvas/85 backdrop-blur-md border-b border-line/70 transition-all duration-300">
+    <a href="#inicio" class="flex items-center gap-2.5" aria-label="Ismaile Pereira, início">
+      <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-8 h-8 rounded object-contain">
+      <span class="leading-none">
+        <span class="font-sans text-sm font-extrabold tracking-tight text-ink block">Ismaile Pereira</span>
+        <span class="mono text-[9px] font-medium tracking-[.15em] text-terra uppercase">Presença Digital</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7" aria-label="Navegação principal">
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#servicos">Serviços</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#como-funciona">Como funciona</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#projetos">Projetos</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#sobre">Sobre</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="blog.html">Blog</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#" data-wa class="group relative isolate overflow-hidden bg-terra text-white text-xs font-semibold px-4 py-2 rounded shadow-sm ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+        <span class="shimmer-layer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent z-10"></span>
+        <span class="relative z-20 inline-flex items-center gap-1.5"><iconify-icon icon="solar:chat-round-line-linear" width="14"></iconify-icon> WhatsApp</span>
+      </a>
+      <button id="navToggle" class="md:hidden p-1.5 text-ink" aria-label="Abrir menu" aria-expanded="false"><iconify-icon icon="solar:hamburger-menu-linear" width="22"></iconify-icon></button>
+    </div>
+  </header>
+  <div id="mobileMenu" class="hidden fixed top-[57px] left-0 right-0 z-40 bg-canvas border-b border-line px-5 py-3 md:hidden">
+    <a href="#servicos" class="block py-2.5 text-sm text-body hover:text-terra">Serviços</a>
+    <a href="#como-funciona" class="block py-2.5 text-sm text-body hover:text-terra">Como funciona</a>
+    <a href="#projetos" class="block py-2.5 text-sm text-body hover:text-terra">Projetos</a>
+    <a href="#sobre" class="block py-2.5 text-sm text-body hover:text-terra">Sobre</a>
+    <a href="blog.html" class="block py-2.5 text-sm text-body hover:text-terra">Blog</a>
+  </div>
 
   <div class="relative z-10">
+  <main>
 
-    <!-- HEADER -->
-    <header id="nav-header" class="sticky top-0 z-50 backdrop-blur-xl bg-cream/85 border-b border-sage/10 transition-all duration-300">
-      <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
-        <a href="#inicio" class="flex items-center gap-3 group" aria-label="Ismaile Pereira, página inicial">
-          <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-10 h-10 rounded-lg object-contain">
-          <span>
-            <span class="font-display font-bold text-forest text-base leading-none block">Ismaile Pereira</span>
-            <span class="text-[10px] font-semibold tracking-[.2em] text-terra uppercase">Presença Digital</span>
-          </span>
+    <!-- HERO -->
+    <section id="inicio" class="relative min-h-[92vh] flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-20 pt-32 pb-20 gap-16 max-w-7xl mx-auto">
+      <div class="max-w-2xl space-y-8 relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-line shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-terra animate-pulse"></span>
+          <span class="font-sans text-[11px] font-medium text-subtle tracking-tight">Disponível para novos projetos</span>
+        </div>
+        <h1 class="font-sans text-5xl md:text-7xl font-extrabold tracking-tighter text-ink leading-[0.98]">
+          Quem não aparece no Google,
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-terra to-terra-light">não vende.</span>
+        </h1>
+        <p class="max-w-md font-sans text-base text-body leading-relaxed">
+          Faço sites profissionais pra negócios e profissionais de <strong class="text-ink font-semibold">todo o Brasil</strong> — posicionados no Google e prontos pro cliente te chamar no WhatsApp. 100% online, sem enrolação, no prazo.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#" data-wa class="group relative isolate overflow-hidden bg-terra text-white px-6 py-3 rounded text-sm font-semibold shadow-lg shadow-terra/20 ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.02]">
+            <span class="shimmer-layer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent z-10"></span>
+            <span class="relative z-20 inline-flex items-center gap-2">Falar comigo agora <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></span>
+          </a>
+          <a href="#servicos" class="px-6 py-3 rounded text-sm font-semibold text-ink bg-white border border-line hover:border-ink/40 transition-colors">Ver serviços</a>
+        </div>
+        <div class="flex items-center gap-2 mono text-[11px] text-subtle uppercase tracking-wider">
+          <iconify-icon icon="solar:map-point-linear" width="14" class="text-terra"></iconify-icon>
+          De Mirante da Serra (RO) para o Brasil inteiro
+        </div>
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-line max-w-md">
+          <div><div class="text-2xl font-extrabold tracking-tight text-ink">10+</div><div class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">projetos</div></div>
+          <div><div class="text-2xl font-extrabold tracking-tight text-ink">100%</div><div class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">online</div></div>
+          <div><div class="text-2xl font-extrabold tracking-tight text-ink">24h</div><div class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">resposta</div></div>
+        </div>
+      </div>
+      <!-- Mockup: janela do navegador com um projeto -->
+      <div class="relative w-full max-w-lg aspect-[4/3] flex items-center justify-center">
+        <div class="absolute inset-0 bg-gradient-to-tr from-canvas via-terra/5 to-canvas opacity-60 blur-3xl"></div>
+        <div class="premium-card w-full h-full relative overflow-hidden rounded-xl">
+          <div class="flex items-center gap-2 px-4 h-9 border-b border-line bg-canvas">
+            <span class="w-2.5 h-2.5 rounded-full bg-terra/60"></span><span class="w-2.5 h-2.5 rounded-full bg-sage/60"></span><span class="w-2.5 h-2.5 rounded-full bg-line"></span>
+            <span class="mono text-[10px] text-subtle ml-2 truncate">postossavana.com.br</span>
+          </div>
+          <div class="h-[calc(100%-2.25rem)] bg-cover bg-top" style="background-image:url('src/img/proj-savana.jpg')"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-ink/92 text-canvas rounded-lg px-3 py-2">
+            <div><div class="text-xs font-semibold">Auto Postos Savana</div><div class="mono text-[9px] uppercase tracking-wider opacity-70">no ar · RO</div></div>
+            <span class="mono text-[9px] px-2 py-1 rounded bg-terra text-white">1ª página</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTES / LOGOS -->
+    <section class="border-y border-line bg-white/60 py-10">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="mono text-[11px] font-medium text-subtle uppercase tracking-wider whitespace-nowrap">Negócios que já confiam</p>
+        <div class="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
+          <a href="https://postossavana.com.br" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Auto Postos Savana</a>
+          <a href="https://psijessicamachado.com.br" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Jéssica Machado</a>
+          <a href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Alysson Mattos</a>
+          <a href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Maranata Music</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-24">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">01 — O problema</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">Seu cliente tá te procurando agora. Ele te acha — ou acha o concorrente?</h2>
+        <p class="text-body mt-4">Você é bom no que faz. Mas isso não adianta se ninguém te encontra:</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:bell-off-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Você depende só do <strong class="text-ink font-semibold">Instagram e do boca a boca</strong> — e quem te procura no Google cai no concorrente.</p></div>
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:clock-circle-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Seu site é <strong class="text-ink font-semibold">lento, confuso ou não abre no celular</strong> — e a pessoa desiste em segundos.</p></div>
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:chat-round-line-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Até aparece visita, mas <strong class="text-ink font-semibold">ninguém te chama</strong> — falta um caminho claro até o WhatsApp.</p></div>
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:settings-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Você sabe que precisa resolver, mas <strong class="text-ink font-semibold">não tem tempo nem paciência</strong> pra parte técnica.</p></div>
+      </div>
+      <p class="text-center text-xl md:text-2xl font-bold tracking-tight text-ink mt-12 max-w-xl mx-auto reveal">O problema quase nunca é o seu trabalho. <span class="text-terra">É que ele tá invisível.</span></p>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="max-w-7xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">02 — O que eu faço por você</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">Tudo aponta pra uma coisa só: você ser encontrado.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:display-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Site profissional e rápido</h3><p class="text-sm text-body mt-1.5">Feito pro celular primeiro, abre em segundos e passa credibilidade.</p></div>
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Posicionamento no Google</h3><p class="text-sm text-body mt-1.5">Estrutura técnica certa (SEO) pra aparecer quando seu cliente procura.</p></div>
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:chat-round-line-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Pronto pra vender no WhatsApp</h3><p class="text-sm text-body mt-1.5">As chamadas certas levam o visitante direto pra conversa com você.</p></div>
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:widget-5-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Eu cuido de tudo</h3><p class="text-sm text-body mt-1.5">Domínio, hospedagem, textos, fotos e ajustes. Você só aprova.</p></div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA (timeline) -->
+    <section id="como-funciona" class="max-w-3xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="text-center mb-14 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">03 — Como funciona</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">É simples. Em 3 passos.</h2>
+        <p class="text-body mt-3">Você não precisa entender nada de tecnologia. Eu cuido.</p>
+      </div>
+      <div class="relative pl-8">
+        <div class="absolute left-[9px] top-2 bottom-2 w-px bg-line"></div>
+        <div class="space-y-10">
+          <div class="relative reveal"><div class="absolute -left-8 top-1 w-[19px] h-[19px] rounded-full border-2 border-terra bg-canvas flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-terra"></span></div><span class="mono text-[10px] text-subtle uppercase tracking-wider">01 Conversa</span><h3 class="font-sans text-lg font-semibold text-ink mt-1">A gente conversa</h3><p class="text-sm text-body mt-1">Uma conversa rápida no WhatsApp pra eu entender seu negócio, seu cliente e seu objetivo.</p></div>
+          <div class="relative reveal"><div class="absolute -left-8 top-1 w-[19px] h-[19px] rounded-full border-2 border-terra bg-canvas flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-terra"></span></div><span class="mono text-[10px] text-subtle uppercase tracking-wider">02 Criação</span><h3 class="font-sans text-lg font-semibold text-ink mt-1">Eu crio e você acompanha</h3><p class="text-sm text-body mt-1">Monto seu site completo. Você vê antes de ir pro ar e pede ajustes. Nada publica sem o seu "ok".</p></div>
+          <div class="relative reveal"><div class="absolute -left-8 top-1 w-[19px] h-[19px] rounded-full border-2 border-terra bg-terra flex items-center justify-center"><iconify-icon icon="solar:check-read-linear" width="11" class="text-white"></iconify-icon></div><span class="mono text-[10px] text-subtle uppercase tracking-wider">03 No ar</span><h3 class="font-sans text-lg font-semibold text-ink mt-1">No ar e trazendo cliente</h3><p class="text-sm text-body mt-1">Seu site entra no ar, posicionado no Google e pronto pra receber contato. Eu fico de suporte.</p></div>
+        </div>
+      </div>
+      <p class="text-center mono text-[11px] text-subtle uppercase tracking-wider mt-12 reveal">Prazo combinado · preço fechado na largada · sem surpresa</p>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="max-w-7xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">04 — Portfólio</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">Não é teoria. Já tá no ar.</h2>
+        <p class="text-body mt-4">Projetos reais que construí de ponta a ponta.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="https://postossavana.com.br" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">postossavana.com.br</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-savana.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Auto Postos Savana</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Negócio local · RO</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
         </a>
-        <nav class="hidden md:flex items-center gap-7" aria-label="Navegação principal">
-          <a href="#servicos" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Serviços</a>
-          <a href="#como-funciona" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Como funciona</a>
-          <a href="#projetos" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Projetos</a>
-          <a href="#sobre" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Sobre</a>
-          <a href="blog.html" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Blog</a>
-        </nav>
-        <a href="#" data-wa class="hidden md:inline-flex items-center gap-2 terra-btn font-semibold text-sm px-5 py-2.5 rounded-full">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
-          WhatsApp
+        <a href="https://psijessicamachado.com.br" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">psijessicamachado.com.br</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-jessica.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Jéssica Machado</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Neuropsicologia · Saúde</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
         </a>
-        <button id="navToggle" class="md:hidden p-2 text-forest" aria-label="Abrir menu" aria-expanded="false">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-        </button>
+        <a href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">alysson-mattos-site</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-alysson.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Alysson Mattos</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Fisioterapia · MT</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
+        </a>
+        <a href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">maranata-music</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-maranata.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Maranata Music</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Projeto social · Música</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
+        </a>
+        <a href="https://ismailepereira.github.io/resistencia-site" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal p-6 flex flex-col justify-between">
+          <div><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:music-note-2-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Curso Resistência</h3><p class="text-sm text-body mt-1.5">Landing do curso de guitarra + gestão de campanhas no Meta Ads.</p></div>
+          <span class="mono text-[10px] text-terra uppercase tracking-wider mt-4 inline-flex items-center gap-1">Ver site <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon></span>
+        </a>
+        <a href="https://github.com/ismailepereira/baixador" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal p-6 flex flex-col justify-between">
+          <div><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:download-minimalistic-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Baixador</h3><p class="text-sm text-body mt-1.5">Extensão Chrome + servidor Flask + app Android para baixar mídia.</p></div>
+          <span class="mono text-[10px] text-terra uppercase tracking-wider mt-4 inline-flex items-center gap-1">Ver no GitHub <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon></span>
+        </a>
       </div>
-      <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-1 bg-cream">
-        <a href="#servicos" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Serviços</a>
-        <a href="#como-funciona" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Como funciona</a>
-        <a href="#projetos" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Projetos</a>
-        <a href="#sobre" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Sobre</a>
-        <a href="blog.html" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Blog</a>
-        <a href="#" data-wa class="block mt-3 text-center terra-btn font-semibold text-sm px-5 py-3 rounded-full">Falar no WhatsApp</a>
-      </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- HERO -->
-      <section id="inicio" class="flex items-center relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream pointer-events-none"></div>
-        <div class="cubes" aria-hidden="true">
-          <div class="cube-pos cube-hide-m" style="right:8%;top:15%;--s:66px;--h:33px;--spin:20s;--light:#D4774F;--mid:#BF5A30;--dark:#A24A26;--dark2:#8A3E20"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
-          <div class="cube-pos" style="left:4%;top:9%;--s:44px;--h:22px;--spin:24s;--light:#A9B795;--mid:#8B9A75;--dark:#6E7B5C;--dark2:#5A6749"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
-          <div class="cube-pos cube-hide-m" style="left:5%;bottom:12%;--s:58px;--h:29px;--spin:18s;--light:#4A5A45;--mid:#2E3A2F;--dark:#283328;--dark2:#1F271F"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
-          <div class="cube-pos cube-hide-m" style="right:5%;top:50%;--s:40px;--h:20px;--spin:26s;--light:#E68F6B;--mid:#D4774F;--dark:#BF5A30;--dark2:#A24A26"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
-          <div class="cube-pos" style="right:7%;bottom:13%;--s:38px;--h:19px;--spin:22s;--light:#A9B795;--mid:#8B9A75;--dark:#6E7B5C;--dark2:#5A6749"><div class="cube-3d"><div class="cube-inner"><span class="cube-face f-front"></span><span class="cube-face f-back"></span><span class="cube-face f-right"></span><span class="cube-face f-left"></span><span class="cube-face f-top"></span><span class="cube-face f-bottom"></span></div></div></div>
+    <!-- SOBRE -->
+    <section id="sobre" class="max-w-3xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="grid md:grid-cols-[auto_1fr] gap-8 items-center">
+        <div class="reveal flex justify-center">
+          <img src="src/img/ismaile.jpg" alt="Ismaile Pereira" class="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover border border-line shadow-md" loading="lazy">
         </div>
-        <div class="max-w-6xl mx-auto px-5 py-12 md:py-16 w-full relative z-10">
-          <div>
-            <div class="max-w-3xl">
-              <div class="reveal-up inline-flex items-center gap-2 bg-sage-soft border border-sage/20 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider uppercase text-forest-light mb-8">
-                <span class="w-2 h-2 rounded-full bg-sage" style="animation:dot-pulse 2s infinite"></span>
-                Disponível para novos projetos
-              </div>
-              <h1 class="reveal-up text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] mb-6">
-                Quem não aparece no Google, <span class="gradient-text">não&nbsp;vende.</span>
-              </h1>
-              <p class="reveal-up text-lg text-forest-light max-w-xl mb-8 leading-relaxed">
-                Faço sites profissionais pra negócios e profissionais de <strong class="text-forest">todo o Brasil</strong> — posicionados no Google e prontos pro cliente te chamar no WhatsApp. 100% online, sem enrolação, no prazo.
-              </p>
-              <div class="reveal-up flex flex-wrap gap-4 mb-8">
-                <a href="#" data-wa class="terra-btn font-semibold px-7 py-3.5 rounded-full text-base inline-flex items-center gap-2">
-                  Falar comigo agora
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-                <a href="#servicos" class="inline-flex items-center gap-2 border-2 border-forest/15 hover:border-forest/40 text-forest font-semibold px-7 py-3.5 rounded-full transition-colors text-base">
-                  Ver serviços
-                </a>
-              </div>
-              <div class="reveal-up flex items-center gap-2 text-sm text-sage">
-                <svg class="w-4 h-4 text-terra" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-                De Mirante da Serra (RO) para o Brasil inteiro
-              </div>
-            </div>
-            <!-- Hero: livro 3D dos projetos (abaixo do título, maior) -->
-            <div class="reveal-up mt-12 md:mt-16">
-              <p class="text-center text-xs font-bold tracking-[.18em] uppercase text-terra mb-3">Projetos no ar — clique para folhear</p>
-              <div class="flipbook" id="flipbook">
-                <div class="flipbook__stack">
-                  <div class="fb-page" role="group" aria-label="Auto Postos Savana">
-                    <div class="fb-face fb-front">
-                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">postossavana.com.br</span></div>
-                      <div class="fb-shot" style="background-image:url('src/img/proj-savana.jpg')"></div>
-                      <div class="fb-cap"><span><b>Auto Postos Savana</b><small>Negócio local · RO</small></span><a class="fb-go" href="https://postossavana.com.br" target="_blank" rel="noopener">Ver site ↗</a></div>
-                    </div>
-                  </div>
-                  <div class="fb-page" role="group" aria-label="Jéssica Machado">
-                    <div class="fb-face fb-front">
-                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">psijessicamachado.com.br</span></div>
-                      <div class="fb-shot" style="background-image:url('src/img/proj-jessica.jpg')"></div>
-                      <div class="fb-cap"><span><b>Jéssica Machado</b><small>Neuropsicologia · Saúde</small></span><a class="fb-go" href="https://psijessicamachado.com.br" target="_blank" rel="noopener">Ver site ↗</a></div>
-                    </div>
-                  </div>
-                  <div class="fb-page" role="group" aria-label="Alysson Mattos">
-                    <div class="fb-face fb-front">
-                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">alysson-mattos-site</span></div>
-                      <div class="fb-shot" style="background-image:url('src/img/proj-alysson.jpg')"></div>
-                      <div class="fb-cap"><span><b>Alysson Mattos</b><small>Fisioterapia · MT</small></span><a class="fb-go" href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener">Ver site ↗</a></div>
-                    </div>
-                  </div>
-                  <div class="fb-page" role="group" aria-label="Maranata Music">
-                    <div class="fb-face fb-front">
-                      <div class="fb-bar"><span class="fb-d" style="background:#BF5A30"></span><span class="fb-d" style="background:#8B9A75"></span><span class="fb-d" style="background:#2E3A2F"></span><span class="fb-u">maranata-music</span></div>
-                      <div class="fb-shot" style="background-image:url('src/img/proj-maranata.jpg')"></div>
-                      <div class="fb-cap"><span><b>Maranata Music</b><small>Projeto social · Música</small></span><a class="fb-go" href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener">Ver site ↗</a></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="fb-foot">
-                  <div class="fb-dots">
-                    <button class="fb-dot" type="button" aria-label="Auto Postos Savana"></button>
-                    <button class="fb-dot" type="button" aria-label="Jéssica Machado"></button>
-                    <button class="fb-dot" type="button" aria-label="Alysson Mattos"></button>
-                    <button class="fb-dot" type="button" aria-label="Maranata Music"></button>
-                  </div>
-                  <span class="fb-hint">clique na imagem ou arraste · pontos pra escolher</span>
-                </div>
-              </div>
-            </div>
+        <div class="reveal">
+          <span class="mono text-[11px] text-terra uppercase tracking-wider">05 — Quem vai fazer seu site</span>
+          <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3 mb-4">Oi, eu sou o Ismaile</h2>
+          <div class="space-y-3 text-body leading-relaxed text-sm">
+            <p>Sou de <strong class="text-ink font-semibold">Mirante da Serra, no interior de Rondônia</strong> — e atendo o <strong class="text-ink font-semibold">Brasil inteiro, 100% online</strong>. Não importa onde você está: a gente conversa, eu crio, e seu site entra no ar.</p>
+            <p>Eu mesmo cuido do seu projeto do início ao fim: do texto ao código, do visual ao Google. Site de verdade, rápido e sob medida — nada de modelo pronto que todo mundo usa.</p>
+            <p class="text-ink font-semibold">Pra mim, todo negócio merece a mesma presença digital que as grandes empresas têm.</p>
           </div>
-          <!-- Stats -->
-          <div class="grid grid-cols-3 gap-5 mt-10 max-w-2xl reveal-up">
-            <div class="text-center"><span class="block font-display text-3xl font-bold text-forest">10+</span><span class="text-sm text-sage">projetos entregues</span></div>
-            <div class="text-center"><span class="block font-display text-3xl font-bold text-forest">100%</span><span class="text-sm text-sage">online, ponta a ponta</span></div>
-            <div class="text-center"><span class="block font-display text-3xl font-bold text-forest">24h</span><span class="text-sm text-sage">tempo de resposta</span></div>
-          </div>
-        </div>
-      </section>
-
-      <div class="line-glow"></div>
-
-      <!-- PROBLEMA -->
-      <section class="py-14 md:py-20 bg-cream-light">
-        <div class="max-w-6xl mx-auto px-5">
-          <div class="text-center max-w-2xl mx-auto mb-10">
-            <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">O problema</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">Seu cliente tá te procurando agora. Ele te acha — ou acha o concorrente?</h2>
-            <p class="reveal-up text-forest-light">Você é bom no que faz. Mas isso não adianta se ninguém te encontra:</p>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
-              <div class="w-10 h-10 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center flex-none"><svg class="w-5 h-5 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
-              <p class="text-sm text-forest-light">Você depende só do <strong class="text-forest">Instagram e do boca a boca</strong> — e quem te procura no Google cai no concorrente.</p>
-            </div>
-            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
-              <div class="w-10 h-10 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center flex-none"><svg class="w-5 h-5 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-              <p class="text-sm text-forest-light">Seu site é <strong class="text-forest">lento, confuso ou não abre no celular</strong> — e a pessoa desiste em segundos.</p>
-            </div>
-            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
-              <div class="w-10 h-10 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center flex-none"><svg class="w-5 h-5 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/></svg></div>
-              <p class="text-sm text-forest-light">Até aparece visita, mas <strong class="text-forest">ninguém te chama</strong> — falta um caminho claro até o WhatsApp.</p>
-            </div>
-            <div class="warm-card p-5 flex gap-4 items-start reveal-up">
-              <div class="w-10 h-10 rounded-xl bg-terra/10 border border-terra/20 flex items-center justify-center flex-none"><svg class="w-5 h-5 text-terra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="7" y1="8" x2="12" y2="12"/><line x1="17" y1="8" x2="12" y2="12"/></svg></div>
-              <p class="text-sm text-forest-light">Você sabe que precisa resolver, mas <strong class="text-forest">não tem tempo nem paciência</strong> pra parte técnica.</p>
-            </div>
-          </div>
-          <p class="reveal-up text-center text-xl md:text-2xl font-display font-bold mt-8 max-w-xl mx-auto">
-            O problema quase nunca é o seu trabalho. <span class="gradient-text">É que ele tá invisível.</span>
-          </p>
-        </div>
-      </section>
-
-      <div class="line-glow"></div>
-
-      <!-- SERVIÇOS -->
-      <section id="servicos" class="py-14 md:py-20">
-        <div class="max-w-6xl mx-auto px-5">
-          <div class="text-center max-w-2xl mx-auto mb-10">
-            <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">O que eu faço por você</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">Tudo aponta pra uma coisa só: você ser encontrado.</h2>
-          </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div class="warm-card p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <h3 class="text-lg font-bold mb-2">Site profissional e rápido</h3>
-              <p class="text-sm text-forest-light">Feito pro celular primeiro, abre em segundos e passa credibilidade.</p>
-            </div>
-            <div class="warm-card p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              </div>
-              <h3 class="text-lg font-bold mb-2">Posicionamento no Google</h3>
-              <p class="text-sm text-forest-light">Estrutura técnica certa (SEO) pra aparecer quando seu cliente procura.</p>
-            </div>
-            <div class="warm-card p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              </div>
-              <h3 class="text-lg font-bold mb-2">Pronto pra vender no WhatsApp</h3>
-              <p class="text-sm text-forest-light">As chamadas certas levam o visitante direto pra conversa com você.</p>
-            </div>
-            <div class="warm-card p-6 reveal-up group">
-              <div class="w-12 h-12 rounded-xl bg-sage-soft border border-sage/20 flex items-center justify-center mb-4 group-hover:bg-terra/10 group-hover:border-terra/20 transition-colors">
-                <svg class="w-6 h-6 text-forest" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-              </div>
-              <h3 class="text-lg font-bold mb-2">Eu cuido de tudo</h3>
-              <p class="text-sm text-forest-light">Domínio, hospedagem, textos, fotos e ajustes. Você só aprova.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="line-glow"></div>
-
-      <!-- COMO FUNCIONA -->
-      <section id="como-funciona" class="py-14 md:py-20 bg-sage-soft">
-        <div class="max-w-6xl mx-auto px-5">
-          <div class="text-center max-w-2xl mx-auto mb-10">
-            <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">Como funciona</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">É simples. Em 3 passos:</h2>
-            <p class="reveal-up text-forest-light">Você não precisa entender nada de tecnologia. Eu cuido.</p>
-          </div>
-          <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div class="warm-card p-7 text-center reveal-up relative overflow-hidden">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/20 text-terra font-display font-bold text-2xl mb-5">1</span>
-              <h3 class="text-lg font-bold mb-2">A gente conversa</h3>
-              <p class="text-sm text-forest-light">Uma conversa rápida no WhatsApp pra eu entender seu negócio, seu cliente e seu objetivo.</p>
-            </div>
-            <div class="warm-card p-7 text-center reveal-up relative overflow-hidden">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/20 text-terra font-display font-bold text-2xl mb-5">2</span>
-              <h3 class="text-lg font-bold mb-2">Eu crio e você acompanha</h3>
-              <p class="text-sm text-forest-light">Monto seu site completo. Você vê antes de ir pro ar e pede ajustes. Nada publica sem o seu "ok".</p>
-            </div>
-            <div class="warm-card p-7 text-center reveal-up relative overflow-hidden">
-              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-terra to-terra-light"></div>
-              <span class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-terra/10 border border-terra/20 text-terra font-display font-bold text-2xl mb-5">3</span>
-              <h3 class="text-lg font-bold mb-2">No ar e trazendo cliente</h3>
-              <p class="text-sm text-forest-light">Seu site entra no ar, posicionado no Google e pronto pra receber contato. Eu fico de suporte.</p>
-            </div>
-          </div>
-          <p class="reveal-up text-center mt-8 text-sm text-sage italic">Prazo combinado, preço fechado na largada. Sem surpresa.</p>
-        </div>
-      </section>
-
-      <div class="line-glow"></div>
-
-      <!-- PROJETOS -->
-      <section id="projetos" class="py-14 md:py-20">
-        <div class="max-w-6xl mx-auto px-5">
-          <div class="text-center max-w-2xl mx-auto mb-10">
-            <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">Portfólio</p>
-            <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-4">Não é teoria. Já tá no ar.</h2>
-            <p class="reveal-up text-forest-light">Projetos reais que eu construí de ponta a ponta.</p>
-          </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <article class="warm-card overflow-hidden reveal-up">
-              <div class="h-20 bg-gradient-to-r from-terra to-terra-light flex items-center px-6">
-                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">Negócio local</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Auto Postos Savana</h3></div>
-              </div>
-              <div class="p-5">
-                <p class="text-sm text-forest-light mb-4">Site institucional do posto na BR-364 (RO): responsivo, com SEO e seção de promoções.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">HTML</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://postossavana.com.br" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </article>
-            <article class="warm-card overflow-hidden reveal-up">
-              <div class="h-20 bg-gradient-to-r from-forest to-forest-light flex items-center px-6">
-                <div><span class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Landing + Tráfego</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Curso Resistência</h3></div>
-              </div>
-              <div class="p-5">
-                <p class="text-sm text-forest-light mb-4">Landing do curso de guitarra do Fernando + gestão de campanhas no Meta Ads.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Landing</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Meta Ads</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://ismailepereira.github.io/resistencia-site" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </article>
-            <article class="warm-card overflow-hidden reveal-up">
-              <div class="h-20 bg-gradient-to-r from-terra-dark to-terra flex items-center px-6">
-                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">Saúde / consultório</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Jéssica Machado</h3></div>
-              </div>
-              <div class="p-5">
-                <p class="text-sm text-forest-light mb-4">Site da neuropsicóloga infantil, com posicionamento de marca e agendamento via WhatsApp.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Branding</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://psijessicamachado.com.br" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </article>
-            <article class="warm-card overflow-hidden reveal-up">
-              <div class="h-20 bg-gradient-to-r from-forest to-forest-light flex items-center px-6">
-                <div><span class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Site + Sistema</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Maranata Music</h3></div>
-              </div>
-              <div class="p-5">
-                <p class="text-sm text-forest-light mb-4">Landing de captação com inscrição, banco de dados e painel administrativo em Flask.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Flask</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SQLite</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </article>
-            <article class="warm-card overflow-hidden reveal-up">
-              <div class="h-20 bg-gradient-to-r from-terra to-terra-light flex items-center px-6">
-                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">App + Extensão</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Baixador</h3></div>
-              </div>
-              <div class="p-5">
-                <p class="text-sm text-forest-light mb-4">Extensão Chrome + servidor Flask + app Android para baixar mídia de YouTube, Instagram e Spotify.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Chrome</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Android</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://github.com/ismailepereira/baixador" target="_blank" rel="noopener">Ver no GitHub <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </article>
-            <article class="warm-card overflow-hidden reveal-up">
-              <div class="h-20 bg-gradient-to-r from-sage to-forest-light flex items-center px-6">
-                <div><span class="text-[10px] uppercase tracking-widest text-white/80 font-bold">Saúde / fisioterapia</span><h3 class="text-white font-bold text-lg mt-0.5" style="color:#fff">Alysson Mattos</h3></div>
-              </div>
-              <div class="p-5">
-                <p class="text-sm text-forest-light mb-4">Site do fisioterapeuta em Tangará da Serra (MT): captação de pacientes, serviços e agendamento via WhatsApp.</p>
-                <div class="flex flex-wrap gap-1.5 mb-4"><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">Landing</span><span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sage-soft border border-sage/20 text-forest-light">SEO</span></div>
-                <a class="text-sm font-semibold text-terra hover:text-terra-dark transition-colors inline-flex items-center gap-2" href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener">Ver site <svg class="w-4 h-4 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <div class="line-glow"></div>
-
-      <!-- SOBRE -->
-      <section id="sobre" class="py-14 md:py-20 bg-cream-light">
-        <div class="max-w-6xl mx-auto px-5">
-          <div class="grid md:grid-cols-[auto_1fr] gap-10 items-center max-w-3xl mx-auto">
-            <div class="reveal-up flex justify-center">
-              <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-terra to-terra-light p-[3px]">
-                <img src="src/img/ismaile.jpg" alt="Ismaile Pereira" class="w-full h-full rounded-full object-cover" loading="lazy">
-              </div>
-            </div>
-            <div>
-              <p class="reveal-up text-xs font-bold tracking-[.2em] uppercase text-terra mb-4">Quem vai fazer seu site</p>
-              <h2 class="reveal-up text-3xl md:text-4xl font-bold mb-6">Oi, eu sou o Ismaile</h2>
-              <div class="space-y-4 text-forest-light leading-relaxed">
-                <p class="reveal-up">Sou de <strong class="text-forest">Mirante da Serra, no interior de Rondônia</strong> — e atendo o <strong class="text-forest">Brasil inteiro, 100% online</strong>. Não importa onde você está: a gente conversa, eu crio, e seu site entra no ar.</p>
-                <p class="reveal-up">Eu mesmo cuido do seu projeto do início ao fim: do texto ao código, do visual ao Google. Site de verdade, rápido e sob medida — nada de modelo pronto que todo mundo usa.</p>
-                <p class="reveal-up font-semibold text-forest">Pra mim, todo negócio merece a mesma presença digital que as grandes empresas têm.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="line-glow"></div>
-
-      <!-- CTA -->
-      <section class="py-14 md:py-20">
-        <div class="max-w-4xl mx-auto px-5">
-          <div class="reveal-up text-center rounded-3xl bg-forest py-16 px-8 md:px-16 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(rgba(244,240,230,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(244,240,230,.08) 1px,transparent 1px);background-size:32px 32px"></div>
-            <div class="relative">
-              <h2 class="text-3xl md:text-4xl font-bold text-cream mb-5" style="color:#F4F0E6">Bora colocar seu negócio no mapa?</h2>
-              <p class="text-cream/80 max-w-lg mx-auto mb-8 text-lg" style="color:rgba(244,240,230,.8)">A sua próxima oportunidade pode estar pesquisando seu serviço no Google agora mesmo. A primeira conversa é sem compromisso.</p>
-              <a href="#" data-wa class="terra-btn font-semibold px-8 py-4 rounded-full text-lg inline-flex items-center gap-3">
-                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24z"/></svg>
-                Falar com o Ismaile no WhatsApp
-              </a>
-              <p class="mt-5 text-sm" style="color:rgba(139,154,117,.8)">Resposta em até 24h úteis.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="py-10 bg-forest">
-      <div class="max-w-6xl mx-auto px-5">
-        <div class="grid sm:grid-cols-3 gap-8 mb-10">
-          <div>
-            <div class="flex items-center gap-3 mb-4">
-              <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-10 h-10 rounded-lg object-contain">
-              <span>
-                <span class="font-display font-bold text-cream text-sm block leading-none" style="color:#F4F0E6">Ismaile Pereira</span>
-                <span class="text-[9px] font-bold tracking-[.2em] text-terra uppercase">Presença Digital</span>
-              </span>
-            </div>
-            <p class="text-sm" style="color:rgba(244,240,230,.6)">Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.</p>
-          </div>
-          <div>
-            <h4 class="text-xs font-bold tracking-[.15em] uppercase mb-4" style="color:rgba(244,240,230,.4)">Navegação</h4>
-            <div class="space-y-2">
-              <a href="#inicio" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Início</a>
-              <a href="#servicos" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Serviços</a>
-              <a href="#projetos" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Projetos</a>
-              <a href="#sobre" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Sobre</a>
-              <a href="blog.html" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">Blog</a>
-            </div>
-          </div>
-          <div>
-            <h4 class="text-xs font-bold tracking-[.15em] uppercase mb-4" style="color:rgba(244,240,230,.4)">Fale comigo</h4>
-            <div class="space-y-2">
-              <a href="#" data-wa class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">WhatsApp</a>
-              <a href="mailto:ismailepereiramachado@gmail.com" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">E-mail</a>
-              <a href="https://github.com/ismailepereira" target="_blank" rel="noopener" class="block text-sm hover:text-terra transition-colors" style="color:rgba(244,240,230,.7)">GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-4 justify-between items-center pt-6 border-t border-white/10 text-xs" style="color:rgba(244,240,230,.35)">
-          <span>Mirante da Serra, RO — atendimento em todo o Brasil</span>
-          <span>&copy; <span id="year"></span> Ismaile Pereira · Presença Digital</span>
         </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-5xl mx-auto px-6 md:px-12 py-24">
+      <div class="reveal relative overflow-hidden rounded-2xl bg-ink text-canvas px-8 md:px-16 py-16 text-center">
+        <div class="absolute inset-0 opacity-[.07]" style="background-image:linear-gradient(rgba(251,249,242,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(251,249,242,.6) 1px,transparent 1px);background-size:32px 32px"></div>
+        <div class="relative">
+          <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-canvas">Bora colocar seu negócio no mapa?</h2>
+          <p class="text-canvas/70 max-w-lg mx-auto mt-4 mb-8">A sua próxima oportunidade pode estar pesquisando seu serviço no Google agora mesmo. A primeira conversa é sem compromisso.</p>
+          <a href="#" data-wa class="group relative isolate overflow-hidden inline-flex items-center gap-2 bg-terra text-white px-8 py-4 rounded text-base font-semibold shadow-lg shadow-terra/30 ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.02]">
+            <span class="shimmer-layer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent z-10"></span>
+            <span class="relative z-20 inline-flex items-center gap-2"><iconify-icon icon="solar:chat-round-line-linear" width="18"></iconify-icon> Falar com o Ismaile no WhatsApp</span>
+          </a>
+          <p class="mono text-[10px] text-canvas/50 uppercase tracking-wider mt-5">Resposta em até 24h úteis</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-white/60">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-12">
+      <div class="grid sm:grid-cols-3 gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-3">
+            <img src="src/img/logo.png" alt="Logo" class="w-8 h-8 rounded object-contain">
+            <span class="leading-none"><span class="font-sans text-sm font-extrabold tracking-tight text-ink block">Ismaile Pereira</span><span class="mono text-[9px] font-medium tracking-[.15em] text-terra uppercase">Presença Digital</span></span>
+          </div>
+          <p class="text-sm text-body">Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.</p>
+        </div>
+        <div>
+          <h4 class="mono text-[10px] font-medium tracking-wider uppercase text-subtle mb-3">Navegação</h4>
+          <div class="space-y-2">
+            <a href="#inicio" class="block text-sm text-body hover:text-terra transition-colors">Início</a>
+            <a href="#servicos" class="block text-sm text-body hover:text-terra transition-colors">Serviços</a>
+            <a href="#projetos" class="block text-sm text-body hover:text-terra transition-colors">Projetos</a>
+            <a href="blog.html" class="block text-sm text-body hover:text-terra transition-colors">Blog</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="mono text-[10px] font-medium tracking-wider uppercase text-subtle mb-3">Fale comigo</h4>
+          <div class="space-y-2">
+            <a href="#" data-wa class="block text-sm text-body hover:text-terra transition-colors">WhatsApp</a>
+            <a href="mailto:ismailepereiramachado@gmail.com" class="block text-sm text-body hover:text-terra transition-colors">E-mail</a>
+            <a href="https://github.com/ismailepereira" target="_blank" rel="noopener" class="block text-sm text-body hover:text-terra transition-colors">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-between items-center pt-6 border-t border-line mono text-[10px] text-subtle uppercase tracking-wider">
+        <span>Mirante da Serra, RO — atendimento em todo o Brasil</span>
+        <span>&copy; <span id="year"></span> Ismaile Pereira · Presença Digital</span>
+      </div>
+    </div>
+  </footer>
   </div>
 
   <!-- WhatsApp Float -->
-  <a href="#" data-wa class="fixed right-5 bottom-5 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform" style="animation:wa-pulse 2s infinite" aria-label="Falar no WhatsApp">
-    <svg class="w-7 h-7" viewBox="0 0 32 32" fill="#fff"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.8L.3 31.6l8-2.1c2.3 1.2 4.9 1.9 7.7 1.9 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.5c-2.5 0-4.8-.7-6.8-1.8l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.3-2-2-4.4-2-6.9C2.7 8.7 8.7 2.8 16 2.8c7.3 0 13.2 5.9 13.2 13.2S23.3 28.9 16 28.9zm7.3-9.9c-.4-.2-2.4-1.2-2.7-1.3-.4-.1-.7-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.2-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.4-2.2-2.8-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.9-2.2-1.3-3-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1 0 1.8 1.3 3.6 1.5 3.8.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.1-.9 2.4-1.7.3-.8.3-1.6.2-1.7-.1-.2-.4-.3-.8-.5z"/></svg>
+  <a href="#" data-wa class="fixed right-5 bottom-5 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Falar no WhatsApp">
+    <iconify-icon icon="ic:baseline-whatsapp" width="26"></iconify-icon>
   </a>
 
-  <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- GSAP + ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
   <script>
   (function(){
     "use strict";
-
-    var WA = "5569999688625";
-    var MSG = "Olá Ismaile! Vi seu site e quero um orçamento.";
-    var waLink = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG);
-    document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = waLink; });
-
-    var y = document.getElementById("year");
-    if (y) y.textContent = new Date().getFullYear();
-
-    /* Menu mobile */
-    var toggle = document.getElementById("navToggle");
-    var menu = document.getElementById("mobileMenu");
-    if (toggle && menu) {
-      toggle.addEventListener("click", function(){
-        var open = menu.classList.toggle("hidden");
-        toggle.setAttribute("aria-expanded", open ? "false" : "true");
-      });
-      menu.querySelectorAll("a").forEach(function(a){
-        a.addEventListener("click", function(){ menu.classList.add("hidden"); toggle.setAttribute("aria-expanded","false"); });
-      });
+    var WA="5569999688625", MSG="Olá Ismaile! Vi seu site e quero um orçamento.";
+    var waLink="https://wa.me/"+WA+"?text="+encodeURIComponent(MSG);
+    document.querySelectorAll("[data-wa]").forEach(function(a){a.href=waLink;});
+    var y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
+    var toggle=document.getElementById("navToggle"), menu=document.getElementById("mobileMenu");
+    if(toggle&&menu){
+      toggle.addEventListener("click",function(){var h=menu.classList.toggle("hidden");toggle.setAttribute("aria-expanded",h?"false":"true");});
+      menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){menu.classList.add("hidden");});});
     }
-
-    /* Scroll suave */
+    var hdr=document.getElementById("nav-header");
+    window.addEventListener("scroll",function(){ if(hdr) hdr.style.boxShadow=window.scrollY>8?"0 4px 20px rgba(46,58,47,.06)":"none"; },{passive:true});
     document.querySelectorAll('a[href^="#"]').forEach(function(link){
-      link.addEventListener("click", function(e){
-        var id = link.getAttribute("href");
-        if (!id || id.length < 2 || id === "#") return;
-        var el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        var top = el.getBoundingClientRect().top + window.scrollY - 72;
-        window.scrollTo({ top: top, behavior: "smooth" });
-      });
+      link.addEventListener("click",function(e){var id=link.getAttribute("href"); if(!id||id.length<2||id==="#")return; var el=document.querySelector(id); if(!el)return; e.preventDefault(); window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:"smooth"});});
     });
-
-    /* Header shadow */
-    var hdr = document.getElementById("nav-header");
-    window.addEventListener("scroll", function(){
-      if (hdr) {
-        var scrolled = window.scrollY > 10;
-        hdr.style.boxShadow = scrolled ? "0 4px 20px rgba(46,58,47,.08)" : "none";
-      }
-    }, { passive: true });
-
-    /* ========================================
-       THREE.JS — Warm Organic Particles
-       ======================================== */
-    var canvas = document.getElementById("bg-canvas");
-    if (canvas && window.THREE) {
-      var isMobile = window.innerWidth < 768;
-      var scene = new THREE.Scene();
-      var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-      camera.position.z = 350;
-
-      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: !isMobile });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setClearColor(0x000000, 0);
-
-      var count = isMobile ? 50 : 100;
-      var maxDist = 110;
-      var posArr = new Float32Array(count * 3);
-      var velArr = [];
-      var colArr = new Float32Array(count * 3);
-
-      for (var i = 0; i < count; i++) {
-        posArr[i*3]   = (Math.random() - 0.5) * 700;
-        posArr[i*3+1] = (Math.random() - 0.5) * 700;
-        posArr[i*3+2] = (Math.random() - 0.5) * 250;
-        velArr.push((Math.random()-.5)*.3, (Math.random()-.5)*.3, (Math.random()-.5)*.15);
-        if (Math.random() > 0.5) {
-          colArr[i*3] = 0.75; colArr[i*3+1] = 0.35; colArr[i*3+2] = 0.19;
-        } else {
-          colArr[i*3] = 0.55; colArr[i*3+1] = 0.60; colArr[i*3+2] = 0.46;
-        }
-      }
-
-      var pGeo = new THREE.BufferGeometry();
-      pGeo.setAttribute("position", new THREE.BufferAttribute(posArr, 3));
-      pGeo.setAttribute("color", new THREE.BufferAttribute(colArr, 3));
-      var pMat = new THREE.PointsMaterial({ size: isMobile ? 2 : 2.5, transparent: true, opacity: 0.45, vertexColors: true });
-      scene.add(new THREE.Points(pGeo, pMat));
-
-      var maxLines = count * (count - 1) / 2;
-      var lPos = new Float32Array(maxLines * 6);
-      var lCol = new Float32Array(maxLines * 6);
-      var lGeo = new THREE.BufferGeometry();
-      lGeo.setAttribute("position", new THREE.BufferAttribute(lPos, 3));
-      lGeo.setAttribute("color", new THREE.BufferAttribute(lCol, 3));
-      var lMat = new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.12 });
-      var lineMesh = new THREE.LineSegments(lGeo, lMat);
-      if (!isMobile) scene.add(lineMesh);
-
-      var mx = 0, my = 0;
-      document.addEventListener("mousemove", function(e){
-        mx = (e.clientX / window.innerWidth - 0.5) * 2;
-        my = -(e.clientY / window.innerHeight - 0.5) * 2;
-      });
-
-      function animateThree(){
-        requestAnimationFrame(animateThree);
-        var p = pGeo.attributes.position.array;
-        for (var i = 0; i < count; i++){
-          p[i*3]   += velArr[i*3];
-          p[i*3+1] += velArr[i*3+1];
-          p[i*3+2] += velArr[i*3+2];
-          if (Math.abs(p[i*3])   > 350) velArr[i*3]   *= -1;
-          if (Math.abs(p[i*3+1]) > 350) velArr[i*3+1] *= -1;
-          if (Math.abs(p[i*3+2]) > 125) velArr[i*3+2] *= -1;
-        }
-        pGeo.attributes.position.needsUpdate = true;
-
-        if (!isMobile) {
-          var li = 0;
-          for (var a = 0; a < count; a++){
-            for (var b = a+1; b < count; b++){
-              var dx = p[a*3]-p[b*3], dy = p[a*3+1]-p[b*3+1], dz = p[a*3+2]-p[b*3+2];
-              var d = Math.sqrt(dx*dx+dy*dy+dz*dz);
-              if (d < maxDist){
-                var al = 1 - d/maxDist;
-                var r = .55*al, g = .45*al, bl2 = .30*al;
-                lPos[li*6]=p[a*3]; lPos[li*6+1]=p[a*3+1]; lPos[li*6+2]=p[a*3+2];
-                lPos[li*6+3]=p[b*3]; lPos[li*6+4]=p[b*3+1]; lPos[li*6+5]=p[b*3+2];
-                lCol[li*6]=r; lCol[li*6+1]=g; lCol[li*6+2]=bl2;
-                lCol[li*6+3]=r; lCol[li*6+4]=g; lCol[li*6+5]=bl2;
-                li++;
-              }
-            }
-          }
-          lGeo.setDrawRange(0, li*2);
-          lGeo.attributes.position.needsUpdate = true;
-          lGeo.attributes.color.needsUpdate = true;
-        }
-
-        camera.position.x += (mx*40 - camera.position.x) * 0.02;
-        camera.position.y += (my*40 - camera.position.y) * 0.02;
-        camera.lookAt(scene.position);
-        renderer.render(scene, camera);
-      }
-      animateThree();
-
-      window.addEventListener("resize", function(){
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    }
-
-    /* ===== Espalha cubos 3D + textura por todas as seções ===== */
-    function buildCubes(){
-      var pals=[["#D4774F","#BF5A30","#A24A26","#8A3E20"],["#A9B795","#8B9A75","#6E7B5C","#5A6749"],["#4A5A45","#2E3A2F","#283328","#1F271F"],["#E68F6B","#D4774F","#BF5A30","#A24A26"]];
-      var spots=[{css:"left:4%;top:14%",s:46,m:1,spin:22},{css:"right:6%;top:18%",s:60,m:0,spin:18},{css:"right:7%;bottom:14%",s:40,m:1,spin:26},{css:"left:6%;bottom:16%",s:54,m:0,spin:20}];
-      var faces=["f-front","f-back","f-right","f-left","f-top","f-bottom"];
-      function cube(spot,pal){
-        var p=document.createElement("div");
-        p.className="cube-pos"+(spot.m?"":" cube-hide-m");
-        p.setAttribute("style",spot.css+";--s:"+spot.s+"px;--h:"+(spot.s/2)+"px;--spin:"+spot.spin+"s;--light:"+pal[0]+";--mid:"+pal[1]+";--dark:"+pal[2]+";--dark2:"+pal[3]);
-        var d=document.createElement("div");d.className="cube-3d";
-        var inner=document.createElement("div");inner.className="cube-inner";
-        faces.forEach(function(f){var s=document.createElement("span");s.className="cube-face "+f;inner.appendChild(s);});
-        d.appendChild(inner);p.appendChild(d);return p;
-      }
-      var secs=document.querySelectorAll("main > section");
-      Array.prototype.forEach.call(secs,function(sec,si){
-        sec.classList.add("has-cubes","pg-grid");
-        if(sec.id==="inicio")return;
-        var layer=document.createElement("div");layer.className="cubes";layer.setAttribute("aria-hidden","true");
-        layer.appendChild(cube(spots[si%spots.length],pals[si%pals.length]));
-        layer.appendChild(cube(spots[(si+2)%spots.length],pals[(si+1)%pals.length]));
-        sec.insertBefore(layer,sec.firstChild);
-      });
-    }
-    buildCubes();
-
-    /* ========================================
-       GSAP — Smooth Organic Scroll Animations
-       ======================================== */
-    if (window.gsap && window.ScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.utils.toArray(".reveal-up").forEach(function(el, i){
-        gsap.to(el, {
-          scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
-          opacity: 1, y: 0, duration: 1, delay: (i % 4) * 0.08, ease: "power2.out"
-        });
-      });
-
-      gsap.to("#bg-canvas", {
-        scrollTrigger: { trigger: "#servicos", start: "top bottom", end: "top top", scrub: true },
-        opacity: 0.2, ease: "none"
-      });
-
-      /* Cubos 3D — rotação + deriva conforme cada seção entra na viewport. */
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        var cubeMM = gsap.matchMedia();
-        cubeMM.add({ isMobile: "(max-width: 767px)", isDesktop: "(min-width: 768px)" }, function (ctx) {
-          var mob = ctx.conditions.isMobile;
-          var sel = mob ? ".cube-pos:not(.cube-hide-m)" : ".cube-pos";
-          var k = mob ? 0.4 : 1;
-          gsap.utils.toArray(sel).forEach(function (el, i) {
-            var sec = el.closest("section") || document.body;
-            var dir = i % 2 ? 1 : -1;
-            var st = { trigger: sec, start: "top bottom", end: "bottom top", scrub: mob ? 1 : 0.6 };
-            gsap.to(el.querySelector(".cube-3d"), { rotationY: dir * 540 * k, rotationX: dir * 360 * k, rotationZ: dir * 160 * k, ease: "none", scrollTrigger: st });
-            gsap.to(el, { yPercent: dir * (mob ? 40 : 110), ease: "none", scrollTrigger: st });
-          });
-        });
-      }
-    }
-  })();
-  </script>
-
-  <!-- Interatividade do mouse: brilho que segue + parallax dos cubos -->
-  <script>
-  (function(){
-    "use strict";
-    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return; // só com mouse de verdade
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var glow = document.getElementById("cursor-glow");
-    var layers = [];
-    Array.prototype.forEach.call(document.querySelectorAll(".cubes"), function (l, i) {
-      layers.push({ el: l, depth: 10 + (i % 3) * 7 });
-    });
-    var tx = window.innerWidth / 2, ty = window.innerHeight / 2, gx = tx, gy = ty;
-    var nx = 0, ny = 0, cx = 0, cy = 0;
-    window.addEventListener("mousemove", function (e) {
-      tx = e.clientX; ty = e.clientY;
-      nx = (e.clientX / window.innerWidth - 0.5) * 2;
-      ny = (e.clientY / window.innerHeight - 0.5) * 2;
-      if (glow) glow.style.opacity = "1";
-    }, { passive: true });
-    document.addEventListener("mouseleave", function () { if (glow) glow.style.opacity = "0"; });
-    function loop() {
-      gx += (tx - gx) * 0.16; gy += (ty - gy) * 0.16;
-      if (glow) glow.style.transform = "translate(" + gx + "px," + gy + "px) translate(-50%,-50%)";
-      if (!reduce) {
-        cx += (nx - cx) * 0.06; cy += (ny - cy) * 0.06;
-        for (var i = 0; i < layers.length; i++) {
-          var d = layers[i].depth;
-          layers[i].el.style.transform = "translate3d(" + (-cx * d).toFixed(2) + "px," + (-cy * d).toFixed(2) + "px,0)";
-        }
-      }
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-  })();
-  </script>
-
-  <!-- Livro 3D dos projetos: folhear no hover / arrastar / pontos -->
-  <script>
-  (function(){
-    var book = document.getElementById("flipbook");
-    if (!book) return;
-    var pages = Array.prototype.slice.call(book.querySelectorAll(".fb-page"));
-    var dots  = Array.prototype.slice.call(book.querySelectorAll(".fb-dot"));
-    var N = pages.length, flipped = 0, timer = null;
-    function render(){
-      for (var i = 0; i < N; i++){
-        var f = i < flipped;
-        pages[i].classList.toggle("is-flipped", f);
-        pages[i].style.zIndex = 100 - i;
-        pages[i].style.pointerEvents = f ? "none" : "auto";
-      }
-      for (var j = 0; j < dots.length; j++) dots[j].classList.toggle("is-on", j === (flipped % N));
-    }
-    function go(n){ flipped = ((n % N) + N) % N; render(); }
-    function next(){ flipped = (flipped + 1) % N; render(); }
-    function prev(){ flipped = (flipped - 1 + N) % N; render(); }
-    function stop(){ if (timer){ clearInterval(timer); timer = null; } }
-    dots.forEach(function(d, i){ d.addEventListener("click", function(e){ e.preventDefault(); stop(); go(i); }); });
-    pages.forEach(function(p){ p.addEventListener("click", function(){ stop(); next(); }); });
-    Array.prototype.forEach.call(book.querySelectorAll(".fb-go"), function(a){ a.addEventListener("click", function(e){ e.stopPropagation(); }); });
-    var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (fine && !reduce){
-      book.addEventListener("mouseenter", function(){ if (!timer) timer = setInterval(next, 2100); });
-      book.addEventListener("mouseleave", stop);
-    }
-    var sx = null;
-    book.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; }, { passive: true });
-    book.addEventListener("touchend", function(e){
-      if (sx === null) return;
-      var dx = e.changedTouches[0].clientX - sx;
-      if (Math.abs(dx) > 40){ stop(); if (dx < 0) next(); else prev(); }
-      sx = null;
-    }, { passive: true });
-    render();
+    var reveals=document.querySelectorAll(".reveal");
+    if("IntersectionObserver" in window && reveals.length){
+      var io=new IntersectionObserver(function(entries){entries.forEach(function(en,i){ if(en.isIntersecting){ setTimeout(function(){en.target.classList.add("in");},(i%3)*70); io.unobserve(en.target);} });},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+      reveals.forEach(function(el){io.observe(el);});
+      window.setTimeout(function(){reveals.forEach(function(el){el.classList.add("in");});},2500);
+    } else { reveals.forEach(function(el){el.classList.add("in");}); }
   })();
   </script>
 </body>
