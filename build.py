@@ -198,6 +198,7 @@ FOOT = """        </div>
       </div>
     </div>
   </footer>
+  <script src="../../src/js/post.js"></script>
 </body>
 </html>
 """

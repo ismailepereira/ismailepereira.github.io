@@ -37,12 +37,13 @@ a página **vazia**. Resolvido com pré-render estático (`build.py`).
 
 ---
 
-## 🟠 Fase 2 — Experiência de leitura
-Fazer quem chega ler até o fim e clicar no próximo.
-- [ ] Página de post: **barra de progresso** de leitura + **botão compartilhar** + **voltar ao topo**. 🟨
-- [ ] **Índice (TOC)** automático nos textos longos (a partir dos `<h2>`). 🟨
-- [ ] **Página 404** no estilo pixel (hoje só existe o estado "post não encontrado"). 🟩
-- [ ] **Capa padrão por pilar** mais caprichada pra posts sem imagem. 🟩
+## 🟠 Fase 2 — Experiência de leitura · ✅ ENTREGUE (30/07)
+Fazer quem chega ler até o fim e clicar no próximo. (`src/js/post.js`, em todas as páginas de post.)
+- [x] Página de post: **barra de progresso** de leitura + **botão compartilhar** + **voltar ao topo**. 🟨
+- [x] **Índice (TOC)** automático nos textos longos (aparece com 3+ `<h2>`). 🟨
+- [x] **Página 404** no estilo pixel (`404.html`). 🟩
+- [~] **Capa padrão por pilar** — já existe a capa decorativa por cor/ícone no `blog.js`;
+      falta uma versão mais caprichada (fica junto do refino da Fase 1). 🟩
 
 ---
 

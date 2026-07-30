@@ -213,7 +213,62 @@
 .post-related { margin-top: 48px; }
 .post-related h2 { font-family: var(--display); color: var(--forest); font-size: 1.4rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
 
+/* ============================================================
+   Experiência de leitura (post.js) — Fase 2
+   ============================================================ */
+.reading-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 60;
+  background: transparent; pointer-events: none;
+}
+.reading-progress span {
+  display: block; height: 100%; width: 0;
+  background: repeating-linear-gradient(90deg, var(--terra) 0 6px, var(--terra-light) 6px 12px);
+  transition: width .1s linear;
+}
+
+/* Índice automático */
+.post-toc {
+  border: 2px solid var(--forest); background: var(--cream-light);
+  box-shadow: 4px 4px 0 rgba(46, 58, 47, .9); padding: 16px 18px; margin: 0 0 28px;
+}
+.post-toc__title {
+  font-family: var(--pixel); font-size: 8px; text-transform: uppercase;
+  letter-spacing: .5px; color: var(--terra); margin: 0 0 10px;
+}
+.post-toc ul { list-style: none; margin: 0; padding: 0; }
+.post-toc li { position: relative; padding-left: 16px; margin-bottom: 7px; }
+.post-toc li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; background: var(--sage); }
+.post-toc a { color: var(--forest-light); text-decoration: none; font-size: .9rem; line-height: 1.4; }
+.post-toc a:hover { color: var(--terra); text-decoration: underline; }
+
+/* Botões flutuantes */
+.post-fab {
+  position: fixed; right: 18px; bottom: 18px; z-index: 55;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.post-fab__btn {
+  width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  border: 2px solid var(--forest); background: #fff; color: var(--forest);
+  box-shadow: 3px 3px 0 var(--forest); cursor: pointer; padding: 0;
+  transition: transform .12s, box-shadow .12s, opacity .2s;
+}
+.post-fab__btn svg { width: 20px; height: 20px; image-rendering: pixelated; }
+.post-fab__btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--terra); }
+.post-fab__btn[data-share] { background: var(--terra); color: #fff; }
+.post-fab__btn[data-top] { opacity: 0; pointer-events: none; }
+.post-fab__btn[data-top].is-visible { opacity: 1; pointer-events: auto; }
+
+/* Toast (link copiado) */
+.post-toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 12px);
+  background: var(--forest); color: var(--cream); border: 2px solid var(--forest);
+  box-shadow: 4px 4px 0 var(--terra); padding: 12px 18px; font-weight: 700; font-size: .85rem;
+  z-index: 70; opacity: 0; transition: opacity .25s, transform .25s; pointer-events: none;
+}
+.post-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
 @media (max-width: 640px) {
   .post-cta { padding: 24px 18px; }
   .post-author { flex-direction: column; }
+  .post-fab { right: 12px; bottom: 12px; }
 }
