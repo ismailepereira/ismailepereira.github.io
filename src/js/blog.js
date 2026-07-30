@@ -27,21 +27,42 @@
   var SITE_URL   = location.origin + location.pathname.replace(/[^/]*$/, "");
   var WA_NUMBER  = "5569999688625";
 
-  /* Categorias do nicho + cor da tag (fallback se a API não devolver) */
+  /* ─── Pilares do blog pessoal ───
+     A `key` é o slug normalizado da categoria (sem acento, minúsculo).
+     Ao publicar no CMS do Alencar, use estes valores no campo "categoria":
+       fe-missao · leitura-filosofia · saude-mental · historia-internet ·
+       memes · casos-curiosos · e-se-fosse-assim · musica · filmes-series
+     `color` é usado na capa decorativa quando o post não tem imagem. */
   var CATEGORIES = {
-    "sites":      { label: "Sites",       cls: "tag--terra"  },
-    "seo":        { label: "Google / SEO", cls: "tag--forest" },
-    "whatsapp":   { label: "WhatsApp",    cls: "tag--sage"   },
-    "negocios":   { label: "Negócios",    cls: "tag--terra"  },
-    "bastidores": { label: "Bastidores",  cls: "tag--forest" },
-    "ia":         { label: "IA",          cls: "tag--sage"   }
+    "fe-missao":          { label: "Fé & Missão",        cls: "tag--terra",  color: "#BF5A30", icon: "cross" },
+    "leitura-filosofia":  { label: "Leitura & Filosofia", cls: "tag--clay",   color: "#9C6B4A", icon: "book"  },
+    "saude-mental":       { label: "Saúde mental",        cls: "tag--teal",   color: "#4E7C74", icon: "heart" },
+    "historia-internet":  { label: "História & Internet",  cls: "tag--plum",   color: "#77556B", icon: "globe" },
+    "memes":              { label: "Memes",               cls: "tag--gold",   color: "#C08A2E", icon: "meme"  },
+    "casos-curiosos":     { label: "Casos curiosos",      cls: "tag--berry",  color: "#A64B57", icon: "curio" },
+    "e-se-fosse-assim":   { label: "E se fosse assim",     cls: "tag--forest", color: "#4A5A45", icon: "spark" },
+    "musica":             { label: "Música",              cls: "tag--sage",   color: "#8B9A75", icon: "music" },
+    "filmes-series":      { label: "Filmes & Séries",     cls: "tag--ink",    color: "#2E3A2F", icon: "film"  }
   };
+  /* Apelidos: rótulos que o CMS pode devolver escritos por extenso */
+  var CAT_ALIASES = {
+    "fe-e-missao": "fe-missao",
+    "leitura-e-filosofia": "leitura-filosofia", "filosofia": "leitura-filosofia", "leitura": "leitura-filosofia",
+    "historia-cultura-de-internet": "historia-internet", "historia-e-cultura-de-internet": "historia-internet",
+    "cultura-de-internet": "historia-internet", "historia": "historia-internet",
+    "meme": "memes", "casos-curiosos": "casos-curiosos", "curiosidades": "casos-curiosos",
+    "e-se": "e-se-fosse-assim", "filmes-e-series": "filmes-series", "filmes": "filmes-series", "series": "filmes-series"
+  };
+  function catSlug(raw) {
+    return String(raw || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
   function categoryInfo(raw) {
-    if (!raw) return { label: "Presença Digital", cls: "tag--sage" };
-    var key = String(raw).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    if (!raw) return { label: "Diário", cls: "tag--sage", color: "#8B9A75", icon: "leaf" };
+    var key = catSlug(raw);
+    if (CAT_ALIASES[key]) key = CAT_ALIASES[key];
     if (CATEGORIES[key]) return CATEGORIES[key];
     var nice = key.replace(/-/g, " ").replace(/^\w/, function (c) { return c.toUpperCase(); });
-    return { label: nice || String(raw), cls: "tag--sage" };
+    return { label: nice || String(raw), cls: "tag--sage", color: "#8B9A75", icon: "leaf" };
   }
 
   /* ────────────────── ÍCONES PIXEL (8-bit, inline) ────────────────── */
@@ -50,7 +71,16 @@
       clock: '<rect x="5" y="2" width="6" height="2"/><rect x="3" y="4" width="2" height="2"/><rect x="11" y="4" width="2" height="2"/><rect x="2" y="6" width="2" height="4"/><rect x="12" y="6" width="2" height="4"/><rect x="3" y="10" width="2" height="2"/><rect x="11" y="10" width="2" height="2"/><rect x="5" y="12" width="6" height="2"/><rect x="7" y="5" width="2" height="4"/><rect x="9" y="7" width="2" height="2"/>',
       arrow: '<rect x="2" y="7" width="8" height="2"/><rect x="8" y="5" width="2" height="2"/><rect x="10" y="7" width="2" height="2"/><rect x="8" y="9" width="2" height="2"/><rect x="6" y="3" width="2" height="2"/><rect x="6" y="11" width="2" height="2"/>',
       leaf: '<rect x="7" y="2" width="2" height="12"/><rect x="3" y="5" width="4" height="2"/><rect x="1" y="6" width="2" height="2"/><rect x="9" y="8" width="4" height="2"/><rect x="13" y="9" width="2" height="2"/>',
-      msg: '<rect x="2" y="3" width="12" height="2"/><rect x="2" y="5" width="2" height="6"/><rect x="12" y="5" width="2" height="6"/><rect x="2" y="11" width="8" height="2"/><rect x="5" y="13" width="2" height="2"/><rect x="5" y="7" width="2" height="2"/><rect x="9" y="7" width="2" height="2"/>'
+      msg: '<rect x="2" y="3" width="12" height="2"/><rect x="2" y="5" width="2" height="6"/><rect x="12" y="5" width="2" height="6"/><rect x="2" y="11" width="8" height="2"/><rect x="5" y="13" width="2" height="2"/><rect x="5" y="7" width="2" height="2"/><rect x="9" y="7" width="2" height="2"/>',
+      cross: '<rect x="7" y="1" width="2" height="13"/><rect x="4" y="4" width="8" height="2"/>',
+      book:  '<rect x="2" y="3" width="5" height="11"/><rect x="9" y="3" width="5" height="11"/><rect x="7" y="4" width="2" height="10"/>',
+      heart: '<rect x="3" y="4" width="3" height="2"/><rect x="10" y="4" width="3" height="2"/><rect x="2" y="6" width="12" height="2"/><rect x="3" y="8" width="10" height="2"/><rect x="5" y="10" width="6" height="2"/><rect x="7" y="12" width="2" height="2"/>',
+      globe: '<rect x="5" y="2" width="6" height="2"/><rect x="3" y="4" width="10" height="2"/><rect x="2" y="6" width="12" height="4"/><rect x="3" y="10" width="10" height="2"/><rect x="5" y="12" width="6" height="2"/>',
+      meme:  '<rect x="4" y="2" width="8" height="2"/><rect x="2" y="4" width="2" height="8"/><rect x="12" y="4" width="2" height="8"/><rect x="4" y="12" width="8" height="2"/><rect x="5" y="6" width="2" height="2"/><rect x="9" y="6" width="2" height="2"/><rect x="5" y="9" width="6" height="2"/>',
+      curio: '<rect x="3" y="2" width="6" height="2"/><rect x="1" y="4" width="2" height="6"/><rect x="9" y="4" width="2" height="6"/><rect x="3" y="10" width="6" height="2"/><rect x="10" y="11" width="2" height="2"/><rect x="12" y="13" width="2" height="2"/>',
+      spark: '<rect x="7" y="1" width="2" height="5"/><rect x="7" y="10" width="2" height="5"/><rect x="1" y="7" width="5" height="2"/><rect x="10" y="7" width="5" height="2"/><rect x="7" y="7" width="2" height="2"/>',
+      music: '<rect x="10" y="2" width="2" height="9"/><rect x="5" y="4" width="2" height="9"/><rect x="7" y="2" width="5" height="2"/><rect x="3" y="11" width="4" height="3"/><rect x="10" y="9" width="4" height="3"/>',
+      film:  '<rect x="2" y="2" width="12" height="2"/><rect x="2" y="12" width="12" height="2"/><rect x="2" y="4" width="2" height="8"/><rect x="12" y="4" width="2" height="8"/><rect x="6" y="5" width="4" height="6"/>'
     };
     return '<svg class="px-ic" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false"><g fill="currentColor">' + (s[name] || "") + '</g></svg>';
   }
@@ -58,27 +88,33 @@
   /* Capa decorativa Pixel Garden (sol + plantinha) quando não há imagem */
   function decorCover(post) {
     var info = categoryInfo(post.category || post.categoria);
-    var sun = info.cls === "tag--forest" ? "#4A5A45" : (info.cls === "tag--sage" ? "#8B9A75" : "#BF5A30");
+    var c = info.color || "#BF5A30";
+    /* Painel pixel: fundo tonalizado com a cor do pilar + o ícone da categoria
+       grande e centralizado, como um "brasão" de 8-bit. */
     return ''
-      + '<div class="blog-card__cover blog-card__cover--decor">'
-      +   '<svg viewBox="0 0 120 80" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" shape-rendering="crispEdges" aria-hidden="true">'
-      +     '<rect width="120" height="80" fill="#FBF9F2"/>'
-      +     '<g fill="' + sun + '">'
-      +       '<rect x="78" y="16" width="10" height="10"/><rect x="74" y="20" width="4" height="4"/><rect x="88" y="20" width="4" height="4"/><rect x="80" y="10" width="6" height="4"/><rect x="80" y="28" width="6" height="4"/>'
+      + '<div class="blog-card__cover blog-card__cover--decor" style="background:' + c + '14">'
+      +   '<svg viewBox="0 0 120 80" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" shape-rendering="crispEdges" aria-hidden="true">'
+      +     '<g fill="' + c + '" opacity="0.14">'
+      +       '<rect x="6" y="8" width="6" height="6"/><rect x="108" y="12" width="6" height="6"/><rect x="14" y="62" width="6" height="6"/><rect x="100" y="60" width="6" height="6"/>'
       +     '</g>'
-      +     '<g fill="#8B9A75">'
-      +       '<rect x="24" y="46" width="4" height="22"/><rect x="16" y="50" width="6" height="6"/><rect x="30" y="54" width="6" height="6"/>'
-      +       '<rect x="52" y="52" width="4" height="16"/><rect x="46" y="56" width="5" height="5"/><rect x="57" y="58" width="5" height="5"/>'
-      +     '</g>'
-      +     '<g fill="' + sun + '"><rect x="50" y="46" width="4" height="6"/><rect x="48" y="44" width="8" height="4"/></g>'
-      +     '<rect x="0" y="68" width="120" height="3" fill="#8B9A75"/>'
+      +     '<g transform="translate(44,24) scale(2)" fill="' + c + '">' + (px_raw(info.icon) || px_raw("leaf")) + '</g>'
       +   '</svg>'
       + '</div>';
+  }
+  /* Retorna só os <rect> de um ícone (para uso dentro de outro <svg>) */
+  function px_raw(name) {
+    var m = px(name).match(/<g[^>]*>([\s\S]*?)<\/g>/);
+    return m ? m[1] : "";
   }
 
   /* ────────────────── ELEMENTOS ────────────────── */
   var blogGrid       = document.getElementById("blog-grid");
   var blogLoading    = document.getElementById("blog-loading");
+  var homeGrid       = document.getElementById("home-grid");
+  var homeLoading    = document.getElementById("home-loading");
+  var filterLabel    = document.getElementById("blog-filter-label");
+  var HOME_LIMIT     = 6;
+  var activeCat      = getParam("cat");   // filtro de pilar na blog.html
   var postArticle    = document.getElementById("post-article");
   var postLoading    = document.getElementById("post-loading");
   var relatedSection = document.getElementById("post-related");
@@ -93,6 +129,13 @@
     catch (e) { return ""; }
   }
   function getSlugFromURL() { return new URLSearchParams(location.search).get("slug"); }
+  function getParam(name) { return new URLSearchParams(location.search).get(name); }
+  function postMatchesCat(post, wantSlug) {
+    var raw = post.category || post.categoria;
+    var key = catSlug(raw);
+    if (CAT_ALIASES[key]) key = CAT_ALIASES[key];
+    return key === wantSlug;
+  }
 
   function readingTime(html) {
     if (!html) return 1;
@@ -195,26 +238,29 @@
       + '<aside class="post-author">'
       +   '<div class="post-author__avatar"><img src="src/img/ismaile.jpg" alt="Ismaile Pereira" loading="lazy" /></div>'
       +   '<div class="post-author__body">'
-      +     '<p class="post-author__eyebrow">' + px("leaf") + ' Sobre o autor</p>'
+      +     '<p class="post-author__eyebrow">' + px("leaf") + ' Quem escreveu isto</p>'
       +     '<h3>Ismaile Pereira</h3>'
-      +     '<p>Crio sites profissionais, rápidos e posicionados no Google para negócios de todo o Brasil — de Mirante da Serra (RO), 100% online.</p>'
-      +     '<a href="index.html#sobre" class="post-author__link">Conhecer minha história ' + px("arrow") + '</a>'
+      +     '<p>Missionário adventista de Mirante da Serra (RO). Escrevo sobre fé, livros, a mente e a cultura estranha da internet — este blog é meu caderno público.</p>'
+      +     '<a href="index.html#sobre" class="post-author__link">Conhecer o autor ' + px("arrow") + '</a>'
       +   '</div>'
       + '</aside>';
   }
 
   function postCtaHTML(post) {
-    var msg = "Olá Ismaile! Vim pelo blog (artigo: " + (post.title || "") + ") e quero um orçamento.";
-    var wa = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+    var info = categoryInfo(post.category || post.categoria);
+    var catSlugVal = "";
+    var raw = post.category || post.categoria;
+    if (raw) { catSlugVal = catSlug(raw); if (CAT_ALIASES[catSlugVal]) catSlugVal = CAT_ALIASES[catSlugVal]; }
+    var catLink = catSlugVal ? ('blog.html?cat=' + encodeURIComponent(catSlugVal)) : 'blog.html';
     return ''
       + '<section class="post-cta">'
       +   '<div class="post-cta__inner">'
-      +     '<p class="post-cta__eyebrow">' + px("msg") + ' Bora conversar?</p>'
-      +     '<h3>Se este texto fez sentido, posso colocar seu negócio no mapa.</h3>'
-      +     '<p class="post-cta__sub">Site profissional, rápido e posicionado no Google — atendimento 100% online pra todo o Brasil.</p>'
+      +     '<p class="post-cta__eyebrow">' + px("leaf") + ' Gostou desta ideia?</p>'
+      +     '<h3>Tem mais de onde veio.</h3>'
+      +     '<p class="post-cta__sub">Se este texto te pegou, provavelmente você vai curtir o resto do que ando escrevendo por aqui.</p>'
       +     '<div class="post-cta__actions">'
-      +       '<a href="' + wa + '" target="_blank" rel="noopener" class="pg-btn pg-btn--light">' + px("msg") + ' Falar no WhatsApp</a>'
-      +       '<a href="index.html#servicos" class="pg-btn pg-btn--ghost">Ver serviços</a>'
+      +       '<a href="' + catLink + '" class="pg-btn pg-btn--light">Mais sobre ' + escapeHTML(info.label) + '</a>'
+      +       '<a href="blog.html" class="pg-btn pg-btn--ghost">Ver todos os textos</a>'
       +     '</div>'
       +   '</div>'
       + '</section>';
@@ -224,22 +270,55 @@
   function renderPostList(posts) {
     if (!blogGrid) return;
     hide(blogLoading); show(blogGrid);
-    if (!posts || posts.length === 0) {
-      blogGrid.innerHTML = '<div class="blog-empty"><div class="blog-empty__icon">' + px("leaf") + '</div><h2>Em breve, novos conteúdos</h2><p>Estou preparando artigos sobre sites, Google e como vender mais pela internet.</p></div>';
+    posts = (posts || []).slice().sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
+
+    /* Filtro por pilar (?cat= na blog.html) */
+    if (activeCat) {
+      var info = categoryInfo(activeCat);
+      if (filterLabel) filterLabel.innerHTML = '<span class="blog-tag ' + info.cls + '">' + escapeHTML(info.label) + '</span> <a href="blog.html" class="blog-filter__clear">✕ limpar filtro</a>';
+      posts = posts.filter(function (p) { return postMatchesCat(p, activeCat); });
+      if (posts.length === 0) {
+        blogGrid.innerHTML = '<div class="blog-empty"><div class="blog-empty__icon">' + px(info.icon || "leaf") + '</div><h2>Ainda não há textos em “' + escapeHTML(info.label) + '”</h2><p>Esse pilar está esperando o primeiro texto. Volte em breve.</p><a href="blog.html" class="pg-btn pg-btn--light">Ver todos os textos</a></div>';
+        return;
+      }
+    } else if (filterLabel) {
+      filterLabel.innerHTML = "";
+    }
+
+    if (posts.length === 0) {
+      blogGrid.innerHTML = '<div class="blog-empty"><div class="blog-empty__icon">' + px("leaf") + '</div><h2>Em breve, os primeiros textos</h2><p>Estou preparando textos sobre fé, livros, a mente e a cultura da internet.</p></div>';
       return;
     }
-    posts = posts.slice().sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
     blogGrid.innerHTML = posts.map(postCardHTML).join("");
     revealCards(blogGrid);
   }
 
+  function renderHomeList(posts) {
+    if (!homeGrid) return;
+    hide(homeLoading); show(homeGrid);
+    posts = (posts || []).slice().sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); }).slice(0, HOME_LIMIT);
+    if (posts.length === 0) {
+      homeGrid.innerHTML = '<div class="blog-empty"><div class="blog-empty__icon">' + px("leaf") + '</div><h2>Os primeiros textos vêm aí</h2><p>Assim que o primeiro sair, ele aparece aqui.</p></div>';
+      return;
+    }
+    homeGrid.innerHTML = posts.map(postCardHTML).join("");
+    revealCards(homeGrid);
+  }
+
   function fetchPosts() {
-    if (!blogGrid) return;
-    var cached = readCache(); if (cached) renderPostList(cached);
+    var targets = [];
+    if (blogGrid) targets.push(renderPostList);
+    if (homeGrid) targets.push(renderHomeList);
+    if (!targets.length) return;
+    var apply = function (data) { targets.forEach(function (fn) { fn(data); }); };
+    var cached = readCache(); if (cached) apply(cached);
     fetch(POSTS_URL)
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-      .then(function (data) { writeCache(data); renderPostList(data); })
-      .catch(function (err) { console.warn("[Blog] erro:", err); if (!cached) renderError(blogGrid, blogLoading); });
+      .then(function (data) { writeCache(data); apply(data); })
+      .catch(function (err) {
+        console.warn("[Blog] erro:", err);
+        if (!cached) { if (blogGrid) renderError(blogGrid, blogLoading); if (homeGrid) renderError(homeGrid, homeLoading); }
+      });
   }
 
   /* ────────────────── POST INDIVIDUAL ────────────────── */
@@ -323,5 +402,5 @@
   /* ────────────────── INIT ────────────────── */
   var slug = getSlugFromURL();
   if (slug && postArticle) fetchPost(slug);
-  else if (blogGrid)       fetchPosts();
+  else if (blogGrid || homeGrid) fetchPosts();
 })();

@@ -80,6 +80,56 @@
 .tag--terra { background: var(--terra); }
 .tag--forest { background: var(--forest-light); }
 .tag--sage { background: var(--sage); }
+.tag--clay { background: #9C6B4A; }
+.tag--teal { background: #4E7C74; }
+.tag--plum { background: #77556B; }
+.tag--gold { background: #C08A2E; }
+.tag--berry { background: #A64B57; }
+.tag--ink { background: #2E3A2F; }
+
+/* ============================================================
+   Pilares (home) — cartões 8-bit com cor por categoria
+   ============================================================ */
+.pilar-grid {
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+.pilar-card {
+  --pc: var(--terra);
+  display: flex; flex-direction: column; gap: 8px;
+  background: #fff; border: 2px solid var(--forest);
+  border-top: 6px solid var(--pc);
+  box-shadow: 4px 4px 0 rgba(46, 58, 47, .9);
+  padding: 18px; text-decoration: none; color: inherit;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.pilar-card:hover { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--pc); }
+.pilar-card__ic {
+  width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--pc); background: color-mix(in srgb, var(--pc) 12%, #fff);
+  border: 2px solid var(--forest); margin-bottom: 4px;
+}
+.pilar-card__ic svg { width: 22px; height: 22px; image-rendering: pixelated; }
+.pilar-card__title { font-family: var(--display); font-size: 1.15rem; color: var(--forest); margin: 0; }
+.pilar-card__desc { font-size: .85rem; color: var(--forest-light); line-height: 1.5; margin: 0; }
+
+/* Moldura pixel da foto (sobre) */
+.pilar-frame {
+  display: inline-block; border: 3px solid var(--forest);
+  box-shadow: 6px 6px 0 var(--terra); background: #fff; line-height: 0;
+}
+
+/* Barra de filtro por pilar (blog.html) */
+.blog-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; min-height: 1px; margin-bottom: 8px; }
+.blog-filter__clear { font-size: .8rem; color: var(--forest-light); text-decoration: none; font-weight: 600; }
+.blog-filter__clear:hover { color: var(--terra); }
+.blog-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.blog-chip {
+  font-family: var(--pixel); font-size: 8px; letter-spacing: .5px; text-transform: uppercase;
+  padding: 8px 10px; border: 2px solid var(--forest); background: #fff; color: var(--forest);
+  text-decoration: none; box-shadow: 2px 2px 0 rgba(46,58,47,.5); transition: transform .12s, box-shadow .12s;
+}
+.blog-chip:hover, .blog-chip.is-active { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--terra); background: var(--cream); }
 
 /* ---- Loader pixel ---- */
 .pixel-loader { display: flex; gap: 6px; justify-content: center; padding: 60px 0; }

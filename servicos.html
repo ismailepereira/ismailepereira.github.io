@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços · Criação de Sites | Ismaile Pereira</title>
+  <meta name="description" content="Sites profissionais, rápidos e posicionados no Google para negócios e profissionais de todo o Brasil. Atendimento 100% online.">
+  <meta name="author" content="Ismaile Pereira">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ismailepereira.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ismaile Pereira · Presença Digital">
+  <meta property="og:description" content="Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.">
+  <meta property="og:url" content="https://ismailepereira.github.io/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23FBF9F2'/%3E%3Cpath d='M30 62 a20 20 0 0 1 40 0 z' fill='%23BF5A30'/%3E%3Crect x='22' y='70' width='56' height='4' rx='2' fill='%232E3A2F'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2/dist/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config={theme:{extend:{
+      fontFamily:{sans:['"Plus Jakarta Sans"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']},
+      colors:{canvas:'#FBF9F2',surface:'#FFFFFF',ink:'#2E3A2F',body:'#4A5A45',subtle:'#8B9A75',line:'#E7E2D6',
+        terra:{DEFAULT:'#BF5A30',dark:'#A24A26',light:'#D4774F'},forest:'#2E3A2F',sage:'#8B9A75'},
+      letterSpacing:{tight:'-0.02em',tighter:'-0.04em'}
+    }}}
+  </script>
+  <style>
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#FBF9F2;color:#2E3A2F;font-family:'Plus Jakarta Sans','Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .technical-grid{background-size:40px 40px;background-image:linear-gradient(to right,rgba(46,58,47,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(46,58,47,.045) 1px,transparent 1px);-webkit-mask-image:linear-gradient(to bottom,black 30%,transparent 100%);mask-image:linear-gradient(to bottom,black 30%,transparent 100%)}
+    .premium-card{background:#fff;border:1px solid #E7E2D6;box-shadow:0 2px 4px rgba(46,58,47,.02),0 8px 16px -4px rgba(46,58,47,.05);transition:all .3s cubic-bezier(.2,.8,.2,1)}
+    .premium-card:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(46,58,47,.03),0 14px 28px -6px rgba(46,58,47,.09);border-color:#D9D2BF}
+    @keyframes shimmer{100%{transform:translateX(100%)}}
+    .shimmer-layer{transform:translateX(-100%)}
+    .group:hover .shimmer-layer{animation:shimmer 1.5s cubic-bezier(.4,0,.2,1) infinite}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+    .mono{font-family:'JetBrains Mono',monospace}
+    ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#FBF9F2}::-webkit-scrollbar-thumb{background:#D9D2BF;border-radius:4px}::-webkit-scrollbar-thumb:hover{background:#8B9A75}
+  </style>
+</head>
+<body class="w-full relative bg-canvas">
+
+  <div class="fixed inset-0 z-0 technical-grid pointer-events-none"></div>
+  <div class="fixed inset-0 z-0 pointer-events-none" style="background:radial-gradient(60% 50% at 70% 0%,rgba(191,90,48,.05),transparent 70%)"></div>
+
+  <!-- HEADER -->
+  <header id="nav-header" class="fixed top-0 left-0 right-0 z-50 w-full px-5 py-4 md:px-10 flex justify-between items-center bg-canvas/85 backdrop-blur-md border-b border-line/70 transition-all duration-300">
+    <a href="index.html" class="flex items-center gap-2.5" aria-label="Ismaile Pereira, início">
+      <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-8 h-8 rounded object-contain">
+      <span class="leading-none">
+        <span class="font-sans text-sm font-extrabold tracking-tight text-ink block">Ismaile Pereira</span>
+        <span class="mono text-[9px] font-medium tracking-[.15em] text-terra uppercase">Presença Digital</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7" aria-label="Navegação principal">
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="index.html">← Blog</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#servicos">Serviços</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#como-funciona">Como funciona</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#projetos">Projetos</a>
+      <a class="font-sans text-xs font-medium text-subtle hover:text-ink transition-colors" href="#sobre">Sobre</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#" data-wa class="group relative isolate overflow-hidden bg-terra text-white text-xs font-semibold px-4 py-2 rounded shadow-sm ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+        <span class="shimmer-layer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent z-10"></span>
+        <span class="relative z-20 inline-flex items-center gap-1.5"><iconify-icon icon="solar:chat-round-line-linear" width="14"></iconify-icon> WhatsApp</span>
+      </a>
+      <button id="navToggle" class="md:hidden p-1.5 text-ink" aria-label="Abrir menu" aria-expanded="false"><iconify-icon icon="solar:hamburger-menu-linear" width="22"></iconify-icon></button>
+    </div>
+  </header>
+  <div id="mobileMenu" class="hidden fixed top-[57px] left-0 right-0 z-40 bg-canvas border-b border-line px-5 py-3 md:hidden">
+    <a href="#servicos" class="block py-2.5 text-sm text-body hover:text-terra">Serviços</a>
+    <a href="#como-funciona" class="block py-2.5 text-sm text-body hover:text-terra">Como funciona</a>
+    <a href="#projetos" class="block py-2.5 text-sm text-body hover:text-terra">Projetos</a>
+    <a href="#sobre" class="block py-2.5 text-sm text-body hover:text-terra">Sobre</a>
+    <a href="blog.html" class="block py-2.5 text-sm text-body hover:text-terra">Blog</a>
+  </div>
+
+  <div class="relative z-10">
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="relative min-h-[92vh] flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-20 pt-32 pb-20 gap-16 max-w-7xl mx-auto">
+      <div class="max-w-2xl space-y-8 relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-line shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-terra animate-pulse"></span>
+          <span class="font-sans text-[11px] font-medium text-subtle tracking-tight">Disponível para novos projetos</span>
+        </div>
+        <h1 class="font-sans text-5xl md:text-7xl font-extrabold tracking-tighter text-ink leading-[0.98]">
+          Quem não aparece no Google,
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-terra to-terra-light">não vende.</span>
+        </h1>
+        <p class="max-w-md font-sans text-base text-body leading-relaxed">
+          Faço sites profissionais pra negócios e profissionais de <strong class="text-ink font-semibold">todo o Brasil</strong> — posicionados no Google e prontos pro cliente te chamar no WhatsApp. 100% online, sem enrolação, no prazo.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#" data-wa class="group relative isolate overflow-hidden bg-terra text-white px-6 py-3 rounded text-sm font-semibold shadow-lg shadow-terra/20 ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.02]">
+            <span class="shimmer-layer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent z-10"></span>
+            <span class="relative z-20 inline-flex items-center gap-2">Falar comigo agora <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></span>
+          </a>
+          <a href="#servicos" class="px-6 py-3 rounded text-sm font-semibold text-ink bg-white border border-line hover:border-ink/40 transition-colors">Ver serviços</a>
+        </div>
+        <div class="flex items-center gap-2 mono text-[11px] text-subtle uppercase tracking-wider">
+          <iconify-icon icon="solar:map-point-linear" width="14" class="text-terra"></iconify-icon>
+          De Mirante da Serra (RO) para o Brasil inteiro
+        </div>
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-line max-w-md">
+          <div><div class="text-2xl font-extrabold tracking-tight text-ink">10+</div><div class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">projetos</div></div>
+          <div><div class="text-2xl font-extrabold tracking-tight text-ink">100%</div><div class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">online</div></div>
+          <div><div class="text-2xl font-extrabold tracking-tight text-ink">24h</div><div class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">resposta</div></div>
+        </div>
+      </div>
+      <!-- Mockup: janela do navegador com um projeto -->
+      <div class="relative w-full max-w-lg aspect-[4/3] flex items-center justify-center">
+        <div class="absolute inset-0 bg-gradient-to-tr from-canvas via-terra/5 to-canvas opacity-60 blur-3xl"></div>
+        <div class="premium-card w-full h-full relative overflow-hidden rounded-xl">
+          <div class="flex items-center gap-2 px-4 h-9 border-b border-line bg-canvas">
+            <span class="w-2.5 h-2.5 rounded-full bg-terra/60"></span><span class="w-2.5 h-2.5 rounded-full bg-sage/60"></span><span class="w-2.5 h-2.5 rounded-full bg-line"></span>
+            <span class="mono text-[10px] text-subtle ml-2 truncate">postossavana.com.br</span>
+          </div>
+          <div class="h-[calc(100%-2.25rem)] bg-cover bg-top" style="background-image:url('src/img/proj-savana.jpg')"></div>
+          <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-ink/92 text-canvas rounded-lg px-3 py-2">
+            <div><div class="text-xs font-semibold">Auto Postos Savana</div><div class="mono text-[9px] uppercase tracking-wider opacity-70">no ar · RO</div></div>
+            <span class="mono text-[9px] px-2 py-1 rounded bg-terra text-white">1ª página</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTES / LOGOS -->
+    <section class="border-y border-line bg-white/60 py-10">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="mono text-[11px] font-medium text-subtle uppercase tracking-wider whitespace-nowrap">Negócios que já confiam</p>
+        <div class="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
+          <a href="https://postossavana.com.br" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Auto Postos Savana</a>
+          <a href="https://psijessicamachado.com.br" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Jéssica Machado</a>
+          <a href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Alysson Mattos</a>
+          <a href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener" class="font-sans text-base font-bold text-ink/70 hover:text-ink tracking-tight transition-colors">Maranata Music</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="max-w-7xl mx-auto px-6 md:px-12 py-24">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">01 — O problema</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">Seu cliente tá te procurando agora. Ele te acha — ou acha o concorrente?</h2>
+        <p class="text-body mt-4">Você é bom no que faz. Mas isso não adianta se ninguém te encontra:</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:bell-off-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Você depende só do <strong class="text-ink font-semibold">Instagram e do boca a boca</strong> — e quem te procura no Google cai no concorrente.</p></div>
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:clock-circle-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Seu site é <strong class="text-ink font-semibold">lento, confuso ou não abre no celular</strong> — e a pessoa desiste em segundos.</p></div>
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:chat-round-line-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Até aparece visita, mas <strong class="text-ink font-semibold">ninguém te chama</strong> — falta um caminho claro até o WhatsApp.</p></div>
+        <div class="premium-card rounded-xl p-5 flex gap-4 items-start reveal"><div class="w-9 h-9 rounded-lg bg-terra/10 text-terra flex items-center justify-center shrink-0"><iconify-icon icon="solar:settings-linear" width="18"></iconify-icon></div><p class="text-sm text-body">Você sabe que precisa resolver, mas <strong class="text-ink font-semibold">não tem tempo nem paciência</strong> pra parte técnica.</p></div>
+      </div>
+      <p class="text-center text-xl md:text-2xl font-bold tracking-tight text-ink mt-12 max-w-xl mx-auto reveal">O problema quase nunca é o seu trabalho. <span class="text-terra">É que ele tá invisível.</span></p>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="max-w-7xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">02 — O que eu faço por você</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">Tudo aponta pra uma coisa só: você ser encontrado.</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:display-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Site profissional e rápido</h3><p class="text-sm text-body mt-1.5">Feito pro celular primeiro, abre em segundos e passa credibilidade.</p></div>
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:magnifer-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Posicionamento no Google</h3><p class="text-sm text-body mt-1.5">Estrutura técnica certa (SEO) pra aparecer quando seu cliente procura.</p></div>
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:chat-round-line-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Pronto pra vender no WhatsApp</h3><p class="text-sm text-body mt-1.5">As chamadas certas levam o visitante direto pra conversa com você.</p></div>
+        <div class="premium-card rounded-xl p-6 reveal"><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:widget-5-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Eu cuido de tudo</h3><p class="text-sm text-body mt-1.5">Domínio, hospedagem, textos, fotos e ajustes. Você só aprova.</p></div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA (timeline) -->
+    <section id="como-funciona" class="max-w-3xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="text-center mb-14 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">03 — Como funciona</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">É simples. Em 3 passos.</h2>
+        <p class="text-body mt-3">Você não precisa entender nada de tecnologia. Eu cuido.</p>
+      </div>
+      <div class="relative pl-8">
+        <div class="absolute left-[9px] top-2 bottom-2 w-px bg-line"></div>
+        <div class="space-y-10">
+          <div class="relative reveal"><div class="absolute -left-8 top-1 w-[19px] h-[19px] rounded-full border-2 border-terra bg-canvas flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-terra"></span></div><span class="mono text-[10px] text-subtle uppercase tracking-wider">01 Conversa</span><h3 class="font-sans text-lg font-semibold text-ink mt-1">A gente conversa</h3><p class="text-sm text-body mt-1">Uma conversa rápida no WhatsApp pra eu entender seu negócio, seu cliente e seu objetivo.</p></div>
+          <div class="relative reveal"><div class="absolute -left-8 top-1 w-[19px] h-[19px] rounded-full border-2 border-terra bg-canvas flex items-center justify-center"><span class="w-1.5 h-1.5 rounded-full bg-terra"></span></div><span class="mono text-[10px] text-subtle uppercase tracking-wider">02 Criação</span><h3 class="font-sans text-lg font-semibold text-ink mt-1">Eu crio e você acompanha</h3><p class="text-sm text-body mt-1">Monto seu site completo. Você vê antes de ir pro ar e pede ajustes. Nada publica sem o seu "ok".</p></div>
+          <div class="relative reveal"><div class="absolute -left-8 top-1 w-[19px] h-[19px] rounded-full border-2 border-terra bg-terra flex items-center justify-center"><iconify-icon icon="solar:check-read-linear" width="11" class="text-white"></iconify-icon></div><span class="mono text-[10px] text-subtle uppercase tracking-wider">03 No ar</span><h3 class="font-sans text-lg font-semibold text-ink mt-1">No ar e trazendo cliente</h3><p class="text-sm text-body mt-1">Seu site entra no ar, posicionado no Google e pronto pra receber contato. Eu fico de suporte.</p></div>
+        </div>
+      </div>
+      <p class="text-center mono text-[11px] text-subtle uppercase tracking-wider mt-12 reveal">Prazo combinado · preço fechado na largada · sem surpresa</p>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="max-w-7xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="max-w-2xl mb-12 reveal">
+        <span class="mono text-[11px] text-terra uppercase tracking-wider">04 — Portfólio</span>
+        <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3">Não é teoria. Já tá no ar.</h2>
+        <p class="text-body mt-4">Projetos reais que construí de ponta a ponta.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="https://postossavana.com.br" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">postossavana.com.br</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-savana.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Auto Postos Savana</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Negócio local · RO</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
+        </a>
+        <a href="https://psijessicamachado.com.br" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">psijessicamachado.com.br</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-jessica.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Jéssica Machado</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Neuropsicologia · Saúde</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
+        </a>
+        <a href="https://ismailepereira.github.io/alysson-mattos-site/" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">alysson-mattos-site</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-alysson.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Alysson Mattos</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Fisioterapia · MT</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
+        </a>
+        <a href="https://ismailepereira.github.io/maranata-music/" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-line bg-canvas"><span class="w-2 h-2 rounded-full bg-terra/50"></span><span class="w-2 h-2 rounded-full bg-sage/50"></span><span class="mono text-[10px] text-subtle ml-1 truncate">maranata-music</span></div>
+          <div class="aspect-[16/10] bg-cover bg-top" style="background-image:url('src/img/proj-maranata.jpg')"></div>
+          <div class="p-4 flex items-center justify-between"><div><h3 class="font-sans text-sm font-semibold text-ink">Maranata Music</h3><p class="mono text-[10px] text-subtle uppercase tracking-wider mt-0.5">Projeto social · Música</p></div><span class="text-terra group-hover:translate-x-1 transition-transform"><iconify-icon icon="solar:arrow-right-up-linear" width="18"></iconify-icon></span></div>
+        </a>
+        <a href="https://ismailepereira.github.io/resistencia-site" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal p-6 flex flex-col justify-between">
+          <div><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:music-note-2-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Curso Resistência</h3><p class="text-sm text-body mt-1.5">Landing do curso de guitarra + gestão de campanhas no Meta Ads.</p></div>
+          <span class="mono text-[10px] text-terra uppercase tracking-wider mt-4 inline-flex items-center gap-1">Ver site <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon></span>
+        </a>
+        <a href="https://github.com/ismailepereira/baixador" target="_blank" rel="noopener" class="premium-card rounded-xl overflow-hidden group reveal p-6 flex flex-col justify-between">
+          <div><div class="w-10 h-10 rounded-lg bg-canvas border border-line text-terra flex items-center justify-center mb-4"><iconify-icon icon="solar:download-minimalistic-linear" width="20"></iconify-icon></div><h3 class="font-sans text-base font-semibold text-ink">Baixador</h3><p class="text-sm text-body mt-1.5">Extensão Chrome + servidor Flask + app Android para baixar mídia.</p></div>
+          <span class="mono text-[10px] text-terra uppercase tracking-wider mt-4 inline-flex items-center gap-1">Ver no GitHub <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="max-w-3xl mx-auto px-6 md:px-12 py-24 border-t border-line">
+      <div class="grid md:grid-cols-[auto_1fr] gap-8 items-center">
+        <div class="reveal flex justify-center">
+          <img src="src/img/ismaile.jpg" alt="Ismaile Pereira" class="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover border border-line shadow-md" loading="lazy">
+        </div>
+        <div class="reveal">
+          <span class="mono text-[11px] text-terra uppercase tracking-wider">05 — Quem vai fazer seu site</span>
+          <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-ink mt-3 mb-4">Oi, eu sou o Ismaile</h2>
+          <div class="space-y-3 text-body leading-relaxed text-sm">
+            <p>Sou de <strong class="text-ink font-semibold">Mirante da Serra, no interior de Rondônia</strong> — e atendo o <strong class="text-ink font-semibold">Brasil inteiro, 100% online</strong>. Não importa onde você está: a gente conversa, eu crio, e seu site entra no ar.</p>
+            <p>Eu mesmo cuido do seu projeto do início ao fim: do texto ao código, do visual ao Google. Site de verdade, rápido e sob medida — nada de modelo pronto que todo mundo usa.</p>
+            <p class="text-ink font-semibold">Pra mim, todo negócio merece a mesma presença digital que as grandes empresas têm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-5xl mx-auto px-6 md:px-12 py-24">
+      <div class="reveal relative overflow-hidden rounded-2xl bg-ink text-canvas px-8 md:px-16 py-16 text-center">
+        <div class="absolute inset-0 opacity-[.07]" style="background-image:linear-gradient(rgba(251,249,242,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(251,249,242,.6) 1px,transparent 1px);background-size:32px 32px"></div>
+        <div class="relative">
+          <h2 class="font-sans text-3xl md:text-4xl font-bold tracking-tight text-canvas">Bora colocar seu negócio no mapa?</h2>
+          <p class="text-canvas/70 max-w-lg mx-auto mt-4 mb-8">A sua próxima oportunidade pode estar pesquisando seu serviço no Google agora mesmo. A primeira conversa é sem compromisso.</p>
+          <a href="#" data-wa class="group relative isolate overflow-hidden inline-flex items-center gap-2 bg-terra text-white px-8 py-4 rounded text-base font-semibold shadow-lg shadow-terra/30 ring-1 ring-white/10 transition-all duration-300 hover:scale-[1.02]">
+            <span class="shimmer-layer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent z-10"></span>
+            <span class="relative z-20 inline-flex items-center gap-2"><iconify-icon icon="solar:chat-round-line-linear" width="18"></iconify-icon> Falar com o Ismaile no WhatsApp</span>
+          </a>
+          <p class="mono text-[10px] text-canvas/50 uppercase tracking-wider mt-5">Resposta em até 24h úteis</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line bg-white/60">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-12">
+      <div class="grid sm:grid-cols-3 gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-2.5 mb-3">
+            <img src="src/img/logo.png" alt="Logo" class="w-8 h-8 rounded object-contain">
+            <span class="leading-none"><span class="font-sans text-sm font-extrabold tracking-tight text-ink block">Ismaile Pereira</span><span class="mono text-[9px] font-medium tracking-[.15em] text-terra uppercase">Presença Digital</span></span>
+          </div>
+          <p class="text-sm text-body">Sites que colocam seu negócio no Google e trazem clientes no WhatsApp.</p>
+        </div>
+        <div>
+          <h4 class="mono text-[10px] font-medium tracking-wider uppercase text-subtle mb-3">Navegação</h4>
+          <div class="space-y-2">
+            <a href="#inicio" class="block text-sm text-body hover:text-terra transition-colors">Início</a>
+            <a href="#servicos" class="block text-sm text-body hover:text-terra transition-colors">Serviços</a>
+            <a href="#projetos" class="block text-sm text-body hover:text-terra transition-colors">Projetos</a>
+            <a href="blog.html" class="block text-sm text-body hover:text-terra transition-colors">Blog</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="mono text-[10px] font-medium tracking-wider uppercase text-subtle mb-3">Fale comigo</h4>
+          <div class="space-y-2">
+            <a href="#" data-wa class="block text-sm text-body hover:text-terra transition-colors">WhatsApp</a>
+            <a href="mailto:ismailepereiramachado@gmail.com" class="block text-sm text-body hover:text-terra transition-colors">E-mail</a>
+            <a href="https://github.com/ismailepereira" target="_blank" rel="noopener" class="block text-sm text-body hover:text-terra transition-colors">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4 justify-between items-center pt-6 border-t border-line mono text-[10px] text-subtle uppercase tracking-wider">
+        <span>Mirante da Serra, RO — atendimento em todo o Brasil</span>
+        <span>&copy; <span id="year"></span> Ismaile Pereira · Presença Digital</span>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  <!-- WhatsApp Float -->
+  <a href="#" data-wa class="fixed right-5 bottom-5 z-50 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Falar no WhatsApp">
+    <iconify-icon icon="ic:baseline-whatsapp" width="26"></iconify-icon>
+  </a>
+
+  <script>
+  (function(){
+    "use strict";
+    var WA="5569999688625", MSG="Olá Ismaile! Vi seu site e quero um orçamento.";
+    var waLink="https://wa.me/"+WA+"?text="+encodeURIComponent(MSG);
+    document.querySelectorAll("[data-wa]").forEach(function(a){a.href=waLink;});
+    var y=document.getElementById("year"); if(y) y.textContent=new Date().getFullYear();
+    var toggle=document.getElementById("navToggle"), menu=document.getElementById("mobileMenu");
+    if(toggle&&menu){
+      toggle.addEventListener("click",function(){var h=menu.classList.toggle("hidden");toggle.setAttribute("aria-expanded",h?"false":"true");});
+      menu.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){menu.classList.add("hidden");});});
+    }
+    var hdr=document.getElementById("nav-header");
+    window.addEventListener("scroll",function(){ if(hdr) hdr.style.boxShadow=window.scrollY>8?"0 4px 20px rgba(46,58,47,.06)":"none"; },{passive:true});
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+      link.addEventListener("click",function(e){var id=link.getAttribute("href"); if(!id||id.length<2||id==="#")return; var el=document.querySelector(id); if(!el)return; e.preventDefault(); window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-70,behavior:"smooth"});});
+    });
+    var reveals=document.querySelectorAll(".reveal");
+    if("IntersectionObserver" in window && reveals.length){
+      var io=new IntersectionObserver(function(entries){entries.forEach(function(en,i){ if(en.isIntersecting){ setTimeout(function(){en.target.classList.add("in");},(i%3)*70); io.unobserve(en.target);} });},{threshold:.12,rootMargin:"0px 0px -40px 0px"});
+      reveals.forEach(function(el){io.observe(el);});
+      window.setTimeout(function(){reveals.forEach(function(el){el.classList.add("in");});},2500);
+    } else { reveals.forEach(function(el){el.classList.add("in");}); }
+  })();
+  </script>
+</body>
+</html>
