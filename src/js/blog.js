@@ -220,7 +220,7 @@
     var hasContent = post.content && String(post.content).replace(/<[^>]+>/g, "").trim().length > 0;
     var readMeta = hasContent ? ' · ' + readingTime(post.content) + ' min' : '';
     return ''
-      + '<a class="blog-card" href="blog-post.html?slug=' + slug + '">'
+      + '<a class="blog-card" href="p/' + slug + '/">'
       +   postCover(post)
       +   '<div class="blog-card__body">'
       +     '<div class="blog-card__top">' + cardTag(post)

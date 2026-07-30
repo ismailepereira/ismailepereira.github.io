@@ -47,9 +47,24 @@ python -m http.server 8000
 - **Componentes/layout:** `src/css/components.css`
 - **Imagem de compartilhamento:** rode `node scripts/og.js` após editar a marca
 
+## Blog (SEO / pré-render)
+
+Os posts vêm do CMS "API do Alencar". Para o Google e o compartilhamento verem o
+conteúdo, cada post é **pré-renderizado** como página estática:
+
+```bash
+python build.py     # gera p/<slug>/index.html, sitemap.xml, feed.xml, robots.txt
+```
+
+Rode `build.py` **sempre que publicar/editar um post** no painel do Alencar, antes do push.
+A listagem (`blog.html`) segue lendo a API ao vivo; só as páginas individuais e o sitemap
+precisam do rebuild.
+
 ## Publicação
 
-`git push` na `main` — o GitHub Pages atualiza em 1–2 min.
+```bash
+python build.py && git push   # na main — GitHub Pages atualiza em 1–2 min
+```
 
 ---
 
