@@ -1,0 +1,47 @@
+name: Pré-render do blog (SEO)
+
+# Gera as páginas estáticas dos posts + sitemap + feed + robots a partir da API
+# do Alencar. Roda no push, de 6 em 6 horas (pega posts novos publicados no
+# painel sem precisar de push) e sob demanda.
+#
+# OBS: isto atualiza a cópia do GitHub Pages (ismailepereira.github.io).
+# O domínio ismailepereira.com.br está na Hostinger — enquanto não migrar,
+# o deploy no domínio segue por upload do zip no hPanel.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prerender
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Gerar páginas estáticas, sitemap, feed e robots
+        run: python build.py
+
+      - name: Commitar se houver mudanças
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add p sitemap.xml feed.xml robots.txt
+          if git diff --cached --quiet; then
+            echo "Nada mudou — nenhum post novo/editado."
+          else
+            git commit -m "chore: pré-render automático do blog [skip ci]"
+            git push
+          fi

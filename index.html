@@ -163,11 +163,18 @@
             </p>
             <h2 class="text-3xl md:text-4xl font-bold leading-tight">Últimos escritos</h2>
           </div>
-          <a href="blog.html" class="pg-btn pg-btn--ghost">Ver todos os textos
-            <svg class="px-ic" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="2" y="7" width="8" height="2"/><rect x="8" y="5" width="2" height="2"/><rect x="10" y="7" width="2" height="2"/><rect x="8" y="9" width="2" height="2"/><rect x="6" y="3" width="2" height="2"/><rect x="6" y="11" width="2" height="2"/></g></svg>
-          </a>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" id="btn-surprise" class="pg-btn pg-btn--light" disabled>
+              <svg class="px-ic" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="4" y="2" width="8" height="2"/><rect x="2" y="4" width="2" height="8"/><rect x="12" y="4" width="2" height="8"/><rect x="4" y="12" width="8" height="2"/><rect x="6" y="5" width="2" height="2"/><rect x="10" y="7" width="2" height="2"/><rect x="6" y="9" width="2" height="2"/></g></svg>
+              Surpreenda-me
+            </button>
+            <a href="blog.html" class="pg-btn pg-btn--ghost">Ver todos
+              <svg class="px-ic" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="2" y="7" width="8" height="2"/><rect x="8" y="5" width="2" height="2"/><rect x="10" y="7" width="2" height="2"/><rect x="8" y="9" width="2" height="2"/><rect x="6" y="3" width="2" height="2"/><rect x="6" y="11" width="2" height="2"/></g></svg>
+            </a>
+          </div>
         </div>
         <div id="home-loading" class="pixel-loader" role="status" aria-label="Carregando últimos textos"><span></span><span></span><span></span></div>
+        <div id="home-featured" style="display:none"></div>
         <div id="home-grid" class="blog-grid" style="display:none"></div>
       </div>
     </section>

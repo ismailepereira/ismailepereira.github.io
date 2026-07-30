@@ -112,6 +112,8 @@
   var blogLoading    = document.getElementById("blog-loading");
   var homeGrid       = document.getElementById("home-grid");
   var homeLoading    = document.getElementById("home-loading");
+  var homeFeatured   = document.getElementById("home-featured");
+  var surpriseBtn    = document.getElementById("btn-surprise");
   var filterLabel    = document.getElementById("blog-filter-label");
   var HOME_LIMIT     = 6;
   var activeCat      = getParam("cat");   // filtro de pilar na blog.html
@@ -233,6 +235,39 @@
       + '</a>';
   }
 
+  /* Card grande de destaque (post mais recente na home) */
+  function postFeaturedHTML(post) {
+    var slug = encodeURIComponent(post.slug);
+    var info = categoryInfo(post.category || post.categoria);
+    var hasContent = post.content && String(post.content).replace(/<[^>]+>/g, "").trim().length > 0;
+    var readMeta = hasContent ? ' · ' + readingTime(post.content) + ' min' : '';
+    return ''
+      + '<a class="blog-featured" href="p/' + slug + '/">'
+      +   '<div class="blog-featured__cover">' + (post.coverImage || post.image
+            ? '<img loading="lazy" src="' + escapeHTML(post.coverImage || post.image) + '" alt="' + escapeHTML(post.title) + '">'
+            : decorCover(post)) + '</div>'
+      +   '<div class="blog-featured__body">'
+      +     '<div class="blog-card__top"><span class="blog-featured__badge">' + px("leaf") + ' Em destaque</span>'
+      +       '<span class="blog-tag ' + info.cls + '">' + escapeHTML(info.label) + '</span></div>'
+      +     '<h2 class="blog-featured__title">' + escapeHTML(post.title) + '</h2>'
+      +     (post.excerpt ? '<p class="blog-featured__excerpt">' + escapeHTML(post.excerpt) + '</p>' : '')
+      +     '<span class="blog-card__meta">' + px("clock") + '<time datetime="' + escapeHTML(post.createdAt) + '">' + formatDate(post.createdAt) + '</time>' + readMeta + '</span>'
+      +     '<span class="blog-card__read">Ler agora ' + px("arrow") + '</span>'
+      +   '</div>'
+      + '</a>';
+  }
+
+  /* Botão "Surpreenda-me": abre um post aleatório */
+  function wireSurprise(posts) {
+    if (!surpriseBtn || !posts || !posts.length) return;
+    surpriseBtn.removeAttribute("disabled");
+    surpriseBtn.onclick = function (e) {
+      e.preventDefault();
+      var p = posts[Math.floor(Math.random() * posts.length)];
+      if (p && p.slug) location.href = "p/" + encodeURIComponent(p.slug) + "/";
+    };
+  }
+
   function authorBioHTML() {
     return ''
       + '<aside class="post-author">'
@@ -296,12 +331,22 @@
   function renderHomeList(posts) {
     if (!homeGrid) return;
     hide(homeLoading); show(homeGrid);
-    posts = (posts || []).slice().sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); }).slice(0, HOME_LIMIT);
+    posts = (posts || []).slice().sort(function (a, b) { return new Date(b.createdAt) - new Date(a.createdAt); });
     if (posts.length === 0) {
+      if (homeFeatured) homeFeatured.innerHTML = "";
       homeGrid.innerHTML = '<div class="blog-empty"><div class="blog-empty__icon">' + px("leaf") + '</div><h2>Os primeiros textos vêm aí</h2><p>Assim que o primeiro sair, ele aparece aqui.</p></div>';
       return;
     }
-    homeGrid.innerHTML = posts.map(postCardHTML).join("");
+    var rest = posts;
+    if (homeFeatured) {                       // destaque = mais recente; grade = os próximos
+      homeFeatured.innerHTML = postFeaturedHTML(posts[0]);
+      show(homeFeatured);
+      requestAnimationFrame(function () { var f = homeFeatured.firstChild; if (f) f.classList.add("is-visible"); });
+      rest = posts.slice(1);
+    }
+    rest = rest.slice(0, HOME_LIMIT);
+    homeGrid.innerHTML = rest.map(postCardHTML).join("");
+    homeGrid.style.display = rest.length ? "" : "none";
     revealCards(homeGrid);
   }
 
@@ -310,7 +355,7 @@
     if (blogGrid) targets.push(renderPostList);
     if (homeGrid) targets.push(renderHomeList);
     if (!targets.length) return;
-    var apply = function (data) { targets.forEach(function (fn) { fn(data); }); };
+    var apply = function (data) { targets.forEach(function (fn) { fn(data); }); wireSurprise(data); };
     var cached = readCache(); if (cached) apply(cached);
     fetch(POSTS_URL)
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })

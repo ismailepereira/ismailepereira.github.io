@@ -30,7 +30,9 @@ a página **vazia**. Resolvido com pré-render estático (`build.py`).
 **Novo fluxo de publicação:** escrever no painel do Alencar → `python build.py` → `git push`.
 
 **Ainda em aberto (refino):**
-- [ ] Rodar `build.py` automático via GitHub Action (pra não depender de rodar na mão). 🟨
+- [x] Rodar `build.py` automático via GitHub Action (`.github/workflows/prerender.yml`) —
+      no push, de 6/6h e sob demanda. ⚠️ atualiza a cópia GitHub Pages; o domínio na
+      Hostinger ainda precisa do upload manual até migrar. 🟨
 - [ ] Capa `og:image` gerada por pilar (bonita) pra posts sem imagem. 🟨
 
 **Resultado:** blog que aparece no Google e mostra card certo quando compartilhado.
@@ -47,12 +49,13 @@ Fazer quem chega ler até o fim e clicar no próximo. (`src/js/post.js`, em toda
 
 ---
 
-## 🟡 Fase 3 — Reter e crescer audiência
-- [ ] **Captura de e-mail** ("receba os novos textos") — reaproveitar `lead.js` + Firebase do site da Jéssica. 🟨
-- [ ] **Analytics** (Plausible ou GA4) — saber o que as pessoas realmente leem. 🟩
-- [ ] **Home com destaque**: um post em destaque no topo + botão **"Surpreenda-me"** (post aleatório),
-      que combina com os pilares "Casos curiosos" e "E se fosse assim". 🟨
-- [ ] **Posts relacionados** já existem — refinar pra priorizar o mesmo pilar. 🟩
+## 🟡 Fase 3 — Reter e crescer audiência (parcial)
+- [x] **Home com destaque**: post mais recente em destaque + botão **"Surpreenda-me"**
+      (post aleatório) — combina com "Casos curiosos" e "E se fosse assim". 🟨
+- [x] **Posts relacionados** priorizando o mesmo pilar (já no `blog.js`). 🟩
+- [ ] **Captura de e-mail** ("receba os novos textos") — reaproveitar `lead.js` + Firebase
+      do site da Jéssica. *(precisa de config Firebase sua)* 🟨
+- [ ] **Analytics** (Plausible ou GA4) — saber o que as pessoas leem. *(precisa da conta/ID)* 🟩
 
 ---
 

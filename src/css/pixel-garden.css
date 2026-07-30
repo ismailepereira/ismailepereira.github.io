@@ -131,6 +131,31 @@
 }
 .blog-chip:hover, .blog-chip.is-active { transform: translate(-1px,-1px); box-shadow: 3px 3px 0 var(--terra); background: var(--cream); }
 
+/* ---- Card de destaque (home) ---- */
+.blog-featured {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 0;
+  background: #fff; border: 2px solid var(--forest);
+  box-shadow: 6px 6px 0 rgba(46, 58, 47, .9);
+  text-decoration: none; color: inherit; margin-bottom: 24px;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .5s ease, transform .25s ease, box-shadow .15s ease;
+}
+.blog-featured.is-visible { opacity: 1; transform: translateY(0); }
+.blog-featured:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--terra); }
+.blog-featured__cover { border-right: 2px solid var(--forest); background: var(--cream-light); overflow: hidden; min-height: 240px; }
+.blog-featured__cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-featured__cover .blog-card__cover--decor { height: 100%; }
+.blog-featured__body { padding: 28px; display: flex; flex-direction: column; gap: 12px; justify-content: center; }
+.blog-featured__badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--pixel); font-size: 8px; text-transform: uppercase; color: var(--terra); }
+.blog-featured__title { font-family: var(--display); font-size: clamp(1.4rem, 3vw, 2rem); line-height: 1.15; color: var(--forest); margin: 0; }
+.blog-featured__excerpt { font-size: .95rem; color: var(--forest-light); line-height: 1.6; margin: 0; }
+#btn-surprise[disabled] { opacity: .5; cursor: default; pointer-events: none; }
+@media (max-width: 720px) {
+  .blog-featured { grid-template-columns: 1fr; }
+  .blog-featured__cover { border-right: none; border-bottom: 2px solid var(--forest); min-height: 180px; }
+  .blog-featured__body { padding: 20px; }
+}
+
 /* ---- Loader pixel ---- */
 .pixel-loader { display: flex; gap: 6px; justify-content: center; padding: 60px 0; }
 .pixel-loader span { width: 14px; height: 14px; background: var(--terra); animation: pg-bounce 1s infinite ease-in-out; }
