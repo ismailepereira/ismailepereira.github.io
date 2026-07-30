@@ -21,8 +21,10 @@ PREFIX = "ismaile-site"
 
 # Pastas e arquivos que NAO vao pro pacote de deploy
 IGNORE_DIRS  = {".git", ".github", ".claude", "docs", "scripts", "versoes",
-                "node_modules", "__pycache__", ".vscode", ".idea", "venv", ".venv"}
-IGNORE_FILES = {"build-zip.py", "README.md", ".gitignore", "postar.html"}
+                "node_modules", "__pycache__", ".vscode", ".idea", "venv", ".venv",
+                "ismaile-site", "remotion"}  # ismaile-site = extração antiga (resíduo); remotion = projeto de vídeo, não é do site
+IGNORE_FILES = {"build-zip.py", "build.py", "README.md", "ROADMAP.md", "CHANGELOG.md",
+                ".gitignore", "postar.html"}
 IGNORE_EXT   = {".zip", ".py", ".pyc", ".log"}
 
 os.makedirs(VDIR, exist_ok=True)
