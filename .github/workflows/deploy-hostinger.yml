@@ -1,0 +1,60 @@
+name: Deploy no site (Hostinger via FTP)
+
+# A cada push na main: gera as páginas estáticas (build.py) e envia o site
+# por FTP pra Hostinger — o "git push = site no ar" mantendo o domínio na Hostinger.
+#
+# PRÉ-REQUISITO (fazer 1 vez): cadastrar os Secrets no GitHub em
+#   Settings → Secrets and variables → Actions → New repository secret
+#     FTP_SERVER      -> host FTP da Hostinger (ex: ftp.ismailepereira.com.br ou o IP)
+#     FTP_USERNAME    -> usuário FTP
+#     FTP_PASSWORD    -> senha FTP
+#     FTP_SERVER_DIR  -> pasta de destino (ex: /public_html/  — com a barra no fim)
+# As credenciais de FTP saem do hPanel: Arquivos → Contas FTP.
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 */6 * * *'   # posts novos do painel entram no ar sozinhos
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Gerar páginas estáticas + sitemap + feed + robots
+        run: python build.py
+
+      - name: Enviar por FTP pra Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          local-dir: ./
+          # Não enviar arquivos de projeto/backup pro servidor:
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            versoes/**
+            remotion/**
+            scripts/**
+            node_modules/**
+            **/*.zip
+            build.py
+            build-zip.py
+            postar.html
+            *.md
+            package*.json
