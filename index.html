@@ -20,10 +20,13 @@
   <script>
     tailwind.config={theme:{extend:{fontFamily:{display:['"Playfair Display"','Georgia','serif'],body:['Inter','system-ui','sans-serif'],pixel:['"Press Start 2P"','monospace']},colors:{cream:{DEFAULT:'#F4F0E6',light:'#FBF9F2'},terra:{DEFAULT:'#BF5A30',dark:'#A24A26',light:'#D4774F'},forest:{DEFAULT:'#2E3A2F',light:'#4A5A45'},sage:{DEFAULT:'#8B9A75',soft:'#E7EADD'}}}}}
   </script>
-  <link rel="stylesheet" href="src/css/pixel-garden.css">
+  <link rel="stylesheet" href="src/css/pixel-garden.css?v=2">
   <style>
     body{font-family:'Inter',system-ui,sans-serif}
     h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#2E3A2F}
+    /* Tamanho dos ícones pixel — inline p/ nunca depender de cache do CSS externo */
+    .px-ic{width:1em;height:1em;display:inline-block;vertical-align:-.15em;image-rendering:pixelated}
+    .pilar-card__ic svg{width:22px;height:22px}
     .gradient-text{background:linear-gradient(135deg,#BF5A30,#D4774F,#e89a6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .pixel-grid-bg{background-size:22px 22px;background-image:linear-gradient(to right,rgba(46,58,47,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(46,58,47,.05) 1px,transparent 1px)}
     ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F4F0E6}::-webkit-scrollbar-thumb{background:#8B9A75;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#2E3A2F}
@@ -104,47 +107,47 @@
         </div>
         <div class="pilar-grid">
           <a href="blog.html?cat=fe-missao" class="pilar-card" style="--pc:#BF5A30">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="7" y="1" width="2" height="13"/><rect x="4" y="4" width="8" height="2"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="7" y="1" width="2" height="13"/><rect x="4" y="4" width="8" height="2"/></g></svg></span>
             <h3 class="pilar-card__title">Fé &amp; Missão</h3>
             <p class="pilar-card__desc">Vida missionária, Adventismo e a fé no meio do caos do dia a dia.</p>
           </a>
           <a href="blog.html?cat=leitura-filosofia" class="pilar-card" style="--pc:#9C6B4A">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="2" y="3" width="5" height="11"/><rect x="9" y="3" width="5" height="11"/><rect x="7" y="4" width="2" height="10"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="2" y="3" width="5" height="11"/><rect x="9" y="3" width="5" height="11"/><rect x="7" y="4" width="2" height="10"/></g></svg></span>
             <h3 class="pilar-card__title">Leitura &amp; Filosofia</h3>
             <p class="pilar-card__desc">O que ando lendo e as ideias que ficam ecoando na cabeça depois.</p>
           </a>
           <a href="blog.html?cat=saude-mental" class="pilar-card" style="--pc:#4E7C74">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="3" y="4" width="3" height="2"/><rect x="10" y="4" width="3" height="2"/><rect x="2" y="6" width="12" height="2"/><rect x="3" y="8" width="10" height="2"/><rect x="5" y="10" width="6" height="2"/><rect x="7" y="12" width="2" height="2"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="3" y="4" width="3" height="2"/><rect x="10" y="4" width="3" height="2"/><rect x="2" y="6" width="12" height="2"/><rect x="3" y="8" width="10" height="2"/><rect x="5" y="10" width="6" height="2"/><rect x="7" y="12" width="2" height="2"/></g></svg></span>
             <h3 class="pilar-card__title">Saúde mental</h3>
             <p class="pilar-card__desc">A mente por dentro — sem terapia de palco, sem autoajuda barata.</p>
           </a>
           <a href="blog.html?cat=historia-internet" class="pilar-card" style="--pc:#77556B">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="5" y="2" width="6" height="2"/><rect x="3" y="4" width="10" height="2"/><rect x="2" y="6" width="12" height="4"/><rect x="3" y="10" width="10" height="2"/><rect x="5" y="12" width="6" height="2"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="5" y="2" width="6" height="2"/><rect x="3" y="4" width="10" height="2"/><rect x="2" y="6" width="12" height="4"/><rect x="3" y="10" width="10" height="2"/><rect x="5" y="12" width="6" height="2"/></g></svg></span>
             <h3 class="pilar-card__title">História &amp; Internet</h3>
             <p class="pilar-card__desc">História geral cruzando com o folclore e a cultura da internet.</p>
           </a>
           <a href="blog.html?cat=memes" class="pilar-card" style="--pc:#C08A2E">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="4" y="2" width="8" height="2"/><rect x="2" y="4" width="2" height="8"/><rect x="12" y="4" width="2" height="8"/><rect x="4" y="12" width="8" height="2"/><rect x="5" y="6" width="2" height="2"/><rect x="9" y="6" width="2" height="2"/><rect x="5" y="9" width="6" height="2"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="4" y="2" width="8" height="2"/><rect x="2" y="4" width="2" height="8"/><rect x="12" y="4" width="2" height="8"/><rect x="4" y="12" width="8" height="2"/><rect x="5" y="6" width="2" height="2"/><rect x="9" y="6" width="2" height="2"/><rect x="5" y="9" width="6" height="2"/></g></svg></span>
             <h3 class="pilar-card__title">Memes</h3>
             <p class="pilar-card__desc">A antropologia dos memes: de onde vêm e por que a gente ri.</p>
           </a>
           <a href="blog.html?cat=casos-curiosos" class="pilar-card" style="--pc:#A64B57">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="3" y="2" width="6" height="2"/><rect x="1" y="4" width="2" height="6"/><rect x="9" y="4" width="2" height="6"/><rect x="3" y="10" width="6" height="2"/><rect x="10" y="11" width="2" height="2"/><rect x="12" y="13" width="2" height="2"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="3" y="2" width="6" height="2"/><rect x="1" y="4" width="2" height="6"/><rect x="9" y="4" width="2" height="6"/><rect x="3" y="10" width="6" height="2"/><rect x="10" y="11" width="2" height="2"/><rect x="12" y="13" width="2" height="2"/></g></svg></span>
             <h3 class="pilar-card__title">Casos curiosos</h3>
             <p class="pilar-card__desc">Histórias reais que parecem invenção — e mistérios que ficam.</p>
           </a>
           <a href="blog.html?cat=e-se-fosse-assim" class="pilar-card" style="--pc:#4A5A45">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="7" y="1" width="2" height="5"/><rect x="7" y="10" width="2" height="5"/><rect x="1" y="7" width="5" height="2"/><rect x="10" y="7" width="5" height="2"/><rect x="7" y="7" width="2" height="2"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="7" y="1" width="2" height="5"/><rect x="7" y="10" width="2" height="5"/><rect x="1" y="7" width="5" height="2"/><rect x="10" y="7" width="5" height="2"/><rect x="7" y="7" width="2" height="2"/></g></svg></span>
             <h3 class="pilar-card__title">E se fosse assim</h3>
             <p class="pilar-card__desc">Experimentos mentais: puxar um fio da realidade e ver o que desfia.</p>
           </a>
           <a href="blog.html?cat=musica" class="pilar-card" style="--pc:#8B9A75">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="10" y="2" width="2" height="9"/><rect x="5" y="4" width="2" height="9"/><rect x="7" y="2" width="5" height="2"/><rect x="3" y="11" width="4" height="3"/><rect x="10" y="9" width="4" height="3"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="10" y="2" width="2" height="9"/><rect x="5" y="4" width="2" height="9"/><rect x="7" y="2" width="5" height="2"/><rect x="3" y="11" width="4" height="3"/><rect x="10" y="9" width="4" height="3"/></g></svg></span>
             <h3 class="pilar-card__title">Música</h3>
             <p class="pilar-card__desc">O que toca no fone e por que uma música muda o dia inteiro.</p>
           </a>
           <a href="blog.html?cat=filmes-series" class="pilar-card" style="--pc:#2E3A2F">
-            <span class="pilar-card__ic"><svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="2" y="2" width="12" height="2"/><rect x="2" y="12" width="12" height="2"/><rect x="2" y="4" width="2" height="8"/><rect x="12" y="4" width="2" height="8"/><rect x="6" y="5" width="4" height="6"/></g></svg></span>
+            <span class="pilar-card__ic"><svg width="22" height="22" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="2" y="2" width="12" height="2"/><rect x="2" y="12" width="12" height="2"/><rect x="2" y="4" width="2" height="8"/><rect x="12" y="4" width="2" height="8"/><rect x="6" y="5" width="4" height="6"/></g></svg></span>
             <h3 class="pilar-card__title">Filmes &amp; Séries</h3>
             <p class="pilar-card__desc">Menos nota, mais o que a história queria dizer de verdade.</p>
           </a>
