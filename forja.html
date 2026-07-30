@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forja de Aventuras | Ismaile Pereira</title>
+  <meta name="description" content="Forja de Aventuras: a mesa de RPG 5e no navegador. Fichas, combate, tabuleiro ao vivo e aventuras (livro-jogo) para Mestre e jogadores. Fichas até o nível 5 grátis.">
+  <meta name="author" content="Ismaile Pereira">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ismailepereira.github.io/forja.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Forja de Aventuras · RPG 5e no navegador">
+  <meta property="og:description" content="Fichas, combate, tabuleiro ao vivo e aventuras para a sua mesa de RPG 5e. Grátis até o nível 5.">
+  <meta property="og:url" content="https://ismailepereira.github.io/forja.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23F4F0E6'/%3E%3Cpath d='M30 62 a20 20 0 0 1 40 0 z' fill='%23BF5A30'/%3E%3Crect x='22' y='70' width='56' height='4' rx='2' fill='%232E3A2F'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{fontFamily:{display:['"Playfair Display"','Georgia','serif'],body:['Inter','system-ui','sans-serif']},colors:{cream:{DEFAULT:'#F4F0E6',light:'#FBF9F2'},terra:{DEFAULT:'#BF5A30',dark:'#A24A26',light:'#D4774F'},forest:{DEFAULT:'#2E3A2F',light:'#4A5A45'},sage:{DEFAULT:'#8B9A75',soft:'#E7EADD'}}}}}
+  </script>
+  <style>
+    body{font-family:'Inter',system-ui,sans-serif}
+    h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:#2E3A2F}
+    .gradient-text{background:linear-gradient(135deg,#BF5A30,#D4774F,#e89a6a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .terra-btn{background:linear-gradient(135deg,#BF5A30,#D4774F);color:#fff;box-shadow:0 4px 16px rgba(191,90,48,.25);transition:box-shadow .3s,transform .3s}
+    .terra-btn:hover{box-shadow:0 8px 28px rgba(191,90,48,.4);transform:translateY(-2px)}
+    .feat-card{background:#FBF9F2;border:1px solid rgba(139,154,117,.25);border-radius:16px;transition:transform .2s,box-shadow .2s}
+    .feat-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(46,58,47,.10)}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#F4F0E6}::-webkit-scrollbar-thumb{background:#8B9A75;border-radius:3px}
+  </style>
+</head>
+<body class="bg-cream text-forest antialiased overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header id="nav-header" class="sticky top-0 z-50 backdrop-blur-xl bg-cream/85 border-b border-sage/10 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-5 flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-3 group" aria-label="Ismaile Pereira, página inicial">
+        <img src="src/img/logo.png" alt="Logo Ismaile Pereira" class="w-10 h-10 rounded-lg object-contain" onerror="this.style.display='none'">
+        <span>
+          <span class="font-display font-bold text-forest text-base leading-none block">Ismaile Pereira</span>
+          <span class="text-[10px] font-semibold tracking-[.2em] text-terra uppercase">Presença Digital</span>
+        </span>
+      </a>
+      <nav class="hidden md:flex items-center gap-7" aria-label="Navegação principal">
+        <a href="index.html#pilares" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Pilares</a>
+        <a href="blog.html" class="text-sm text-forest-light hover:text-terra transition-colors font-medium">Blog</a>
+        <a href="forja.html" class="text-sm text-terra font-semibold transition-colors" aria-current="page">Forja de Aventuras</a>
+      </nav>
+      <a href="https://dnd-toolkit.onrender.com" data-app class="hidden md:inline-flex items-center gap-2 terra-btn font-semibold text-sm px-5 py-2.5 rounded-full">🐉 Abrir o app</a>
+      <button id="navToggle" class="md:hidden p-2 text-forest" aria-label="Abrir menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-1 bg-cream">
+      <a href="index.html#pilares" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Pilares</a>
+      <a href="blog.html" class="block py-3 text-forest hover:text-terra border-b border-sage/10 font-medium">Blog</a>
+      <a href="forja.html" class="block py-3 text-terra font-semibold border-b border-sage/10">Forja de Aventuras</a>
+      <a href="https://dnd-toolkit.onrender.com" data-app class="block mt-3 text-center terra-btn font-semibold text-sm px-5 py-3 rounded-full">🐉 Abrir o app</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="max-w-6xl mx-auto px-5 pt-16 pb-12 text-center">
+      <span class="inline-block text-xs font-semibold tracking-[.2em] text-terra uppercase mb-4">Projeto · RPG de mesa 5e · 🚧 em desenvolvimento</span>
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-5">🐉 <span class="gradient-text">Forja de Aventuras</span></h1>
+      <p class="text-lg md:text-xl text-forest-light max-w-2xl mx-auto mb-8">A sua mesa de RPG 5e no navegador. Fichas, combate, tabuleiro ao vivo e aventuras (livro-jogo) — para o Mestre conduzir e os jogadores viverem a campanha, no PC ou no celular.</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="https://dnd-toolkit.onrender.com" data-app class="terra-btn font-semibold px-7 py-3.5 rounded-full">🎲 Começar grátis</a>
+        <a href="#acesso" class="px-7 py-3.5 rounded-full font-semibold border border-sage/40 text-forest hover:border-terra hover:text-terra transition-colors">Ver planos</a>
+      </div>
+      <p class="text-sm text-forest-light/70 mt-4">Instala como app (PWA) · funciona offline na preparação · tempo real na mesa.</p>
+    </section>
+
+    <!-- O QUE É -->
+    <section class="bg-sage-soft/40 py-14">
+      <div class="max-w-4xl mx-auto px-5 text-center">
+        <h2 class="text-3xl font-bold mb-4">Tudo o que a mesa precisa, num lugar só</h2>
+        <p class="text-forest-light text-lg">Da criação do personagem ao confronto final. O Mestre prepara a campanha com calma e, na hora do jogo, todo mundo vê a mesma coisa ao vivo — iniciativa, tabuleiro, NPCs e o que rolou no dado.</p>
+      </div>
+    </section>
+
+    <!-- FUNCIONALIDADES -->
+    <section class="max-w-6xl mx-auto px-5 py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="feat-card p-6"><div class="text-3xl mb-3">🧙</div><h3 class="text-lg font-bold mb-2">Fichas guiadas</h3><p class="text-sm text-forest-light">Criador passo a passo das 12 classes, com raça, antecedente, perícias, magias e equipamento — cálculos de CA/PV/CD automáticos.</p></div>
+        <div class="feat-card p-6"><div class="text-3xl mb-3">⚔️</div><h3 class="text-lg font-bold mb-2">Combate fiel às regras</h3><p class="text-sm text-forest-light">Iniciativa, ataques, defesas (resistência/vulnerabilidade), condições, punições e furtivo — com o log da mesa que todos veem.</p></div>
+        <div class="feat-card p-6"><div class="text-3xl mb-3">🗺️</div><h3 class="text-lg font-bold mb-2">Tabuleiro ao vivo</h3><p class="text-sm text-forest-light">Suba a imagem do mapa e mova tokens em tempo real, com zoom, névoa de guerra e condições dos personagens no token.</p></div>
+        <div class="feat-card p-6"><div class="text-3xl mb-3">📖</div><h3 class="text-lg font-bold mb-2">Aventuras (livro-jogo)</h3><p class="text-sm text-forest-light">Escreva a campanha como um grafo de cenas e escolhas, com votação da mesa, NPCs por cena, loot e XP — ou importe modelos prontos.</p></div>
+        <div class="feat-card p-6"><div class="text-3xl mb-3">🐺</div><h3 class="text-lg font-bold mb-2">Bestiário & geradores</h3><p class="text-sm text-forest-light">Dezenas de criaturas com loot, gerador de ambientes e ganchos, mais compêndio de regras para consultar sem sair da mesa.</p></div>
+        <div class="feat-card p-6"><div class="text-3xl mb-3">👑</div><h3 class="text-lg font-bold mb-2">Papéis separados</h3><p class="text-sm text-forest-light">Mestre e jogador têm telas próprias. O Mestre controla evolução, ouro e loja; o jogador foca no seu personagem.</p></div>
+      </div>
+    </section>
+
+    <!-- ACESSO / PLANOS -->
+    <section id="acesso" class="bg-forest text-cream py-16">
+      <div class="max-w-4xl mx-auto px-5">
+        <h2 class="text-3xl font-bold text-cream text-center mb-3" style="color:#F4F0E6">Simples e justo</h2>
+        <p class="text-center mb-10" style="color:rgba(244,240,230,.75)">Comece de graça. Pague só quando a mesa engrenar.</p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="rounded-2xl p-7 border border-white/15 bg-white/5">
+            <h3 class="text-xl font-bold mb-1" style="color:#F4F0E6">Grátis</h3>
+            <p class="text-3xl font-bold mb-4" style="color:#F4F0E6">R$ 0</p>
+            <ul class="space-y-2 text-sm" style="color:rgba(244,240,230,.85)">
+              <li>✔️ Criar e usar fichas <b>até o nível 5</b></li>
+              <li>✔️ Criar campanhas e convidar jogadores</li>
+              <li>✔️ Bestiário, compêndio e geradores</li>
+              <li>✔️ Instalar como app (PWA)</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl p-7 border-2 border-terra bg-terra/10 relative">
+            <span class="absolute -top-3 left-7 text-[10px] font-bold tracking-widest uppercase bg-terra text-white px-3 py-1 rounded-full">Acesso Total</span>
+            <h3 class="text-xl font-bold mb-1" style="color:#F4F0E6">Acesso Total</h3>
+            <p class="text-3xl font-bold mb-4" style="color:#F4F0E6">R$ 10<span class="text-base font-medium" style="color:rgba(244,240,230,.7)">/mês</span></p>
+            <ul class="space-y-2 text-sm" style="color:rgba(244,240,230,.9)">
+              <li>✨ Tudo do grátis, mais:</li>
+              <li>✔️ Personagens do <b>nível 6 ao 20</b></li>
+              <li>✔️ <b>Aventuras</b> (livro-jogo) — conduzir e jogar</li>
+              <li>✔️ Todas as funcionalidades de jogabilidade</li>
+            </ul>
+            <a href="https://wa.me/5569999688625?text=Ol%C3%A1%20Ismaile!%20Quero%20o%20Acesso%20Total%20(R%24%2010%2Fm%C3%AAs)%20da%20Forja%20de%20Aventuras." target="_blank" rel="noopener" class="terra-btn font-semibold px-6 py-3 rounded-full inline-block mt-6 text-sm">💬 Assinar pelo WhatsApp</a>
+          </div>
+        </div>
+        <div class="mt-8 rounded-2xl p-6 border border-white/10 bg-white/5 text-center">
+          <p class="text-sm mb-1" style="color:rgba(244,240,230,.9)"><b>🚧 A Forja está em desenvolvimento ativo.</b></p>
+          <p class="text-sm" style="color:rgba(244,240,230,.75)">A mensalidade <b>ajuda a custear o desenvolvimento</b> — servidores, tempo e novas funcionalidades. Assinantes e a comunidade <b>sugerem o que está faltando</b>, e a ferramenta vai crescendo com a mesa de vocês.</p>
+        </div>
+        <p class="text-center text-xs mt-6" style="color:rgba(244,240,230,.5)">Pagamento e liberação são feitos pelo WhatsApp (Pix), de forma manual. O painel administrativo é exclusivo do criador.</p>
+      </div>
+    </section>
+
+    <!-- APOIE / DOAÇÃO -->
+    <section class="max-w-3xl mx-auto px-5 py-16 text-center">
+      <h2 class="text-3xl font-bold mb-3">💛 Apoie o projeto</h2>
+      <p class="text-forest-light text-lg mb-6">Curte a ideia e quer ajudar a Forja a crescer? Você pode <b>doar o quanto quiser</b> — todo apoio vira desenvolvimento e novas funcionalidades.</p>
+      <div class="feat-card p-6 inline-block text-left max-w-md">
+        <p class="text-sm text-forest-light mb-1">Pix (qualquer valor)</p>
+        <p class="font-bold text-lg text-forest mb-1">69999688625</p>
+        <p class="text-sm text-forest-light mb-4">Ismaile Pereira Machado</p>
+        <a href="https://wa.me/5569999688625?text=Ol%C3%A1%20Ismaile!%20Quero%20apoiar%20a%20Forja%20de%20Aventuras%20com%20uma%20doa%C3%A7%C3%A3o." target="_blank" rel="noopener" class="terra-btn font-semibold px-6 py-3 rounded-full inline-block text-sm">💬 Doar pelo WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="max-w-3xl mx-auto px-5 py-16 text-center">
+      <h2 class="text-3xl font-bold mb-4">Pronto para a próxima sessão?</h2>
+      <p class="text-forest-light text-lg mb-8">Crie sua conta, monte a mesa e chame o grupo. Os primeiros níveis são por nossa conta.</p>
+      <a href="https://dnd-toolkit.onrender.com" data-app class="terra-btn font-semibold px-8 py-4 rounded-full text-lg">🐉 Abrir a Forja de Aventuras</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-forest text-cream py-12">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-wrap gap-4 justify-between items-center text-xs" style="color:rgba(244,240,230,.5)">
+        <span>Forja de Aventuras — um projeto de Ismaile Pereira · Mesa de RPG 5e</span>
+        <span>&copy; <span id="year"></span> Ismaile Pereira</span>
+      </div>
+      <p class="text-[11px] mt-4" style="color:rgba(244,240,230,.35)">Forja de Aventuras é uma ferramenta independente, sem vínculo com a Wizards of the Coast. Compatível com regras de RPG 5e (SRD).</p>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    "use strict";
+    var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
+    var toggle = document.getElementById("navToggle"), menu = document.getElementById("mobileMenu");
+    if (toggle && menu) {
+      toggle.addEventListener("click", function(){ var open = menu.classList.toggle("hidden"); toggle.setAttribute("aria-expanded", open ? "false" : "true"); });
+    }
+    var hdr = document.getElementById("nav-header");
+    window.addEventListener("scroll", function(){ if (hdr) hdr.style.boxShadow = window.scrollY > 10 ? "0 4px 20px rgba(46,58,47,.08)" : "none"; }, { passive: true });
+  })();
+  </script>
+</body>
+</html>
